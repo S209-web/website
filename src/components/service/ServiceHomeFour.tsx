@@ -17,26 +17,26 @@ const service_content: DataType = {
   title: 'Our Services',
   des: 'Comprehensive Digital Services & Transformation',
   service_data: [
-    {
-      id: 1,
-      title: " UI/UX Design",
-    },
-    {
-      id: 2,
-      title: " Branding Design",
-    },
-    {
-      id: 3,
-      title: " Marketing Asset",
-    },
-    {
-      id: 4,
-      title: " Development",
-    },
-    {
-      id: 5,
-      title: " Creative Art",
-    },
+      {
+        id: 1,
+        title: " Graphic Designing",
+      },
+      {
+        id: 2,
+        title: " Video Editing",
+      },
+      {
+        id: 3,
+        title: " Social Media Management",
+      },
+      {
+        id: 4,
+        title: " AI-Based Content Creation",
+      },
+      {
+        id: 5,
+        title: " Web & App Development",
+      },
   ]
 }
 const { title, des, service_data } = service_content

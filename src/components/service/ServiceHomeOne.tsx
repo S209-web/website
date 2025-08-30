@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import Link from 'next/link';
 
@@ -7,31 +5,91 @@ interface DataType {
   id: number;
   title: string;
   des: string;
-}[]
+}
 
 const service_data: DataType[] = [
   {
     id: 1,
-    title: `Application Development`,
-    des: `Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design and development to digital marketing agency.`
+    title: `Graphic Designing`,
+    des: `Build a strong visual identity with stunning designs that speak for your brand. From logos and social media posts to brochures, banners, and brand kits, we design everything that makes your business look professional and memorable.`
   },
   {
     id: 2,
-    title: `Web Development`,
-    des: `Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design and development to digital marketing agency.`
+    title: `Video Editing`,
+    des: `Bring your stories to life with engaging video content. We create reels, shorts, 2D/3D animations, logo animations, corporate videos, ads, documentaries, and explainer videos that captivate your audience and boost conversions.`
   },
   {
     id: 3,
-    title: `Digital Services`,
-    des: `Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design and development to digital marketing agency.`
+    title: `Social Media Management`,
+    des: `From designing impactful content and writing compelling captions to optimizing posting times and tracking analytics, our approach combines creativity with strategy to deliver measurable growth.`
   },
   {
     id: 4,
-    title: `Digital Product Design`,
-    des: `Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design and development to digital marketing agency.`
+    title: `AI-Based Content Creation`,
+    des: `Leverage the power of AI to scale your content faster. We offer AI voiceovers, avatars, ad creatives, blog generation, and text-to-image/video solutions that give you unique, cost-effective content at speed.`
   },
+  {
+    id: 5,
+    title: `Copywriting`,
+    des: `Words that sell, connect, and inspire. From ad copies and reel scripts to website content, blogs, emails, and captions—we craft content that speaks your brand’s voice and drives action.`
+  },
+  {
+    id: 6,
+    title: `WhatsApp Marketing`,
+    des: `Turn conversations into conversions. We build WhatsApp funnels with automated bots, drip campaigns, broadcasts, and click-to-chat ads that improve customer engagement and boost lead generation.`
+  },
+  {
+    id: 7,
+    title: `Performance Marketing`,
+    des: `Maximize ROI with data-driven advertising. We run Meta, Google, LinkedIn, and YouTube campaigns with A/B testing, daily optimization, and retargeting strategies to generate high-quality leads and sales.`
+  },
+  {
+    id: 8,
+    title: `Influencer Marketing & PR`,
+    des: `Build trust and visibility with influencer collaborations and PR features. We connect you with micro and nano influencers, and secure “As Seen In” media coverage to amplify your brand credibility.`
+  },
+  {
+    id: 9,
+    title: `AI-SEO, GEO, AEO & Content Protection`,
+    des: `Stay visible in the AI search era. We optimize your content for Google AI Overviews, Bing Copilot, and ChatGPT results with schema, FAQs, authority content, and repurposed videos to ensure your brand shows up everywhere.`
+  },
+  {
+    id: 10,
+    title: `ONDC & Retail Media Ops`,
+    des: `Expand your e-commerce reach with ONDC and retail ads. We handle onboarding, catalog optimization, and run ad campaigns across Amazon, Flipkart, Meesho, and ONDC to get more visibility and sales.`
+  },
+  {
+    id: 11,
+    title: `CRO & Analytics Hub`,
+    des: `Conversion Rate Optimization is not guesswork—it’s a structured process. We apply proven methodologies to analyze your funnels, run controlled experiments, and deliver measurable improvements to your KPIs.`
+  },
+  {
+    id: 12,
+    title: `UGC & Creator Commerce`,
+    des: `Win customer trust with authentic content. We produce user-style testimonial videos, seed products with micro-influencers, set up affiliate programs, and run live shopping campaigns to boost conversions.`
+  },
+  {
+    id: 13,
+    title: `AI Automations`,
+    des: `Automate your marketing and sales. From WhatsApp + CRM workflows to AI chatbots and real-time reporting dashboards, we integrate AI tools that save time, reduce costs, and improve customer experience.`
+  },
+  {
+    id: 14,
+    title: `Web & App Development`,
+    des: `We design and develop websites, apps, and CRMs that are fast, scalable, and optimized for growth—giving you technology that performs as hard as you do.`
+  },
+  {
+    id: 15,
+    title: `Design (UI/UX & Branding)`,
+    des: `Great development starts with great design. Our UI/UX experts craft user-friendly, visually appealing, and brand-aligned experiences that your audience loves.`
+  },
+  {
+    id: 16,
+    title: `Development (Coding & Technology)`,
+    des: `Once the designs are locked, our developers bring them to life with robust, scalable code. We ensure speed, security, and performance for every platform.`
+  }
+];
 
-]
 
 const ServiceHomeOne = () => {
   return (
@@ -67,7 +125,7 @@ const ServiceHomeOne = () => {
               <div key={i} className="cs_card cs_style_1 cs_color_1 anim_div_ShowDowns">
                 <div className="cs_card_left">
                   <div className="cs_card_number cs_primary_font" style={{ backgroundImage: `url(/assets/img/hero_img_1.jpg)` }}>
-                    0{i + 1}
+                    {i < 9 ? `0${i + 1}` : i + 1}
                   </div>
                 </div>
                 <div className="cs_card_right">
