@@ -219,7 +219,7 @@ const BlogDetails = () => {
                   <h4 className="cs_m0">Comment (0)</h4>
                   <div className="cs_height_30 cs_height_lg_30"></div>
                   <p className="cs_m0">
-                    No Comment Yet! Vixan post comment box is empty!
+                    No Comment Yet! Shout OTB post comment box is empty!
                   </p>
                   <div className="cs_height_30 cs_height_lg_30"></div>
                   <h4 className="cs_m0">Post Your Comment</h4>

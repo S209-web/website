@@ -24,7 +24,7 @@ const BannerAbout = () => {
                   <g fontSize="22.1px">
                     <text textAnchor="start">
                       <textPath className="coloring" href="#textPath" startOffset="0%">
-                        Vixan Digital Agency . Vixan Digital Agency . &nbsp;
+                        Shout OTB . Shout OTB . &nbsp;
                       </textPath>
                     </text>
                   </g>

@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import footer_logo from "@/assets/img/footer_logo.svg";
+import footer_logo from "@/assets/img/Asset 12.png";
 import { CopyRight, SocialLinks } from '@/components/common/SocialLinks';
 
 interface DataType {
