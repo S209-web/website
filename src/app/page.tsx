@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import HeaderOne from '@/layouts/headers/HeaderOne';
-import HeroHomeOne from '@/components/hero/HeroHomeOne';
+import HeroHomeThree from '@/components/hero/HeroHomeThree';
 import AboutHomeOne from '@/components/about/AboutHomeOne';
 import ServiceHomeOne from '@/components/service/ServiceHomeOne';
 import MarqueeAreaHomeOne from '@/components/brand/MarqueeAreaHomeOne';
@@ -34,7 +34,7 @@ const index = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <HeroHomeOne />
+            <HeroHomeThree />
             <MarqueeAreaHomeOne />
             <AboutHomeOne />
             <ServiceHomeOne />

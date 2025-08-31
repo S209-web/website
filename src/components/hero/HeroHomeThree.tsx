@@ -8,17 +8,18 @@ type DataType = {
   des: string;
   links: {
       title: string;
+      url: string;
   }[];
 }
 
 const hero_data: DataType = {
-  title_1: `Creative`,
-  title_2: `Design Studio`,
-  des: `Welcome to our digital agency! We specialize in helping businesses like yours succeed online. From website design and development to digital marketing and advertising, we have the tools.`,
+  title_1: `Researching Tomorrow's`,
+  title_2: `Marketing Today`,
+  des: `We don't just follow trends - we create them.`,
   links: [
-    { title: 'Facebook'},
-    { title: 'Behance'},
-    { title: 'Dribbble'},
+    { title: 'Instagram', url: 'https://www.instagram.com/'},
+    { title: 'Youtube', url: 'https://www.youtube.com/'},
+    { title: 'Twitter', url: 'https://www.twitter.com/'},
   ]
 }
 const { title_1, title_2, des, links } = hero_data
@@ -72,8 +73,16 @@ const HeroHomeThree = () => {
             </div>
           </div>
           <div className="cs_right_text">
-            {links.map((link) => (
-              <p className="colorChanegs t1">{link.title}</p>
+            {links.map((link, index) => (
+              <a 
+                key={index}
+                href={link.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="colorChanegs t1"
+              >
+                {link.title}
+              </a>
             ))}
           </div>
         </div>

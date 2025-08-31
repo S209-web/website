@@ -27,7 +27,10 @@ const menu_data: DataType[] = [
         id: 1,
         title: "Home",
         link: "/",
-        has_dropdown: true,
+        has_dropdown: false, // Changed from true to false to remove dropdown
+        // Commented out sub_menu to remove Home dropdown options
+        // To restore dropdown: change has_dropdown to true and uncomment sub_menu below
+        /* 
         sub_menu: [
             {
                 id: 1,
@@ -55,6 +58,7 @@ const menu_data: DataType[] = [
                 link: "/marketing-agency",
             },
         ]
+        */
     },
     {
         id: 2,

@@ -73,9 +73,10 @@
 			gap: 300px;
 			.cs_hero_mini_details {
 				padding-left: 15px;
-				font-size: 16px;
-				font-weight: 400;
+				font-size: 32px;
+				font-weight: 600;
 				color: $white;
+				line-height: 1.4;
 			}
 		}
 		.cs_hero_title.cs_hero_title_lg {
@@ -83,10 +84,10 @@
 		}
 	}
 	.cs_hero_title.cs_hero_title_lg {
-		font-size: 150px;
+		font-size: 90px;
 		font-weight: 900;
 		margin-bottom: 0;
-		line-height: 155px;
+		line-height: 95px;
 	}
 	.textupdowns {
 		animation: textupdown 4s ease-in-out infinite;
@@ -388,6 +389,19 @@
 }
 
 @media screen and (max-width: 1199px) {
+	.cs_hero.cs_style2 {
+		.cs_hero_text {
+			.cs_hero_subtitle {
+				.cs_hero_mini_details {
+					font-size: 18px;
+				}
+			}
+			.cs_hero_title.cs_hero_title_lg {
+				font-size: 90px;
+				line-height: 95px;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 991px) {
@@ -404,13 +418,16 @@
 				flex-wrap: wrap;
 				padding-right: 0%;
 				gap: 20px;
-				cs_hero_text .cs_hero_mini_details {
+				.cs_hero_mini_details {
 					padding-left: 0px;
+					font-size: 28px;
+					font-weight: 600;
+					line-height: 1.4;
 				}
 			}
 			.cs_hero_title.cs_hero_title_lg {
-				font-size: 100px;
-				line-height: 120px;
+				font-size: 60px;
+				line-height: 68px;
 			}
 		}
 		.cs_right_text {
@@ -503,9 +520,16 @@
 	.cs_hero.cs_style2 {
 		min-height: calc(100vh + 50px);
 		.cs_hero_text {
+			.cs_hero_subtitle {
+				.cs_hero_mini_details {
+					font-size: 24px;
+					font-weight: 600;
+					line-height: 1.4;
+				}
+			}
 			.cs_hero_title.cs_hero_title_lg {
-				font-size: 48px;
-				line-height: 60px;
+				font-size: 36px;
+				line-height: 42px;
 			}
 		}
 	}
@@ -562,6 +586,22 @@
 }
 
 @media screen and (max-width: 575px) {
+	.cs_hero.cs_style2 {
+		.cs_hero_text {
+			.cs_hero_subtitle {
+				gap: 15px;
+				.cs_hero_mini_details {
+					font-size: 20px;
+					font-weight: 600;
+					line-height: 1.4;
+				}
+			}
+			.cs_hero_title.cs_hero_title_lg {
+				font-size: 28px;
+				line-height: 32px;
+			}
+		}
+	}
 	.cs_hero.cs_style3.cs_bg_color {
 		min-height: 54vh;
 		@media screen and (max-width: 450px) {
@@ -576,6 +616,42 @@
 			}
 			.cs_hero_p {
 				padding-right: 60px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.cs_hero.cs_style2 {
+		.cs_hero_text {
+			.cs_hero_subtitle {
+				.cs_hero_mini_details {
+					font-size: 18px;
+					font-weight: 600;
+					line-height: 1.4;
+				}
+			}
+			.cs_hero_title.cs_hero_title_lg {
+				font-size: 26px;
+				line-height: 30px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.cs_hero.cs_style2 {
+		.cs_hero_text {
+			.cs_hero_subtitle {
+				.cs_hero_mini_details {
+					font-size: 16px;
+					font-weight: 600;
+					line-height: 1.4;
+				}
+			}
+			.cs_hero_title.cs_hero_title_lg {
+				font-size: 22px;
+				line-height: 26px;
 			}
 		}
 	}
