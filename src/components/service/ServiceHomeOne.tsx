@@ -5,38 +5,45 @@ interface DataType {
   id: number;
   title: string;
   des: string;
+  link: string;
 }
 
 const service_data: DataType[] = [
   {
     id: 1,
     title: `Creative & Content`,
-    des: `We design, write, and create content that builds strong brands. From visuals to words, our team ensures your brand communicates with clarity, creativity, and consistency. Our graphic design creates stunning first impressions, video editing brings stories to life with professional motion graphics, and copywriting crafts words that connect, sell, and inspire—from captions to campaigns.`
+    des: `We design, write, and create content that builds strong brands. From visuals to words, our team ensures your brand communicates with clarity, creativity, and consistency. Our graphic design creates stunning first impressions, video editing brings stories to life with professional motion graphics, and copywriting crafts words that connect, sell, and inspire—from captions to campaigns.`,
+    link: `/services/creative-content`
   },
   {
     id: 2,
     title: `Social & Community Growth`,
-    des: `Social media is the face of your brand—we make sure it shines. We manage your entire social presence with strategic content planning, influencer collaborations that click, and UGC campaigns that turn customers into brand creators. From micro-influencer partnerships to PR placements, we build authentic connections that drive real growth.`
+    des: `Social media is the face of your brand—we make sure it shines. We manage your entire social presence with strategic content planning, influencer collaborations that click, and UGC campaigns that turn customers into brand creators. From micro-influencer partnerships to PR placements, we build authentic connections that drive real growth.`,
+    link: `/services/social-community-growth`
   },
   {
     id: 3,
     title: `Performance & Growth`,
-    des: `Where every click counts and conversions aren't luck—they're strategy. We maximize ROI with data-driven advertising across Google, Meta, LinkedIn, and YouTube. Our structured approach includes funnel optimization, A/B testing, and WhatsApp marketing that turns conversations into conversions through the fastest path to your customers' hearts.`
+    des: `Where every click counts and conversions aren't luck—they're strategy. We maximize ROI with data-driven advertising across Google, Meta, LinkedIn, and YouTube. Our structured approach includes funnel optimization, A/B testing, and WhatsApp marketing that turns conversations into conversions through the fastest path to your customers' hearts.`,
+    link: `/services/performance-growth`
   },
   {
     id: 4,
     title: `AI & Future-Ready Solutions`,
-    des: `AI tools with human touch that work while you sleep. We leverage AI to scale your content faster with voiceovers, avatars, and automated workflows. Our AI-powered approach optimizes your brand for the AI landscape—ensuring visibility across Google AI Overviews, Bing Copilot, ChatGPT, and emerging AI platforms while protecting your content ownership.`
+    des: `AI tools with human touch that work while you sleep. We leverage AI to scale your content faster with voiceovers, avatars, and automated workflows. Our AI-powered approach optimizes your brand for the AI landscape—ensuring visibility across Google AI Overviews, Bing Copilot, ChatGPT, and emerging AI platforms while protecting your content ownership.`,
+    link: `/services/ai-future-ready`
   },
   {
     id: 5,
     title: `Web, App & Custom Development`,
-    des: `Websites that work as hard as you do. We design experiences, not just screens—starting with great UI/UX design and bringing it to life with robust, scalable code. From corporate websites to mobile apps and custom CRM solutions, we create technology that performs with speed, security, and seamless user experiences.`
+    des: `Websites that work as hard as you do. We design experiences, not just screens—starting with great UI/UX design and bringing it to life with robust, scalable code. From corporate websites to mobile apps and custom CRM solutions, we create technology that performs with speed, security, and seamless user experiences.`,
+    link: `/services/web-app-development`
   },
   {
     id: 6,
     title: `ONDC & Retail Media Operations`,
-    des: `Retail ads that deliver real sales. Expand your e-commerce reach with next-generation retail marketing through ONDC onboarding, catalog optimization, and performance-focused campaigns across Amazon, Flipkart, Meesho, and ONDC platforms that maximize visibility and drive measurable revenue growth.`
+    des: `Retail ads that deliver real sales. Expand your e-commerce reach with next-generation retail marketing through ONDC onboarding, catalog optimization, and performance-focused campaigns across Amazon, Flipkart, Meesho, and ONDC platforms that maximize visibility and drive measurable revenue growth.`,
+    link: `/services/ondc-retail-media`
   }
 ];
 
@@ -81,7 +88,7 @@ const ServiceHomeOne = () => {
                 <div className="cs_card_right">
                   <div className="cs_card_right_in">
                     <h2 className="cs_card_title">
-                      <Link href="/service-details">{item.title}</Link>
+                      <Link href={item.link}>{item.title}</Link>
                     </h2>
                     <div className="cs_card_subtitle">
                       {item.des}
@@ -89,7 +96,7 @@ const ServiceHomeOne = () => {
                   </div>
                 </div>
                 <div className="cs_card_link_wrap">
-                  <Link href="/service-details" className="cs_card_link">
+                  <Link href={item.link} className="cs_card_link">
                     <span>
                       <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                         xmlns="http://www.w3.org/2000/svg">

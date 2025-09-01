@@ -17,10 +17,10 @@ interface DataType {
 }
 
 const footer_data: DataType = {
-  email: `info@email.com`,
-  phone: `(406) 555-0120`,
-  location: `46 JOHN ST TORONTO ON M5V 3W2`,
-  footer_info: `Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design and development.`,
+  email: `shoutotb@gmail.com`,
+  phone: `9752000546`,
+  location: `A-17 Pallavi Nagar, Bawadiya Kalan, Bhopal - 462026, M.P. India`,
+  footer_info: `Welcome to Shout OTB - Your trusted digital marketing agency. We specialize in helping businesses succeed online with comprehensive digital solutions from strategy to execution.`,
   links: [
     { title: `HOME`, link: "/" },
     { title: `ABOUT`, link: "/about" },

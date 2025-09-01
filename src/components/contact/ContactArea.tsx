@@ -88,13 +88,13 @@ const ContactArea = () => {
                     </a>
                     <div className="cs_icon_text">
                       <h6 className="cs_icon_title">Address</h6>
-                      <p className="cs_icon_subtitle">El-Mahalla El-Kubra 37</p>
+                      <p className="cs_icon_subtitle">A-17 Pallavi Nagar, Bawadiya Kalan, Bhopal - 462026, M.P. India</p>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="cs_icon">
-                    <a href="tel:(406) 555-0120" className="cs_icon_style">
+                    <a href="tel:9752000546" className="cs_icon_style">
                       <i>
                         <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
@@ -112,13 +112,13 @@ const ContactArea = () => {
                     </a>
                     <div className="cs_icon_text">
                       <h6 className="cs_icon_title">Phone</h6>
-                      <p className="cs_icon_subtitle">(406) 555-0120</p>
+                      <p className="cs_icon_subtitle">9752000546</p>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="cs_icon">
-                    <a href="mailto:shoutotb@email.com" className="cs_icon_style">
+                    <a href="mailto:shoutotb@gmail.com" className="cs_icon_style">
                       <i>
                         <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
@@ -133,7 +133,7 @@ const ContactArea = () => {
                     </a>
                     <div className="cs_icon_text">
                       <h6 className="cs_icon_title">Email</h6>
-                      <p className="cs_icon_subtitle">shoutotb@email.com</p>
+                      <p className="cs_icon_subtitle">shoutotb@gmail.com</p>
                     </div>
                   </div>
                 </div>

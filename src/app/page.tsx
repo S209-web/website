@@ -7,6 +7,7 @@ import HeroHomeThree from '@/components/hero/HeroHomeThree';
 import AboutHomeOne from '@/components/about/AboutHomeOne';
 import ServiceHomeOne from '@/components/service/ServiceHomeOne';
 import MarqueeAreaHomeOne from '@/components/brand/MarqueeAreaHomeOne';
+import BrandCollaboration from '@/components/brand/BrandCollaboration';
 import PortfolioHomeOne from '@/components/portfolio/PortfolioHomeOne';
 import AwardsHomeOne from '@/components/awards/AwardsHomeOne';
 import Testimonial from '@/components/testimonial/Testimonial';
@@ -35,6 +36,7 @@ const index = () => {
         <div id="smooth-content">
           <main>
             <HeroHomeThree />
+            <BrandCollaboration />
             <MarqueeAreaHomeOne />
             <AboutHomeOne />
             <ServiceHomeOne />
