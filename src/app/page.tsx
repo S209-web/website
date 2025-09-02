@@ -36,16 +36,16 @@ const index = () => {
         <div id="smooth-content">
           <main>
             <HeroHomeThree />
-            <BrandCollaboration />
+            {/* <BrandCollaboration /> */}
             <MarqueeAreaHomeOne />
             <AboutHomeOne />
             <ServiceHomeOne />
-            <PortfolioHomeOne />
-            <AwardsHomeOne />
+            {/* <PortfolioHomeOne /> */}
+            {/* <AwardsHomeOne /> */}
             <Testimonial />
             <FunFactHomeOne />
             <VideoHomeOne setIsVideoOpen={setIsVideoOpen} />
-            <BlogHomeOne />
+            {/* <BlogHomeOne /> */}
             <SubscribeHomeOne />
             <BrandHomeOne style_2={false} />
           </main>

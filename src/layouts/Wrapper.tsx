@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 
 import animationTitle from "@/utils/animationTitle";
 import DarkLight from "@/components/common/DarkLight";
-import MouseMove from "@/components/common/MouseMove";
+import LogoCursor from "@/components/common/LogoCursor";
 import ScrollToTop from "@/components/common/ScrollToTop";
 
 import { scrollSmother } from "@/utils/scrollSmother";
@@ -41,7 +41,7 @@ const Wrapper = ({ children }: any) => {
 
 
   return <>
-    <MouseMove />
+    <LogoCursor />
     {children}
     <ScrollToTop />
     <DarkLight />

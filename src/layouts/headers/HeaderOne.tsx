@@ -240,7 +240,7 @@ const HeaderOne = () => {
                              
                                 {/* Keep the logo-white link if you have different logos for dark/light modes or sticky headers */}
                                 <Link className="cs_site_branding logo-white" href="/" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <Image src={Logo_white} alt="Logo" width={50} height={50} /> {/* Adjust width/height as needed */}
+                                    <Image src={Logo_white} alt="Logo" width={35} height={35} /> {/* Reduced from 50x50 to 35x35 */}
                                     <span style={{ marginLeft: '10px', fontSize: '24px', fontWeight: 'bold', color: 'white' }}>Shout OTB</span>
                                 </Link>
                             </div>
@@ -271,7 +271,7 @@ const HeaderOne = () => {
                 <div className="cs_side_header_overlay"></div>
                 <div className="cs_side_header_in">
                     <Link className="cs_site_branding" href="/" style={{ display: 'flex', alignItems: 'center' }}>
-                        <Image src={Logo_white} alt="Logo" width={50} height={50} />
+                        <Image src={Logo_white} alt="Logo" width={35} height={35} />
                         <span style={{ marginLeft: '10px', fontSize: '24px', fontWeight: 'bold', color: 'white' }}>Shout OTB</span>
                     </Link>
                     <div className="row align-items-end">

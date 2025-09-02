@@ -2044,6 +2044,39 @@ label {
     }
 }
 
+// Custom Logo Cursor
+.cs_logo_cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: transform 0.15s ease-out;
+    
+    @media (max-width: 1200px) {
+        display: none;
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 4px;
+    }
+}
+
+// Hide default cursors when logo cursor is active
+body.logo-cursor-active {
+    cursor: none !important;
+    
+    *, *:before, *:after {
+        cursor: none !important;
+    }
+}
+
 .reveal {
     // visibility: hidden;
     overflow: hidden;
