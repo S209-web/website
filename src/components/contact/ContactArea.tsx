@@ -94,7 +94,7 @@ const ContactArea = () => {
                 </div>
                 <div className="col-md-4">
                   <div className="cs_icon">
-                    <a href="tel:9752000546" className="cs_icon_style">
+                    <a href="tel:+919752000546" className="cs_icon_style">
                       <i>
                         <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
@@ -112,7 +112,7 @@ const ContactArea = () => {
                     </a>
                     <div className="cs_icon_text">
                       <h6 className="cs_icon_title">Phone</h6>
-                      <p className="cs_icon_subtitle">9752000546</p>
+                      <p className="cs_icon_subtitle">+91 9752000546</p>
                     </div>
                   </div>
                 </div>

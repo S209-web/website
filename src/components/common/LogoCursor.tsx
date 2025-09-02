@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
-import logoImage from "@/assets/img/Asset 12.png";
+import logoImage from "@/assets/img/logoheader.png";
 
 const LogoCursor = () => {
   
