@@ -9,10 +9,10 @@ const MarqueeAreaHomeOne = () => {
       <div className="cs_moving_section_wrap cs_bold">
         <div className="cs_moving_section_in">
           <div className="cs_moving_section cs_stroke_text">
-            More Creativity Power With Shout OTB
+            Let's Shout Out Of The Box
           </div>
           <div className="cs_moving_section cs_stroke_text">
-            More Creativity Power With Shout OTB
+            Let's Shout Out Of The Box
           </div>
         </div>
       </div>
