@@ -68,8 +68,9 @@ const ContactArea = () => {
             </div>
             <div className="cs_contact_section_2 anim_div_ShowRightSide">
               <div className="cs_google_map cs_bg" data-src="assets/img/map_img.png">
+
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96652.27317354927!2d-74.33557928194516!3d40.79756494697628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3a82f1352d0dd%3A0x81d4f72c4435aab5!2sTroy+Meadows+Wetlands!5e0!3m2!1sen!2sbd!4v1563075599994!5m2!1sen!2sbd"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14670.246860268453!2d77.42528441303477!3d23.186191250998572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c43eabdb9f2a3%3A0x597f2d51cf5bb5de!2sPallavi%20Nagar%2C%20Bhopal%2C%20Madhya%20Pradesh%20462039!5e0!3m2!1sen!2sin!4v1756906781858!5m2!1sen!2sin"
                   allowFullScreen={true}></iframe>
               </div>
               <div className="cs_height_50 cs_height_lg_50"></div>

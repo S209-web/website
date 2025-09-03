@@ -58,44 +58,44 @@ const menu_data: DataType[] = [
     link: '/about',
     has_dropdown: false
   },
-  {
-    id: 3,
-    title: "Pages",
-    link: "/about",
-    has_dropdown: true,
-    sub_menu: [
-      {
-        id: 1,
-        title: "About",
-        link: "/about",
-      },
-      {
-        id: 2,
-        title: "Team",
-        link: "/team",
-      },
-      {
-        id: 3,
-        title: "Team Details",
-        link: "/team-details",
-      },
-      {
-        id: 4,
-        title: "Contact",
-        link: "/contact",
-      },
-      {
-        id: 5,
-        title: "Faq",
-        link: "/faq",
-      },
-      {
-        id: 6,
-        title: "Error",
-        link: "/error",
-      }
-    ]
-  },
+  // {
+  //   id: 3,
+  //   title: "Pages",
+  //   link: "/about",
+  //   has_dropdown: true,
+  //   sub_menu: [
+  //     {
+  //       id: 1,
+  //       title: "About",
+  //       link: "/about",
+  //     },
+  //     {
+  //       id: 2,
+  //       title: "Team",
+  //       link: "/team",
+  //     },
+  //     {
+  //       id: 3,
+  //       title: "Team Details",
+  //       link: "/team-details",
+  //     },
+  //     {
+  //       id: 4,
+  //       title: "Contact",
+  //       link: "/contact",
+  //     },
+  //     {
+  //       id: 5,
+  //       title: "Faq",
+  //       link: "/faq",
+  //     },
+  //     {
+  //       id: 6,
+  //       title: "Error",
+  //       link: "/error",
+  //     }
+  //   ]
+  // },
   {
     id: 4,
     title: "Services",

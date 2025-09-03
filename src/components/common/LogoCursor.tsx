@@ -46,8 +46,8 @@ const LogoCursor = () => {
         <Image 
           src={logoImage} 
           alt="Shout OTB" 
-          width={30} 
-          height={30}
+          width={45} 
+          height={45}
           style={{
             filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
           }}
