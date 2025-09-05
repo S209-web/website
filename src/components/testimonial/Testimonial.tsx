@@ -1,41 +1,28 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import Image from 'next/image';
 
-import avatar_img from "@/assets/img/avatar_1.jpg";
-import testimonial_thumb from "@/assets/img/testimonial_thumb_1.jpg";
-import Image, { StaticImageData } from 'next/image';
-
-
-interface DataType {
-  img: StaticImageData;
-  name: string;
-  location: string;
-  des: string;
-}[]
-const testimonial_data: DataType[] = [
+// Using proper public asset paths for Next.js
+const testimonial_data = [
   {
-    img: avatar_img,
-    name: `Delores Olivo`,
-    location: `From UK`,
-    des: `“Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design and development to digital marketing agency”`,
+    img: "/assets/img/asha.JPG",
+    name: `Aasha Mam`,
+    location: `Content Creator`,
+    des: `"Working with Shout Out of the Box has been an absolute game-changer for my social media presence. They helped me overcome challenges with my channel and brought fresh ideas that truly elevated my content. Their team is creative, professional, and always responsive. I couldn't have asked for better support!"`,
   },
   {
-    img: avatar_img,
-    name: `Delores Olivo`,
-    location: `From USA`,
-    des: `“Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design and development to digital marketing agency”`,
-  },
-  {
-    img: avatar_img,
-    name: `Delores Olivo`,
-    location: `From Astrolia`,
-    des: `“Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design and development to digital marketing agency”`,
+    img: "/assets/img/man.jpg",
+    name: `Aman Singh`,
+    location: `Video Client`,
+    des: `"I really loved the service offered by OUT OF THE BOX agency. I wanted to get my video edited and they did so well. The result was really good. They listen to your brief very carefully and work accordingly to it. They respond very fast as well. The pricing was also very genuine. Overall, I loved the service and for sure I would love to get my work done from here. Thank you"`,
   },
 ]
 
 const Testimonial = ({ style_service }: any) => {
+  const [activeSlide, setActiveSlide] = useState(0);
+
   return (
     <>
       <section className={`${style_service ? 'cs_shape_wrap_3' : 'cs_primary_bg cs_shape_wrap_2'}`}>
@@ -71,7 +58,17 @@ const Testimonial = ({ style_service }: any) => {
           <div className="row align-items-center">
             <div className="col-lg-4">
               <div>
-                <Image src={testimonial_thumb} alt="" className="w-100" />
+                <Image 
+                  src={testimonial_data[activeSlide].img} 
+                  alt={testimonial_data[activeSlide].name}
+                  className="w-100 cs_testimonial_main_image"
+                  width={500}
+                  height={600}
+                  style={{
+                    objectFit: 'cover',
+                    borderRadius: '12px'
+                  }}
+                />
               </div>
             </div>
             <div className="col-lg-7 offset-lg-1">
@@ -87,6 +84,12 @@ const Testimonial = ({ style_service }: any) => {
                   pagination={{
                     el: ".cs_pagination",
                     clickable: true
+                  }}
+                  onSlideChange={(swiper) => {
+                    setActiveSlide(swiper.realIndex);
+                  }}
+                  onSwiper={(swiper) => {
+                    setActiveSlide(swiper.realIndex);
                   }}
                   className="cs_slider cs_slider_4">
                   {testimonial_data.map((item, index) => (
@@ -108,7 +111,12 @@ const Testimonial = ({ style_service }: any) => {
                         </blockquote>
                         <div className="cs_testimonial_meta">
                           <div className="cs_testimonial_avatar">
-                            <Image src={item.img} alt="Avatar" />
+                            <Image 
+                              src={item.img} 
+                              alt={item.name}
+                              width={80}
+                              height={80}
+                            />
                           </div>
                           <div className="cs_testimonial_meta_right">
                             <h3 className="cs_testimonial_avatar_name">

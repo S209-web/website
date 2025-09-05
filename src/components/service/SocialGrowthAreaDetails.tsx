@@ -1,0 +1,91 @@
+import React from 'react';
+
+interface DataType {
+  id: string;
+  emoji: string;
+  title: string;
+  description: string;
+}
+
+const social_growth_data: DataType[] = [
+  {
+    id: 'One',
+    emoji: '📈',
+    title: "Social Media Management",
+    description: `Social media is the face of your brand—and we make sure it shines. Our approach combines creativity with data-driven strategy to deliver measurable growth. We handle content creation, optimization, scheduling, and analytics.`,
+  },
+  {
+    id: 'Two',
+    emoji: '🤝',
+    title: "Influencer Marketing & PR",
+    description: `Build trust and amplify your brand's visibility by connecting with the right voices. We identify authentic micro and nano influencers and secure valuable PR placements to boost credibility.`,
+  },
+  {
+    id: 'Three',
+    emoji: '💬',
+    title: "UGC & Creator Commerce",
+    description: `Win customer trust with authentic content from real people. We develop campaigns that encourage customers to become creators, building social proof and driving sales through genuine testimonials.`,
+  },
+  {
+    id: 'Four',
+    emoji: '🚀',
+    title: "Community Building",
+    description: `We create strategies that transform followers into engaged community members and brand advocates through authentic interactions and value-driven content experiences.`,
+  },
+]
+
+const SocialGrowthAreaDetails = () => {
+  return (
+    <>
+      <div className="cs_height_150 cs_height_lg_50"></div>
+      <section>
+        <div className="container">
+          <div className="cs_work cs_work_text">
+            <h4 className="anim_heading_title">
+              Our Core Services & Growth Strategy
+            </h4>
+            <p className="cs_mp0 anim_text">
+              We offer a comprehensive suite of services designed to grow your brand's presence and foster a thriving online community. 
+              Our approach combines authentic engagement with strategic growth tactics to build lasting relationships with your audience.
+            </p>
+          </div>
+          <div className="cs_height_80 cs_height_lg_40"></div>
+          <div>
+            <div className="cs_work cs_work_1">
+              <div className="cs_card_work cs_style_1">
+                {social_growth_data.map((item, i) => (
+                  <div key={i} className="cs_card cs_mt_nthchild_0 anim_div_ShowLeftSide">
+                    <div className="cs_card cs_style_1">
+                      <div className="cs_posagation">
+                        <div className="cs_work_style_1"></div>
+                        <div className="cs_work_style_2"></div>
+                      </div>
+                      <div className="cs_stroke_number">
+                        <span>{item.id}</span>
+                      </div>
+                      <div className="cs_service_emoji" style={{
+                        fontSize: '2.5rem',
+                        position: 'absolute',
+                        top: '20px',
+                        right: '20px'
+                      }}>
+                        {item.emoji}
+                      </div>
+                    </div>
+
+                    <h6 className="cs_work_title">{item.title}</h6>
+                    <p className="cs_work_subtitle">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default SocialGrowthAreaDetails;

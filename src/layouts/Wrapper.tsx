@@ -1,13 +1,12 @@
- 
- 'use client';
+'use client';
 
 import { useEffect } from "react";  
 import { gsap } from 'gsap';
 
 import animationTitle from "@/utils/animationTitle";
 import DarkLight from "@/components/common/DarkLight";
-import LogoCursor from "@/components/common/LogoCursor";
 import ScrollToTop from "@/components/common/ScrollToTop";
+import LogoCursor from "@/components/common/LogoCursor";
 
 import { scrollSmother } from "@/utils/scrollSmother";
 import { buttonAnimation } from "@/utils/buttonAnimation";

@@ -3,7 +3,8 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import footer_logo from "@/assets/img/Asset 12.png";
-import { CopyRight, SocialLinks } from '@/components/common/SocialLinks';
+import NewSocialLinks from '@/components/common/NewSocialLinks';
+import { CopyRight } from '@/components/common/SocialLinks';
 
 interface DataType {
   email: string;
@@ -49,7 +50,7 @@ const FooterOne = () => {
             </div>
             <div className="col-lg-6 offset-lg-1">
               <div className="cs_footer_social">
-                <SocialLinks />
+                <NewSocialLinks />
               </div>
               <div className="cs_height_60 cs_height_lg_30"></div>
               <ul className="cs_footer_contact_list cs_mp0">

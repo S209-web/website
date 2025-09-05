@@ -1,59 +1,49 @@
 'use client'
 
-import React, { useEffect } from 'react';
-import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
-import logoImage from "@/assets/img/logoheader.png";
 
 const LogoCursor = () => {
-  
-  const mousemoveHandler = (e: any) => {
-    try {
-      let tl = gsap.timeline({
-        defaults: {
-          x: e.clientX,
-          y: e.clientY,
-        },
-      });
-
-      // Logo Cursor Moving
-      tl.to(".cs_logo_cursor", {
-        ease: "power2.out",
-        duration: 0.15,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [mounted, setMounted] = useState(false);
+  const [enabled, setEnabled] = useState(false);
+  const cursorRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Hide default cursor on body and add class for CSS targeting
-    document.body.style.cursor = 'none';
+    setMounted(true);
+
+    // Enable only on hover-capable devices (avoid touch)
+    const hasHover = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    if (!hasHover) return;
+
+    setEnabled(true);
     document.body.classList.add('logo-cursor-active');
-    
-    document.addEventListener("mousemove", mousemoveHandler);
+
+    const move = (e: MouseEvent) => {
+      if (!cursorRef.current) return;
+      gsap.to(cursorRef.current, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.15,
+        ease: 'power2.out',
+      });
+    };
+
+    window.addEventListener('mousemove', move);
     return () => {
-      document.removeEventListener("mousemove", mousemoveHandler);
-      // Reset cursor when component unmounts
-      document.body.style.cursor = 'auto';
+      window.removeEventListener('mousemove', move);
       document.body.classList.remove('logo-cursor-active');
     };
   }, []);
 
-  return (
-    <>
-      <div className="cs_logo_cursor">
-        <Image 
-          src={logoImage} 
-          alt="Shout OTB" 
-          width={45} 
-          height={45}
-          style={{
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
-          }}
-        />
-      </div>
-    </>
+  if (!mounted || !enabled) return null;
+
+  // Render at body level to avoid any transformed parents affecting fixed positioning
+  return createPortal(
+    <div ref={cursorRef} className="cs_logo_cursor">
+      <img src="/assets/img/logoheader.png" alt="Mascot Cursor" width={45} height={45} />
+    </div>,
+    document.body
   );
 };
 
