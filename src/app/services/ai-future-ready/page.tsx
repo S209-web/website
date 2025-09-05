@@ -2,16 +2,16 @@
 
 import AboutHomeFour from '@/components/about/AboutHomeFour';
 import DetailsBanner from '@/components/details/DetailsBanner';
-import ServiceDetailsFaq from '@/components/faq/ServiceDetailsFaq';
-import HeroServiceDetails from '@/components/hero/HeroServiceDetails';
-import ServiceAreaDetails from '@/components/service/ServiceAreaDetails';
+import AIFutureReadyFaq from '@/components/faq/AIFutureReadyFaq';
+import HeroAIFutureReady from '@/components/hero/HeroAIFutureReady';
+import AIFutureReadyAreaDetails from '@/components/service/AIFutureReadyAreaDetails';
 import Wrapper from '@/layouts/Wrapper';
 import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import React from 'react';
 
 // export const metadata = {
-//   title: "AI & Future-Ready Solutions - Shout OTB",
+//   title: "AI & Future-Ready Solutions - Shout Out of the Box",
 // };
 
 const index = () => {
@@ -21,10 +21,10 @@ const index = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <HeroServiceDetails />
-            <ServiceAreaDetails />
+            <HeroAIFutureReady />
+            <AIFutureReadyAreaDetails />
             <DetailsBanner />
-            <ServiceDetailsFaq />
+            <AIFutureReadyFaq />
             <AboutHomeFour />
           </main>
           <FooterOne />

@@ -2,16 +2,16 @@
 
 import AboutHomeFour from '@/components/about/AboutHomeFour';
 import DetailsBanner from '@/components/details/DetailsBanner';
-import ServiceDetailsFaq from '@/components/faq/ServiceDetailsFaq';
-import HeroServiceDetails from '@/components/hero/HeroServiceDetails';
-import ServiceAreaDetails from '@/components/service/ServiceAreaDetails';
+import PerformanceGrowthFaq from '@/components/faq/PerformanceGrowthFaq';
+import HeroPerformanceGrowth from '@/components/hero/HeroPerformanceGrowth';
+import PerformanceGrowthAreaDetails from '@/components/service/PerformanceGrowthAreaDetails';
 import Wrapper from '@/layouts/Wrapper';
 import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import React from 'react';
 
-// export the metadata = {
-//   title: "Performance & Growth Services - Shout OTB",
+// export const metadata = {
+//   title: "Performance & Growth Services - Shout Out of the Box",
 // };
 
 const index = () => {
@@ -21,10 +21,10 @@ const index = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <HeroServiceDetails />
-            <ServiceAreaDetails />
+            <HeroPerformanceGrowth />
+            <PerformanceGrowthAreaDetails />
             <DetailsBanner />
-            <ServiceDetailsFaq />
+            <PerformanceGrowthFaq />
             <AboutHomeFour />
           </main>
           <FooterOne />
