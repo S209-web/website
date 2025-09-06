@@ -60,8 +60,8 @@ const Testimonial = ({ style_service }: any) => {
           <div className="row align-items-center">
             <div className="col-lg-4">
               <div>
-                <Image 
-                  src={testimonial_data[activeSlide].img} 
+                <Image
+                  src={testimonial_data[activeSlide].img}
                   alt={testimonial_data[activeSlide].name}
                   className="w-100 cs_testimonial_main_image"
                   width={500}
@@ -107,11 +107,11 @@ const Testimonial = ({ style_service }: any) => {
                           <svg width="61" height="44" viewBox="0 0 61 44" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
-                              d="M0 26.2855H12.9844L4.32807 43.4283H17.3125L25.9689 26.2855V0.571289H0V26.2855Z"
-                              fill="#FF6B00" />
+                              d="M0 28.2855H12.9844L4.32807 43.4283H17.3125L25.9689 26.2855V0.571289H0V26.2855Z"
+                              fill="#F33C52" />
                             <path
                               d="M34.625 0.571289V26.2855H47.6094L38.9531 43.4283H51.9375L60.5939 26.2855V0.571289H34.625Z"
-                              fill="#FF6B00" />
+                              fill="#F33C52" />
                           </svg>
                         </div>
                         <blockquote className="cs_testimonial_text" style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>
@@ -127,7 +127,7 @@ const Testimonial = ({ style_service }: any) => {
                                 </div>
                               )}
                             </h3>
-                            <div className="cs_testimonial_avatar_designation" style={{ fontSize: '0.9rem', color: '#FF6B00' }}>
+                            <div className="cs_testimonial_avatar_designation" style={{ fontSize: '0.9rem', color: '#F33C52' }}>
                               {item.location}
                             </div>
                           </div>
