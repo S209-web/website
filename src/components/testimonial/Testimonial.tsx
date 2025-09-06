@@ -8,13 +8,15 @@ import Image from 'next/image';
 const testimonial_data = [
   {
     img: "/assets/img/asha.JPG",
-    name: `Asha Jain (astrowithasha)`,
+    name: `Asha Jain`,
+    subtitle: `(astrowithasha)`,
     location: `Astrologer`,
     des: `"Working with Shout Out of the Box has been an absolute game-changer for my social media presence. They helped me overcome challenges with my channel and brought fresh ideas that truly elevated my content. Their team is creative, professional, and always responsive. I couldn't have asked for better support!"`,
   },
   {
     img: "/assets/img/man.jpg",
     name: `Aman Singh`,
+    subtitle: ``,
     location: `Video Client`,
     des: `"I really loved the service offered by OUT OF THE BOX agency. I wanted to get my video edited and they did so well. The result was really good. They listen to your brief very carefully and work accordingly to it. They respond very fast as well. The pricing was also very genuine. Overall, I loved the service and for sure I would love to get my work done from here. Thank you"`,
   },
@@ -81,7 +83,11 @@ const Testimonial = ({ style_service }: any) => {
                 <Swiper
                   loop={true}
                   speed={1000}
-                  autoplay={true}
+                  autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                  }}
                   modules={[Autoplay]}
                   pagination={{
                     el: ".cs_pagination",
@@ -112,24 +118,16 @@ const Testimonial = ({ style_service }: any) => {
                           {item.des}
                         </blockquote>
                         <div className="cs_testimonial_meta">
-                          <div className="cs_testimonial_avatar">
-                            <Image 
-                              src={item.img} 
-                              alt={item.name}
-                              width={70}
-                              height={70}
-                              style={{
-                                borderRadius: '50%',
-                                objectFit: 'cover',
-                                objectPosition: item.name === 'Asha Jain (astrowithasha)' ? 'center top' : 'center center'
-                              }}
-                            />
-                          </div>
                           <div className="cs_testimonial_meta_right">
                             <h3 className="cs_testimonial_avatar_name" style={{ fontSize: '1.1rem' }}>
                               {item.name}
+                              {item.subtitle && (
+                                <div style={{ fontSize: '0.95rem', fontWeight: 'normal', marginTop: '2px' }}>
+                                  {item.subtitle}
+                                </div>
+                              )}
                             </h3>
-                            <div className="cs_testimonial_avatar_designation" style={{ fontSize: '0.9rem' }}>
+                            <div className="cs_testimonial_avatar_designation" style={{ fontSize: '0.9rem', color: '#FF6B00' }}>
                               {item.location}
                             </div>
                           </div>

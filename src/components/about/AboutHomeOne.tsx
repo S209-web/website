@@ -13,37 +13,37 @@ interface DataType {
 const about_slider: DataType[] = [
   {
     img: "/assets/img/about_img.jpg",
-    sub_title: "About Us",
+    sub_title: "The Shout Code",
     title: `Curiosity Over Comfort`,
     des: `We don't follow the obvious route — we chase the ones no one's mapped yet. Breakthroughs live where others don't dare to look.`,
   },
   {
     img: "/assets/img/about_img.jpg",
-    sub_title: "About Us",
+    sub_title: "The Shout Code",
     title: `Strategy With Edge`,
     des: `We don't gamble. Every bold move is backed by insight, testing, and a deep understanding of what actually works.`,
   },
   {
     img: "/assets/img/about_img.jpg",
-    sub_title: "About Us",
+    sub_title: "The Shout Code",
     title: `Human-First Automation`,
     des: `We use tech to remove friction, not imagination. Machines handle the repeatable — people craft the remarkable.`,
   },
   {
     img: "/assets/img/about_img.jpg",
-    sub_title: "About Us",
+    sub_title: "The Shout Code",
     title: `Research at Light Speed`,
     des: `We turn deep research into fast action — because the right opportunities don't wait.`,
   },
   {
     img: "/assets/img/about_img.jpg",
-    sub_title: "About Us",
+    sub_title: "The Shout Code",
     title: `24/7 Global Mindset`,
     des: `Our team works across time zones, so momentum never stops. Innovation keeps moving, even while the world rests.`,
   },
   {
     img: "/assets/img/about_img.jpg",
-    sub_title: "About Us",
+    sub_title: "The Shout Code",
     title: `Results, Not Rituals`,
     des: `No vanity metrics. Every campaign, every post, every ad exists to move the needle — clearly and measurably.`,
   },
