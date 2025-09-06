@@ -3,13 +3,15 @@ import React from 'react';
 
 const SubscribeHomeOne = () => {
 
-  const handleSuubmit = (e : any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
   }
+  
   return (
     <>
       <div className="container">
-        <div className="cs_newsletter cs_style_1 cs_primary_bg cs_shape_wrap_1 cs_parallax">
+        {/* The 'magical-background' class is now applied here */}
+        <div className="cs_newsletter cs_style_1 cs_shape_wrap_1 cs_parallax magical-background">
           <div className="cs_shape_1">
             <svg width="149" height="150" viewBox="0 0 149 150" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g opacity="0.23">
@@ -42,7 +44,7 @@ const SubscribeHomeOne = () => {
             </div>
           </div>
           <div className="cs_height_70 cs_height_lg_40"></div>
-          <form className="cs_newsletter_form" onSubmit={handleSuubmit}>
+          <form className="cs_newsletter_form" onSubmit={handleSubmit}>
             <input type="text" className="cs_newsletter_input" placeholder="Enter Your Email" />
             <button className="cs_newsletter_btn">
               <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">

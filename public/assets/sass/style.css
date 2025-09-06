@@ -60,7 +60,29 @@
   --common-color-black: #000000;
   --drak-color: #ffffff;
 }
+.magical-background {
+  /* Defines a multi-color, diagonal gradient */
+  background: linear-gradient(-45deg, #F33C52, #e73c7e, #23a6d5, #23d5ab);
+  
+  /* Makes the background much larger than the container to allow for movement */
+  background-size: 400% 400%;
+  
+  /* Applies the animation, making it last 15 seconds, move smoothly, and loop forever */
+  animation: gradientFlow 15s ease infinite;
+}
 
+/* The Keyframes animation that moves the background's position */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .dark {
   --drak-color: #181818;
   --cr_banner-color: #181818;
