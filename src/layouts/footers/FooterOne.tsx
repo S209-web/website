@@ -43,7 +43,11 @@ const FooterOne = () => {
             <div className="col-lg-5">
               <div className="cs_footer_info">
                 <Image src={footer_logo} alt="Logo" width={250} height={120} />
-                <p>{footer_info}</p>
+                <div className="cs_footer_tagline" style={{ margin: '20px 0', color: '#fff', lineHeight: '1.6' }}>
+                  <p style={{ marginBottom: '8px', fontSize: '1.1rem', fontWeight: '500' }}>Your trusted Creative Marketing Partner.</p>
+                  <p style={{ marginBottom: '8px', fontSize: '1rem' }}>Your next big move is one conversation away.</p>
+                  <p style={{ marginBottom: '0', fontSize: '1rem' }}>We'll listen first, plan second, and move fast — because your time and budget matters a lot.</p>
+                </div>
                 <a href={`mailto:${email}`}
                   className="cs_primary_font anim_text_upanddowns"><span>{email}</span></a>
               </div>
