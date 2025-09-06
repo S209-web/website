@@ -10,7 +10,7 @@ interface DataType {
 }
 const about_content: DataType = {
   subtitle: `Our Agency Story`,
-  title: `How Our Agency is Pushing the Boundaries of Online Marketing and Design`,
+  title: `Smart Strategies, Bold Execution, Real Growth - That's how we push the boundaries of Marketing & Branding`,
   des: `Digital agency! We specialize in helping businesses like yours succeed online. From website design and development to digital marketing and advertising, we have the tools and expertise to elevate your online presence. Let us help you lione evolving world of digital to drive growth and reach your goals.`,
 }
 const { subtitle, title, des } = about_content

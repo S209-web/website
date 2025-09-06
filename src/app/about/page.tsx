@@ -3,10 +3,7 @@
 
 import React, { useState } from 'react';
 import About from '@/components/about/About';
-import AwardsHomeOne from '@/components/awards/AwardsHomeOne';
 import BannerAbout from '@/components/brand/BannerAbout';
-import BrandHomeOne from '@/components/brand/BrandHomeOne';
-import Gellary from '@/components/gellary/Gellary';
 import TeamHomeTwo from '@/components/team/TeamHomeTwo';
 import Wrapper from '@/layouts/Wrapper';
 import FooterOne from '@/layouts/footers/FooterOne';
@@ -29,9 +26,6 @@ const index = () => {
             <BannerAbout />
             <About />
             <TeamHomeTwo style_2={true} style_3={true} />
-            <AwardsHomeOne style_2={true} />
-            <Gellary style_2={true} />
-            <BrandHomeOne />
           </main>
           <FooterOne />
         </div>
