@@ -28,7 +28,7 @@ const WebAppHero = () => {
         <div className="container">
           <div className="cs_section_heading cs_style_1 cs_type_1">
             <div className="cs_section_heading_text">
-              <h2 className="cs_section_title anim_text_writting">
+              <h2 className="cs_section_title anim_text_writting" style={{ fontSize: '4.5rem', fontWeight: '400' }}>
                  {title}
               </h2>
             </div>

@@ -8,8 +8,8 @@ import Image from 'next/image';
 const testimonial_data = [
   {
     img: "/assets/img/asha.JPG",
-    name: `Aasha Mam`,
-    location: `Content Creator`,
+    name: `Asha Jain (astrowithasha)`,
+    location: `Astrologer`,
     des: `"Working with Shout Out of the Box has been an absolute game-changer for my social media presence. They helped me overcome challenges with my channel and brought fresh ideas that truly elevated my content. Their team is creative, professional, and always responsive. I couldn't have asked for better support!"`,
   },
   {
@@ -67,7 +67,8 @@ const Testimonial = ({ style_service }: any) => {
                   style={{
                     objectFit: 'cover',
                     borderRadius: '12px',
-                    aspectRatio: '1/1'
+                    aspectRatio: '1/1',
+                    objectPosition: activeSlide === 0 ? 'center top' : 'center center'
                   }}
                 />
               </div>
@@ -75,7 +76,7 @@ const Testimonial = ({ style_service }: any) => {
             <div className="col-lg-7 offset-lg-1">
               <div className={`cs_testimonial ${style_service ? 'cs_style_2' : 'cs_style_1 cs_color_1'}`}>
                 <h2 className="cs_testimonial_title" style={{ fontSize: '1.8rem' }}>
-                  Some Of Our Respected Happy Clients Says
+                  Voices of Trust
                 </h2>
                 <Swiper
                   loop={true}
@@ -119,7 +120,8 @@ const Testimonial = ({ style_service }: any) => {
                               height={70}
                               style={{
                                 borderRadius: '50%',
-                                objectFit: 'cover'
+                                objectFit: 'cover',
+                                objectPosition: item.name === 'Asha Jain (astrowithasha)' ? 'center top' : 'center center'
                               }}
                             />
                           </div>

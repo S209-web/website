@@ -35,15 +35,15 @@ const HeroHomeThree = () => {
           <div className="container">
             <div className="cs_hero_text">
               <div className="anim_banner_text_left">
-                <h1 className="cs_hero_title cs_hero_title_lg" style={{ fontSize: '3.5rem' }}>{title_1}</h1>
+                <h1 className="cs_hero_title cs_hero_title_lg" style={{ fontSize: '4rem' }}>{title_1}</h1>
               </div>
               <div className="anim_banner_text_right">
-                <h1 className="cs_hero_title cs_hero_title_lg" style={{ fontSize: '3.5rem' }}>{title_2}</h1>
+                <h1 className="cs_hero_title cs_hero_title_lg" style={{ fontSize: '4rem' }}>{title_2}</h1>
               </div>
               <div className="cs_height_50 cs_height_lg_50"></div>
               <div className="cs_hero_subtitle">
                 <div className="anim_subtext">
-                  <p className="cs_hero_mini_details" style={{ fontSize: '1.15rem' }}>
+                  <p className="cs_hero_mini_details" style={{ fontSize: '1.2rem' }}>
                     {des}
                   </p>
                 </div>
