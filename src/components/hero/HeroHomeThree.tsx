@@ -13,9 +13,10 @@ type DataType = {
 }
 
 const hero_data: DataType = {
-  title_1: `Researching Tomorrow's`,
-  title_2: `Marketing Today`,
-  des: `We don't just follow trends - we create them.`,
+  title_1: ` Empowering your`,
+  title_2: `Digital Tomorrow
+`,
+  des: `Because We don't just follow trends - we create them.`,
   links: [
     { title: 'Instagram', url: 'https://www.instagram.com/'},
     { title: 'Youtube', url: 'https://www.youtube.com/'},
