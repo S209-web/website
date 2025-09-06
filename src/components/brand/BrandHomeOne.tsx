@@ -4,21 +4,21 @@ import Image, { StaticImageData } from 'next/image';
 
 
 type DataType = StaticImageData[];
-import brand_img_1 from "@/assets/img/partner_1.svg"
-import brand_img_2 from "@/assets/img/partner_2.svg"
-import brand_img_3 from "@/assets/img/partner_3.svg"
-import brand_img_4 from "@/assets/img/partner_4.svg"
-import brand_img_5 from "@/assets/img/partner_5.svg"
+import saregamapa from "@/../../public/assets/img/saregamapa.png"
+import lalsa from "@/../../public/assets/img/lalsa.png"
+import astrowithasha from "@/../../public/assets/img/astrowithasha.png"
+import magikmoments from "@/../../public/assets/img/Magik Moments.png"
+import drsoumya from "@/../../public/assets/img/Dr Soumya Gupta.png"
 import brand_img_6 from "@/assets/img/partner_6.svg"
 import brand_img_7 from "@/assets/img/partner_7.svg"
 import brand_img_8 from "@/assets/img/partner_8.svg"
 import brand_img_9 from "@/assets/img/partner_11.svg"
 const brand_data: DataType = [
-  brand_img_1,
-  brand_img_2,
-  brand_img_3,
-  brand_img_4,
-  brand_img_5,
+  saregamapa,
+  lalsa,
+  astrowithasha,
+  magikmoments,
+  drsoumya,
   brand_img_6,
   brand_img_7,
   brand_img_8,
@@ -30,23 +30,18 @@ import brand_thumb_1 from "@/assets/img/partner_9.svg"
 import brand_thumb_2 from "@/assets/img/partner_10.svg"
 import brand_thumb_3 from "@/assets/img/partner_11.svg"
 import brand_thumb_4 from "@/assets/img/partner_12.svg"
-import brand_thumb_5 from "@/assets/img/partner_13.svg"
-import brand_thumb_6 from "@/assets/img/partner_14.svg"
-import brand_thumb_7 from "@/assets/img/partner_15.svg"
-import brand_thumb_8 from "@/assets/img/partner_1.svg"
-import brand_thumb_9 from "@/assets/img/partner_3.svg"
 
 
 const brand_thumb_data: DataType = [
+  saregamapa,
+  lalsa,
+  astrowithasha,
+  magikmoments,
+  drsoumya,
   brand_thumb_1,
   brand_thumb_2,
   brand_thumb_3,
   brand_thumb_4,
-  brand_thumb_5,
-  brand_thumb_6,
-  brand_thumb_7,
-  brand_thumb_8,
-  brand_thumb_9,
 ]
 
 

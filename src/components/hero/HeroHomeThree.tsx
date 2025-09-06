@@ -16,7 +16,8 @@ const hero_data: DataType = {
   title_1: ` Empowering your`,
   title_2: `Digital Tomorrow
 `,
-  des: `Because We don't just follow trends - we create them.`,
+  des: `Because
+We don't just follow trends - We create them.`,
   links: [
     { title: 'Instagram', url: 'https://www.instagram.com/'},
     { title: 'Youtube', url: 'https://www.youtube.com/'},
@@ -37,7 +38,8 @@ const HeroHomeThree = () => {
               <div className="anim_banner_text_left">
                 <h1 className="cs_hero_title cs_hero_title_lg" style={{ 
                   fontSize: 'clamp(2rem, 5vw, 4rem)',
-                  lineHeight: '1.1'
+                  lineHeight: '1.1',
+                  marginBottom: '1rem'
                 }}>{title_1}</h1>
               </div>
               <div className="anim_banner_text_right">
@@ -53,7 +55,8 @@ const HeroHomeThree = () => {
                     fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
                     lineHeight: '1.5'
                   }}>
-                    {des}
+                    Because,<br/>
+                    We don't just follow trends - we create them.
                   </p>
                 </div>
                 <div className="cs_section_heading_right cs_btn_anim">
