@@ -63,17 +63,18 @@ const Testimonial = ({ style_service }: any) => {
                   alt={testimonial_data[activeSlide].name}
                   className="w-100 cs_testimonial_main_image"
                   width={500}
-                  height={600}
+                  height={500}
                   style={{
                     objectFit: 'cover',
-                    borderRadius: '12px'
+                    borderRadius: '12px',
+                    aspectRatio: '1/1'
                   }}
                 />
               </div>
             </div>
             <div className="col-lg-7 offset-lg-1">
               <div className={`cs_testimonial ${style_service ? 'cs_style_2' : 'cs_style_1 cs_color_1'}`}>
-                <h2 className="cs_testimonial_title">
+                <h2 className="cs_testimonial_title" style={{ fontSize: '1.8rem' }}>
                   Some Of Our Respected Happy Clients Says
                 </h2>
                 <Swiper
@@ -106,7 +107,7 @@ const Testimonial = ({ style_service }: any) => {
                               fill="#FF6B00" />
                           </svg>
                         </div>
-                        <blockquote className="cs_testimonial_text">
+                        <blockquote className="cs_testimonial_text" style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>
                           {item.des}
                         </blockquote>
                         <div className="cs_testimonial_meta">
@@ -114,15 +115,19 @@ const Testimonial = ({ style_service }: any) => {
                             <Image 
                               src={item.img} 
                               alt={item.name}
-                              width={80}
-                              height={80}
+                              width={70}
+                              height={70}
+                              style={{
+                                borderRadius: '50%',
+                                objectFit: 'cover'
+                              }}
                             />
                           </div>
                           <div className="cs_testimonial_meta_right">
-                            <h3 className="cs_testimonial_avatar_name">
+                            <h3 className="cs_testimonial_avatar_name" style={{ fontSize: '1.1rem' }}>
                               {item.name}
                             </h3>
-                            <div className="cs_testimonial_avatar_designation">
+                            <div className="cs_testimonial_avatar_designation" style={{ fontSize: '0.9rem' }}>
                               {item.location}
                             </div>
                           </div>
