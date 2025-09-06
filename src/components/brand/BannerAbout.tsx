@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import logo from '@/assets/img/logo.svg';
 
 const BannerAbout = () => {
   return (
@@ -12,26 +11,43 @@ const BannerAbout = () => {
         <div className="cs_section_heading cs_style_1 cs_type_1">
           <div className="cs_section_heading_text">
             <h2 className="cs_section_title anim_text_writting">
-              How Our Agency is Transforming <br /> Businesses and Brands through <br /> Online Solutions
+              From Startup to Success: We Build the Bridge
             </h2>
           </div>
           <div className="cs_section_heading_right">
             <div className="cs_animated_badge">
               <div className="rounded_text rotating">
                 <svg viewBox="0 0 200 200">
-                  <path id="textPath" d="M 85,0 A 85,85 0 0 1 -85,0 A 85,85 0 0 1 85,0"
-                    transform="translate(100,100)" fill="none" strokeWidth="0"></path>
-                  <g fontSize="22.1px">
+                  <path id="textPath" d="M 100,15 A 85,85 0 1 1 99.9,15"
+                    fill="none" strokeWidth="0"></path>
+                  <g fontSize="20px" fontWeight="600">
                     <text textAnchor="start">
                       <textPath className="coloring" href="#textPath" startOffset="0%">
-                        Shout OTB . Shout OTB . &nbsp;
+                        SHOUT OTB • SHOUT OTB • SHOUT OTB • SHOUT OTB • 
                       </textPath>
                     </text>
                   </g>
                 </svg>
               </div>
-              <div className="position-absolute cs_ceneter_text">
-                <Image src={logo} alt="" />
+              <div className="position-absolute cs_ceneter_text" style={{
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '80px',
+                height: '80px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <Image 
+                  src="/assets/img/logoheader.png" 
+                  alt="Shout OTB Logo" 
+                  width={70}
+                  height={70}
+                  style={{
+                    objectFit: 'contain'
+                  }}
+                />
               </div>
             </div>
           </div>
