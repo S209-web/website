@@ -9,28 +9,14 @@ import lalsa from "@/../../public/assets/img/lalsa.png"
 import astrowithasha from "@/../../public/assets/img/astrowithasha.png"
 import magikmoments from "@/../../public/assets/img/Magik Moments.png"
 import drsoumya from "@/../../public/assets/img/Dr Soumya Gupta.png"
-import brand_img_6 from "@/assets/img/partner_6.svg"
-import brand_img_7 from "@/assets/img/partner_7.svg"
-import brand_img_8 from "@/assets/img/partner_8.svg"
-import brand_img_9 from "@/assets/img/partner_11.svg"
+
 const brand_data: DataType = [
   saregamapa,
   lalsa,
   astrowithasha,
   magikmoments,
   drsoumya,
-  brand_img_6,
-  brand_img_7,
-  brand_img_8,
-  brand_img_9,
-
 ]
-
-import brand_thumb_1 from "@/assets/img/partner_9.svg"
-import brand_thumb_2 from "@/assets/img/partner_10.svg"
-import brand_thumb_3 from "@/assets/img/partner_11.svg"
-import brand_thumb_4 from "@/assets/img/partner_12.svg"
-
 
 const brand_thumb_data: DataType = [
   saregamapa,
@@ -38,10 +24,6 @@ const brand_thumb_data: DataType = [
   astrowithasha,
   magikmoments,
   drsoumya,
-  brand_thumb_1,
-  brand_thumb_2,
-  brand_thumb_3,
-  brand_thumb_4,
 ]
 
 
@@ -65,8 +47,17 @@ const BrandHomeOne = ({ style_2 }: any) => {
           <div className="cs_moving_section cs_animation_speed_40">
             <div className="cs_partner_logo_wrap">
               {brand_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo">
-                  <Image src={item} alt="image-here" />
+                <div key={i} className="cs_partner_logo" style={{
+                  padding: '10px 25px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image src={item} alt="client-logo" style={{
+                    maxHeight: '80px',
+                    width: 'auto',
+                    objectFit: 'contain'
+                  }} />
                 </div>
               )}
             </div>
@@ -74,8 +65,17 @@ const BrandHomeOne = ({ style_2 }: any) => {
           <div className="cs_moving_section cs_animation_speed_40">
             <div className="cs_partner_logo_wrap">
               {brand_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo">
-                  <Image src={item} alt="image-here" />
+                <div key={i} className="cs_partner_logo" style={{
+                  padding: '10px 25px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image src={item} alt="client-logo" style={{
+                    maxHeight: '80px',
+                    width: 'auto',
+                    objectFit: 'contain'
+                  }} />
                 </div>
               )}
             </div>
@@ -88,8 +88,17 @@ const BrandHomeOne = ({ style_2 }: any) => {
           <div className="cs_moving_section cs_animation_speed_50">
             <div className="cs_partner_logo_wrap">
               {brand_thumb_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo">
-                  <Image src={item} alt="image-here" />
+                <div key={i} className="cs_partner_logo" style={{
+                  padding: '10px 25px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image src={item} alt="client-logo" style={{
+                    maxHeight: '80px',
+                    width: 'auto',
+                    objectFit: 'contain'
+                  }} />
                 </div>
               )}
             </div>
@@ -97,8 +106,17 @@ const BrandHomeOne = ({ style_2 }: any) => {
           <div className="cs_moving_section cs_animation_speed_50">
             <div className="cs_partner_logo_wrap">
               {brand_thumb_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo">
-                  <Image src={item} alt="image-here" />
+                <div key={i} className="cs_partner_logo" style={{
+                  padding: '10px 25px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image src={item} alt="client-logo" style={{
+                    maxHeight: '80px',
+                    width: 'auto',
+                    objectFit: 'contain'
+                  }} />
                 </div>
               )}
             </div>

@@ -1,8 +1,54 @@
 'use client'
-import team_data from '@/data/team_data';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+
+// Service Mascots Data
+interface ServiceMascotType {
+  id: number;
+  img: string;
+  avatar_name: string;
+  designation: string;
+}
+
+const service_mascots_data: ServiceMascotType[] = [
+  {
+    id: 1,
+    img: '/assets/img/contentndservice.png',
+    avatar_name: 'Content & Design',
+    designation: 'Creative Solutions Expert'
+  },
+  {
+    id: 2,
+    img: '/assets/img/Graphic design.png',
+    avatar_name: 'Social Growth',
+    designation: 'Community Building Specialist'
+  },
+  {
+    id: 3,
+    img: '/assets/img/Whatsapp marketer (2).png',
+    avatar_name: 'Performance Marketing',
+    designation: 'Growth & Analytics Expert'
+  },
+  {
+    id: 4,
+    img: '/assets/img/Video editing (2).png',
+    avatar_name: 'AI Solutions',
+    designation: 'Future Technology Specialist'
+  },
+  {
+    id: 5,
+    img: '/assets/img/copywriter1.png',
+    avatar_name: 'Web Development',
+    designation: 'Digital Platform Expert'
+  },
+  {
+    id: 6,
+    img: '/assets/img/ondcc.png',
+    avatar_name: 'E-Commerce',
+    designation: 'Retail Media Specialist'
+  }
+];
 
 type DataType = {
   sub_title: string;
@@ -51,16 +97,38 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
           <div className="cs_height_100 cs_height_lg_60"></div>
 
           <div className="cs_team_section anim_blog">
-            {team_data.slice(0, 4).map((item, i) =>
+            {service_mascots_data.map((item, i) =>
               <div key={i} className="cs_team_img">
-                <Link href="/team-details">
-                  <Image src={item.img} alt="Thumb" />
+                <div style={{ textDecoration: 'none' }}>
+                  <div style={{
+                    width: '100%',
+                    height: '250px',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '40px',
+                    marginBottom: '20px'
+                  }}>
+                    <Image 
+                      src={item.img} 
+                      alt={item.avatar_name}
+                      width={150}
+                      height={150}
+                      style={{
+                        objectFit: 'contain',
+                        borderRadius: '15px'
+                      }}
+                    />
+                  </div>
                   <div className="cs_portfolio_overlay"></div>
-                </Link>
+                </div>
                 <div className="cs_team_text">
-                  <Link href="/team-details">
+                  <div style={{ textDecoration: 'none' }}>
                     <h6 className="cs_team_text_title">{item.avatar_name}</h6>
-                  </Link>
+                  </div>
                   <p className="cs_team_subtitle">{item.designation}</p>
                 </div>
               </div>
