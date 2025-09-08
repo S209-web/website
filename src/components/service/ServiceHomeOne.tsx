@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import FloatingServiceImage from './FloatingServiceImage';
@@ -83,6 +83,47 @@ const service_data: DataType[] = [
 
 
 const ServiceHomeOne = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const animElements = entry.target.querySelectorAll(
+          '.anim_div_ShowZoom, .anim_heading_title, .anim_div_ShowDowns, .cs_btn_anim'
+        );
+        
+        if (entry.isIntersecting) {
+          // Add animations when scrolling into view
+          animElements.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('active');
+            }, index * 150); // Increased stagger time
+          });
+        } else {
+          // Remove animations when scrolling out of view
+          animElements.forEach((element) => {
+            element.classList.remove('active');
+          });
+        }
+      });
+    }, observerOptions);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
       <style jsx>{`
@@ -98,6 +139,60 @@ const ServiceHomeOne = () => {
         
         .cs_service_mascot {
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Enhanced scroll animations - more dramatic effects */
+        .anim_div_ShowZoom {
+          opacity: 0;
+          transform: scale(0.5) rotate(-5deg);
+          transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .anim_heading_title {
+          opacity: 0;
+          transform: translateY(80px) translateX(-30px);
+          transition: all 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .anim_div_ShowDowns {
+          opacity: 0;
+          transform: translateY(100px) scale(0.8);
+          transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .cs_btn_anim {
+          opacity: 0;
+          transform: translateX(80px) rotate(10deg) scale(0.8);
+          transition: all 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        /* Staggered animation delays - increased timing */
+        .anim_div_ShowDowns:nth-child(1) { transition-delay: 0.2s; }
+        .anim_div_ShowDowns:nth-child(2) { transition-delay: 0.4s; }
+        .anim_div_ShowDowns:nth-child(3) { transition-delay: 0.6s; }
+        .anim_div_ShowDowns:nth-child(4) { transition-delay: 0.8s; }
+        .anim_div_ShowDowns:nth-child(5) { transition-delay: 1.0s; }
+        .anim_div_ShowDowns:nth-child(6) { transition-delay: 1.2s; }
+        
+        /* Active state when in view - smooth entrance */
+        .anim_div_ShowZoom.active {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+        
+        .anim_heading_title.active {
+          opacity: 1;
+          transform: translateY(0) translateX(0);
+        }
+        
+        .anim_div_ShowDowns.active {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+        
+        .cs_btn_anim.active {
+          opacity: 1;
+          transform: translateX(0) rotate(0deg) scale(1);
         }
         
         /* Tablet optimization */
@@ -196,7 +291,7 @@ const ServiceHomeOne = () => {
         }
       `}</style>
       <div className="cs_height_150 cs_height_lg_60"></div>
-      <section className="cs_primary_bg position-relative">
+      <section className="cs_primary_bg position-relative" ref={sectionRef}>
         <div className="cs_height_150 cs_height_lg_60"></div>
         <div className="container">
           <div className="cs_section_heading cs_style_1 cs_type_1 cs_color_1">

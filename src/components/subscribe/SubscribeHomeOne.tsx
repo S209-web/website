@@ -1,7 +1,45 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const SubscribeHomeOne = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const animElements = entry.target.querySelectorAll(
+          '.anim_elastic, .anim_spring_up, .anim_elastic_form'
+        );
+        
+        if (entry.isIntersecting) {
+          animElements.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('active');
+            }, index * 300);
+          });
+        } else {
+          animElements.forEach((element) => {
+            element.classList.remove('active');
+          });
+        }
+      });
+    }, observerOptions);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -9,9 +47,43 @@ const SubscribeHomeOne = () => {
   
   return (
     <>
-      <div className="container">
+      <style jsx>{`
+        .anim_elastic {
+          opacity: 0;
+          transform: scale(0.2) rotate(180deg);
+          transition: all 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .anim_spring_up {
+          opacity: 0;
+          transform: translateY(150px) scale(0.5);
+          transition: all 1.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .anim_elastic_form {
+          opacity: 0;
+          transform: perspective(1000px) rotateX(45deg) scale(0.6);
+          transition: all 1.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .anim_elastic.active {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+        
+        .anim_spring_up.active {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+        
+        .anim_elastic_form.active {
+          opacity: 1;
+          transform: perspective(1000px) rotateX(0deg) scale(1);
+        }
+      `}</style>
+      <div className="container" ref={sectionRef}>
         {/* The 'magical-background' class is now applied here */}
-        <div className="cs_newsletter cs_style_1 cs_shape_wrap_1 cs_parallax magical-background">
+        <div className="cs_newsletter cs_style_1 cs_shape_wrap_1 cs_parallax magical-background anim_elastic">
           <div className="cs_shape_1">
             <svg width="149" height="150" viewBox="0 0 149 150" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g opacity="0.23">
@@ -36,7 +108,7 @@ const SubscribeHomeOne = () => {
               </g>
             </svg>
           </div>
-          <div className="cs_section_heading cs_style_1 cs_color_1 text-center">
+          <div className="cs_section_heading cs_style_1 cs_color_1 text-center anim_spring_up">
             <div className="cs_section_heading_text">
               <h2 className="cs_section_title anim_text_upanddowns">
                 Stay Ahead With Our Top Notch <br />Digital Services
@@ -44,7 +116,7 @@ const SubscribeHomeOne = () => {
             </div>
           </div>
           <div className="cs_height_70 cs_height_lg_40"></div>
-          <form className="cs_newsletter_form" onSubmit={handleSubmit}>
+          <form className="cs_newsletter_form anim_elastic_form" onSubmit={handleSubmit}>
             <input type="text" className="cs_newsletter_input" placeholder="Enter Your Email" />
             <button className="cs_newsletter_btn">
               <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">

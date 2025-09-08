@@ -57,9 +57,8 @@ type DataType = {
 }
 const team_content: DataType = {
   sub_title: "Our Team",
-  title: "Excellence Team That Can Digitalize Your Brand",
-
-  title_2: " Our Excellence Team That Can Digitalize Your Brand",
+  title: "Thinkers, Builders, Game-Changers — That's Our Team",
+  title_2: "Thinkers, Builders, Game-Changers — That's Our Team"
 }
 const { sub_title, title, title_2 } = team_content
 
@@ -67,6 +66,54 @@ const { sub_title, title, title_2 } = team_content
 const TeamHomeTwo = ({ style_2, style_3 }: any) => {
   return (
     <>
+      <style jsx>{`
+        .cs_section_heading {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          gap: 20px;
+        }
+        
+        .cs_section_heading_text {
+          flex: 1;
+          min-width: 300px;
+        }
+        
+        .cs_section_heading_right {
+          flex-shrink: 0;
+          margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+          .cs_section_heading {
+            flex-direction: column;
+            text-align: left;
+          }
+          
+          .cs_section_heading_text {
+            min-width: auto;
+            width: 100%;
+            margin-bottom: 20px;
+          }
+          
+          .cs_section_heading_right {
+            width: 100%;
+            margin-top: 0;
+          }
+          
+          .cs_section_title {
+            font-size: 1.8rem !important;
+            line-height: 1.3 !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .cs_section_title {
+            font-size: 1.5rem !important;
+            line-height: 1.4 !important;
+          }
+        }
+      `}</style>
       {style_2 ? null : <div className="cs_height_150 cs_height_lg_60"></div>}
       {style_3 ? <div className="cs_height_150 cs_height_lg_30"></div> : null}
 
@@ -74,10 +121,17 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
         <div className="container">
           <div className="cs_section_heading cs_style_1 cs_type_1">
             <div className="cs_section_heading_text">
-              <div className="cs_section_subtitle anim_div_ShowZoom">
+              <div className="cs_section_subtitle anim_div_ShowZoom" style={{ 
+                marginBottom: '15px'
+              }}>
                 {sub_title}
               </div>
-              <h2 className="cs_section_title anim_heading_title">
+              <h2 className="cs_section_title anim_heading_title" style={{ 
+                lineHeight: '1.2', 
+                marginBottom: '10px',
+                wordWrap: 'break-word',
+                maxWidth: '100%'
+              }}>
                 {style_2 ? title_2 : title}
               </h2>
             </div>
@@ -127,9 +181,13 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
                 </div>
                 <div className="cs_team_text">
                   <div style={{ textDecoration: 'none' }}>
-                    <h6 className="cs_team_text_title">{item.avatar_name}</h6>
+                    <h6 className="cs_team_text_title">
+                      {item.avatar_name}
+                    </h6>
                   </div>
-                  <p className="cs_team_subtitle">{item.designation}</p>
+                  <p className="cs_team_subtitle">
+                    {item.designation}
+                  </p>
                 </div>
               </div>
             )}

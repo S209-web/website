@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
@@ -18,16 +18,88 @@ const testimonial_data = [
     name: `Aman Singh`,
     subtitle: ``,
     location: `Video Client`,
-    des: `"I really loved the service offered by OUT OF THE BOX agency. I wanted to get my video edited and they did so well. The result was really good. They listen to your brief very carefully and work accordingly to it. They respond very fast as well. The pricing was also very genuine. Overall, I loved the service and for sure I would love to get my work done from here. Thank you"`,
+    des: `"I really loved the service offered by OUT OF THE BOX . I wanted to get my video edited and they did so well. The result was really good. They listen to your brief very carefully and work accordingly to it. They respond very fast as well. The pricing was also very genuine. Overall, I loved the service and for sure I would love to get my work done from here. Thank you"`,
   },
 ]
 
 const Testimonial = ({ style_service }: any) => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const animElements = entry.target.querySelectorAll(
+          '.anim_fade_rotate, .anim_bounce_in, .anim_flip_in'
+        );
+        
+        if (entry.isIntersecting) {
+          animElements.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('active');
+            }, index * 250);
+          });
+        } else {
+          animElements.forEach((element) => {
+            element.classList.remove('active');
+          });
+        }
+      });
+    }, observerOptions);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
-      <section className={`${style_service ? 'cs_shape_wrap_3' : 'cs_primary_bg cs_shape_wrap_2'}`}>
+      <style jsx>{`
+        .anim_fade_rotate {
+          opacity: 0;
+          transform: rotate(-15deg) scale(0.7);
+          transition: all 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .anim_bounce_in {
+          opacity: 0;
+          transform: scale(0.3) translateY(150px);
+          transition: all 1.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .anim_flip_in {
+          opacity: 0;
+          transform: perspective(1000px) rotateY(90deg) scale(0.8);
+          transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .anim_fade_rotate.active {
+          opacity: 1;
+          transform: rotate(0deg) scale(1);
+        }
+        
+        .anim_bounce_in.active {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+        
+        .anim_flip_in.active {
+          opacity: 1;
+          transform: perspective(1000px) rotateY(0deg) scale(1);
+        }
+      `}</style>
+      <section className={`${style_service ? 'cs_shape_wrap_3' : 'cs_primary_bg cs_shape_wrap_2'}`} ref={sectionRef}>
         {style_service ? null :
           <>
             <div className="cs_shape_1">
@@ -59,7 +131,7 @@ const Testimonial = ({ style_service }: any) => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-4">
-              <div>
+              <div className="anim_bounce_in">
                 <Image
                   src={testimonial_data[activeSlide].img}
                   alt={testimonial_data[activeSlide].name}
@@ -76,8 +148,8 @@ const Testimonial = ({ style_service }: any) => {
               </div>
             </div>
             <div className="col-lg-7 offset-lg-1">
-              <div className={`cs_testimonial ${style_service ? 'cs_style_2' : 'cs_style_1 cs_color_1'}`}>
-                <h2 className="cs_testimonial_title" style={{ fontSize: '1.8rem' }}>
+              <div className={`cs_testimonial ${style_service ? 'cs_style_2' : 'cs_style_1 cs_color_1'} anim_flip_in`}>
+                <h2 className="cs_testimonial_title anim_fade_rotate" style={{ fontSize: '1.8rem', color: '#1a1a1a' }}>
                   Voices of Trust
                 </h2>
                 <Swiper
@@ -114,15 +186,27 @@ const Testimonial = ({ style_service }: any) => {
                               fill="#F33C52" />
                           </svg>
                         </div>
-                        <blockquote className="cs_testimonial_text" style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>
+                        <blockquote className="cs_testimonial_text" style={{ 
+                          fontSize: '0.95rem', 
+                          lineHeight: '1.6', 
+                          color: '#2d2d2d' 
+                        }}>
                           {item.des}
                         </blockquote>
                         <div className="cs_testimonial_meta">
                           <div className="cs_testimonial_meta_right">
-                            <h3 className="cs_testimonial_avatar_name" style={{ fontSize: '1.1rem' }}>
+                            <h3 className="cs_testimonial_avatar_name" style={{ 
+                              fontSize: '1.1rem', 
+                              color: '#1a1a1a' 
+                            }}>
                               {item.name}
                               {item.subtitle && (
-                                <div style={{ fontSize: '0.95rem', fontWeight: 'normal', marginTop: '2px' }}>
+                                <div style={{ 
+                                  fontSize: '0.95rem', 
+                                  fontWeight: 'normal', 
+                                  marginTop: '2px', 
+                                  color: '#404040' 
+                                }}>
                                   {item.subtitle}
                                 </div>
                               )}

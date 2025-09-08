@@ -85,7 +85,7 @@ const PortfolioDetailsArea = () => {
               <div className="cs_img_show_text cs_text_style_1">
                 <h4 className="cs_heading_text anim_heading_title">Challanges</h4>
                 <p className="cs_text_style_body">
-                  Welcome to our digital agency! We specialize in helping businesses like yours succeed
+                  Welcome to our digital market place! We specialize in helping businesses like yours succeed
                   online. From website design and development to digital marketing and adver tising, we
                   have the tools and expertise to elevate your online presence. Welcome to our digital
                   agency! We specialize in helping businesses like yours online. From website design and

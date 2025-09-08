@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image, { StaticImageData } from 'next/image';
 
 
@@ -28,8 +28,71 @@ const brand_thumb_data: DataType = [
 
 
 const BrandHomeOne = ({ style_2 }: any) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const animElements = entry.target.querySelectorAll(
+          '.anim_cascade, .anim_ripple'
+        );
+        
+        if (entry.isIntersecting) {
+          animElements.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('active');
+            }, index * 200);
+          });
+        } else {
+          animElements.forEach((element) => {
+            element.classList.remove('active');
+          });
+        }
+      });
+    }, observerOptions);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <> 
+      <style jsx>{`
+        .anim_cascade {
+          opacity: 0;
+          transform: translateY(100px) rotateY(90deg) scale(0.3);
+          transition: all 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .anim_ripple {
+          opacity: 0;
+          transform: translateY(120px) rotateX(45deg) scale(0.2);
+          transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .anim_cascade.active {
+          opacity: 1;
+          transform: translateY(0) rotateY(0deg) scale(1);
+        }
+        
+        .anim_ripple.active {
+          opacity: 1;
+          transform: translateY(0) rotateX(0deg) scale(1);
+        }
+      `}</style>
+      <div ref={sectionRef}> 
       
       {style_2 ?
         <>
@@ -42,7 +105,7 @@ const BrandHomeOne = ({ style_2 }: any) => {
         :
         <div className="cs_height_140 cs_height_lg_70"></div>
       }
-      <div className="cs_moving_section_wrap cs_bold cs_moving_section_hover_push">
+      <div className="cs_moving_section_wrap cs_bold cs_moving_section_hover_push anim_cascade">
         <div className="cs_moving_section_in">
           <div className="cs_moving_section cs_animation_speed_40">
             <div className="cs_partner_logo_wrap">
@@ -83,7 +146,7 @@ const BrandHomeOne = ({ style_2 }: any) => {
         </div>
       </div>
       <div className="cs_height_45 cs_height_lg_45"></div>
-      <div className="cs_moving_section_wrap cs_bold cs_moving_section_hover_push">
+      <div className="cs_moving_section_wrap cs_bold cs_moving_section_hover_push anim_ripple">
         <div className="cs_moving_section_in">
           <div className="cs_moving_section cs_animation_speed_50">
             <div className="cs_partner_logo_wrap">
@@ -126,9 +189,8 @@ const BrandHomeOne = ({ style_2 }: any) => {
       {/* {style_2 ? null :
         <div className="cs_height_140 cs_height_lg_70"></div>
       } */}
-      <div className="cs_height_140 cs_height_lg_70"></div>
+        <div className="cs_height_140 cs_height_lg_70"></div>
+      </div>
     </>
   );
-};
-
-export default BrandHomeOne;
+};export default BrandHomeOne;
