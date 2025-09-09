@@ -149,7 +149,7 @@ const Testimonial = ({ style_service }: any) => {
             </div>
             <div className="col-lg-7 offset-lg-1">
               <div className={`cs_testimonial ${style_service ? 'cs_style_2' : 'cs_style_1 cs_color_1'} anim_flip_in`}>
-                <h2 className="cs_testimonial_title anim_fade_rotate" style={{ fontSize: '1.8rem', color: '#1a1a1a' }}>
+                <h2 className="cs_testimonial_title anim_fade_rotate" style={{ fontSize: '1.8rem', color: 'white' }}>
                   Voices of Trust
                 </h2>
                 <Swiper
@@ -189,7 +189,7 @@ const Testimonial = ({ style_service }: any) => {
                         <blockquote className="cs_testimonial_text" style={{ 
                           fontSize: '0.95rem', 
                           lineHeight: '1.6', 
-                          color: '#2d2d2d' 
+                          color: 'white' 
                         }}>
                           {item.des}
                         </blockquote>
@@ -197,7 +197,7 @@ const Testimonial = ({ style_service }: any) => {
                           <div className="cs_testimonial_meta_right">
                             <h3 className="cs_testimonial_avatar_name" style={{ 
                               fontSize: '1.1rem', 
-                              color: '#1a1a1a' 
+                              color: 'white' 
                             }}>
                               {item.name}
                               {item.subtitle && (
@@ -205,7 +205,7 @@ const Testimonial = ({ style_service }: any) => {
                                   fontSize: '0.95rem', 
                                   fontWeight: 'normal', 
                                   marginTop: '2px', 
-                                  color: '#404040' 
+                                  color: 'white' 
                                 }}>
                                   {item.subtitle}
                                 </div>
