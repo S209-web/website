@@ -156,7 +156,7 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
                 <div style={{ textDecoration: 'none' }}>
                   <div style={{
                     width: '100%',
-                    height: '250px',
+                    height: '350px', // Increased by 40% from 250px to 350px
                     borderRadius: '20px',
                     overflow: 'visible', // Changed from 'hidden' to allow mascots to extend out
                     background: 'transparent', // Removed gradient background
@@ -171,8 +171,8 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
                     <Image 
                       src={item.img} 
                       alt={item.avatar_name}
-                      width={150}
-                      height={150}
+                      width={210}
+                      height={210}
                       style={{
                         objectFit: 'contain',
                         borderRadius: '15px',
