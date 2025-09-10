@@ -117,7 +117,7 @@ const menu_data: DataType[] = [
       }
     ]
   },
-  {
+    {
     id: 5,
     title: "Portfolio",
     link: "/portfolio",
@@ -126,32 +126,56 @@ const menu_data: DataType[] = [
       {
         id: 1,
         title: "Portfolio",
-        link: "/portfolio",
-      },
-      {
-        id: 2,
-        title: "Portfolio Details",
-        link: "/portfolio-details",
-      }
-    ]
-  },
-  {
-    id: 6,
-    title: "Blog",
-    link: "/blog",
-    has_dropdown: true,
-    sub_menu: [
-      {
-        id: 1,
-        title: "Blog",
         link: "/blog",
       },
       {
         id: 2,
-        title: "Blog Details",
-        link: "/blog-details",
+        title: "Portfolio Details",
+        link: "/blog",
       }
     ]
+  },
+  // {
+  //   id: 5,
+  //   title: "Portfolio",
+  //   link: "/portfolio",
+  //   has_dropdown: true,
+  //   sub_menu: [
+  //     {
+  //       id: 1,
+  //       title: "Portfolio",
+  //       link: "/portfolio",
+  //     },
+  //     {
+  //       id: 2,
+  //       title: "Portfolio Details",
+  //       link: "/portfolio-details",
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 6,
+  //   title: "Blog",
+  //   link: "/blog",
+  //   has_dropdown: true,
+  //   sub_menu: [
+  //     {
+  //       id: 1,
+  //       title: "Blog",
+  //       link: "/blog",
+  //     },
+  //     {
+  //       id: 2,
+  //       title: "Blog Details",
+  //       link: "/blog-details",
+  //     }
+  //   ]
+  // },
+   {
+    id: 6,
+    title: "Surprise Me",
+    link: "/blog",
+    has_dropdown: false,
   },
   {
     id: 7,
