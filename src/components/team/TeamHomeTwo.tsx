@@ -156,28 +156,33 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
                 <div style={{ textDecoration: 'none' }}>
                   <div style={{
                     width: '100%',
-                    height: '350px', // Increased by 40% from 250px to 350px
+                    height: '400px !important', // Even larger to make change more obvious
                     borderRadius: '20px',
                     overflow: 'visible', // Changed from 'hidden' to allow mascots to extend out
                     background: 'transparent', // Removed gradient background
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '40px',
-                    marginBottom: '20px',
+                    padding: '60px', // Increased padding too
+                    marginBottom: '30px', // Increased margin
                     position: 'relative',
-                    zIndex: 50 // High z-index for container
+                    zIndex: 50, // High z-index for container
+                    minHeight: '400px' // Force minimum height
                   }}>
                     <Image 
                       src={item.img} 
                       alt={item.avatar_name}
-                      width={210}
-                      height={210}
+                      width={220}
+                      height={220}
                       style={{
                         objectFit: 'contain',
                         borderRadius: '15px',
                         position: 'relative',
                         zIndex: 100, // Very high z-index for mascot images
+                        width: '220px !important', // Force width
+                        height: '220px !important', // Force height
+                        maxWidth: '220px',
+                        maxHeight: '220px'
                         transition: 'all 0.3s ease',
                         cursor: 'pointer'
                       }}

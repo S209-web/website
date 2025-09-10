@@ -23,27 +23,29 @@ const LogoCursor = () => {
       });
     }
 
-    // More permissive logic: Enable cursor unless we're certain it's a pure touch device
+    // More strict mobile detection for touch scrolling compatibility
     let shouldEnable = true;
     
     if (typeof window !== 'undefined') {
-      // Only disable on pure touch devices (no hover AND coarse pointer)
+      // Check for mobile/touch devices
+      const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
       const hasHover = window.matchMedia('(hover: hover)').matches;
       const hasPointer = window.matchMedia('(pointer: fine)').matches;
       const hasCoarse = window.matchMedia('(pointer: coarse)').matches;
       
-      // Disable only if no hover capability AND only coarse pointer (pure touch)
-      if (!hasHover && !hasPointer && hasCoarse) {
+      // Disable cursor on mobile devices to prevent touch event interference
+      if (isMobileUA || hasTouch || (!hasHover && !hasPointer && hasCoarse)) {
         shouldEnable = false;
-        console.log('Cursor disabled: Pure touch device detected');
+        console.log('Cursor disabled: Mobile/touch device detected');
       } else {
-        console.log('Cursor enabled: Device has mouse/trackpad capability');
+        console.log('Cursor enabled: Desktop device detected');
       }
       
-      // Force enable on small screens with fine pointer (small laptops)
-      if (window.innerWidth <= 991 && hasPointer) {
-        shouldEnable = true;
-        console.log('Cursor force-enabled: Small laptop detected');
+      // Force disable on screens smaller than 768px (likely mobile)
+      if (window.innerWidth < 768) {
+        shouldEnable = false;
+        console.log('Cursor disabled: Small screen detected');
       }
     }
     
@@ -85,6 +87,13 @@ const LogoCursor = () => {
   // Render at body level to avoid any transformed parents affecting fixed positioning
   return createPortal(
     <div ref={cursorRef} className="cs_logo_cursor" style={{
+      position: 'fixed',
+      pointerEvents: 'none', // Ensure cursor never blocks touch events
+      zIndex: 9999,
+      transform: 'translate(-50%, -50%)',
+      opacity: 0,
+      transition: 'opacity 0.2s ease',
+      touchAction: 'none', // Prevent touch events on cursor element itself
       // Extra debug styles for small screens
       ...(debugMode ? {
         background: 'rgba(255, 0, 0, 0.3)',
