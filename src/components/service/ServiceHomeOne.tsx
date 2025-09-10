@@ -198,52 +198,47 @@ const ServiceHomeOne = () => {
         /* Tablet optimization */
         @media (max-width: 1199px) {
           .cs_service_mascot {
-            width: 94px !important; /* Regular size */
-            height: 94px !important; /* Regular size */
-            right: 20px !important;
+            width: 110px !important; /* Increased size */
+            height: 110px !important; /* Increased size */
+            left: 75% !important;
           }
           
           .cs_service_mascot_large {
-            width: 188px !important; /* Double size for bundles 1, 3, 4 */
-            height: 188px !important; /* Double size for bundles 1, 3, 4 */
-            right: 15px !important;
+            width: 220px !important; /* Increased size for bundles 1, 3, 4 */
+            height: 220px !important; /* Increased size for bundles 1, 3, 4 */
           }
         }
         
         /* Mobile landscape */
         @media (max-width: 991px) {
           .cs_service_mascot {
-            width: 81px !important; /* Regular size */
-            height: 81px !important; /* Regular size */
-            right: 18px !important;
+            width: 95px !important; /* Increased size */
+            height: 95px !important; /* Increased size */
+            left: 75% !important;
           }
           
           .cs_service_mascot_large {
-            width: 162px !important; /* Double size for bundles 1, 3, 4 */
-            height: 162px !important; /* Double size for bundles 1, 3, 4 */
-            right: 10px !important;
+            width: 190px !important; /* Increased size for bundles 1, 3, 4 */
+            height: 190px !important; /* Increased size for bundles 1, 3, 4 */
           }
           
           .cs_card:hover .cs_service_mascot {
-            transform: translateY(-50%) scale(1.05) !important;
+            transform: translate(-50%, -50%) scale(1.05) !important;
           }
         }
         
         /* Mobile portrait */
         @media (max-width: 767px) {
           .cs_service_mascot {
-            width: 69px !important; /* Regular size */
-            height: 69px !important; /* Regular size */
-            right: 15px !important;
-            top: 25px !important;
-            transform: translateY(0) !important;
+            width: 80px !important; /* Increased size */
+            height: 80px !important; /* Increased size */
+            left: 75% !important;
+            transform: translate(-50%, -50%) !important;
           }
           
           .cs_service_mascot_large {
-            width: 138px !important; /* Double size for bundles 1, 3, 4 */
-            height: 138px !important; /* Double size for bundles 1, 3, 4 */
-            right: 5px !important;
-            top: 15px !important;
+            width: 160px !important; /* Increased size for bundles 1, 3, 4 */
+            height: 160px !important; /* Increased size for bundles 1, 3, 4 */
           }
           
           .cs_card:hover .cs_service_mascot {
@@ -334,16 +329,16 @@ const ServiceHomeOne = () => {
                     <div className="cs_card_subtitle" dangerouslySetInnerHTML={{ __html: item.des }}>
                     </div>
                   </div>
-                  {/* Service Mascot - Positioned on the right */}
+                  {/* Service Mascot - Positioned at 75% from left */}
                   <div 
                     className={`cs_service_mascot ${(i === 0 || i === 2 || i === 3) ? 'cs_service_mascot_large' : ''}`}
                     style={{
                       position: 'absolute',
-                      right: '25px',
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      width: (i === 0 || i === 2 || i === 3) ? '224px' : '112px', // Double size for bundles 1, 3, 4
-                      height: (i === 0 || i === 2 || i === 3) ? '224px' : '112px', // Double size for bundles 1, 3, 4
+                      left: '75%',
+                      top: (i === 2 || i === 3) ? '60%' : '50%', // Move slides 3 & 4 down to prevent head cutting
+                      transform: 'translate(-50%, -50%)',
+                      width: (i === 0 || i === 2 || i === 3) ? '260px' : '130px', // Increased size
+                      height: (i === 0 || i === 2 || i === 3) ? '260px' : '130px', // Increased size
                       opacity: 0,
                       zIndex: 2,
                       transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',

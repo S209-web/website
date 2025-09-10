@@ -124,6 +124,215 @@ const AboutHomeOne = () => {
           opacity: 1;
           transform: translateY(0) scale(1);
         }
+
+        /* Mobile-First Responsive Design - New Layout */
+        .cs_about.cs_style_1 {
+          min-height: 100vh;
+          position: relative;
+          display: flex;
+          align-items: center;
+          background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+
+        /* Remove background image approach, use proper image container */
+        .cs_about_bg {
+          display: none; /* Hide the old background approach */
+        }
+
+        .cs_about_content_wrapper {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1.4fr 1fr; /* Give more space to text (left), less to image (right) */
+          gap: 3rem;
+          align-items: center;
+          min-height: 80vh;
+        }
+
+        .cs_about_image_container {
+          position: relative;
+          height: 500px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 2rem;
+        }
+
+        .cs_about_image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          border-radius: 16px;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          transition: transform 0.6s ease;
+        }
+
+        .cs_about_image:hover {
+          transform: scale(1.05);
+        }
+
+        .cs_about_text {
+          position: relative;
+          z-index: 2;
+          color: white;
+          padding: 4rem 3rem; /* Increased padding for better spacing */
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 20px;
+          backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          margin: 2rem 3rem 2rem 2rem; /* More margin on right to create breathing room */
+          min-height: 280px; /* Ensure minimum height for better proportions */
+        }
+
+        .cs_section_heading {
+          margin-bottom: 2rem !important; /* More space after heading */
+        }
+
+        .cs_about_text p {
+          margin-top: 1.5rem !important; /* More space before paragraph */
+          line-height: 1.7 !important; /* Better line spacing */
+          font-size: 1.1rem !important; /* Slightly larger text for readability */
+        }
+
+        /* Tablet Design (768px - 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+          .cs_about_content_wrapper {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .cs_about_image_container {
+            height: 400px;
+            order: 1;
+          }
+          
+          .cs_about_text {
+            order: 2;
+            max-width: 80%;
+            margin: 1rem auto;
+            padding: 3rem 2.5rem; /* Better padding for tablet */
+            min-height: 250px; /* Maintain good proportions */
+          }
+
+          .cs_about.cs_style_1 {
+            min-height: 90vh;
+          }
+        }
+
+        /* Mobile Phone Design (≤767px) */
+        @media (max-width: 767px) {
+          .cs_about.cs_style_1 {
+            min-height: 100vh;
+            padding: 1rem 0;
+          }
+          
+          .cs_about_content_wrapper {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 1rem;
+          }
+          
+          .cs_about_image_container {
+            height: 280px;
+            padding: 1rem;
+            order: 1;
+          }
+          
+          .cs_about_image {
+            border-radius: 12px;
+          }
+          
+          .cs_about_text {
+            order: 2;
+            margin: 0;
+            padding: 2.5rem 2rem; /* Better mobile padding */
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            min-height: 200px; /* Maintain proportions on mobile */
+          }
+          
+          .cs_section_title {
+            font-size: 1.8rem !important;
+            line-height: 1.3 !important;
+            margin-bottom: 1.5rem !important; /* Better spacing */
+          }
+          
+          .cs_section_subtitle {
+            font-size: 0.9rem !important;
+            margin-bottom: 1rem !important; /* Better spacing */
+          }
+          
+          .cs_about_text p {
+            font-size: 1rem !important; /* Slightly larger on mobile */
+            line-height: 1.6 !important;
+            margin-top: 1.5rem !important;
+          }
+        }
+
+        /* Large Desktop (≥1200px) */
+        @media (min-width: 1200px) {
+          .cs_about_content_wrapper {
+            gap: 4rem;
+            grid-template-columns: 1.5fr 1fr; /* Even more space for text on large screens */
+          }
+          
+          .cs_about_image_container {
+            height: 550px; /* Slightly smaller to balance with larger text area */
+            padding: 2.5rem;
+          }
+          
+          .cs_about_text {
+            padding: 5rem 3.5rem; /* Even more generous padding for large screens */
+            margin: 3rem 4rem 3rem 2rem; /* Increased spacing */
+            min-height: 320px; /* Better proportions for large screens */
+          }
+        }
+
+        /* Swiper Controls Responsive */
+        .cs_swiper_controll {
+          position: relative;
+          z-index: 3;
+          padding: 1rem 0;
+        }
+
+        @media (max-width: 767px) {
+          .cs_swiper_controll {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            margin: 0 1rem;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+          }
+          
+          .cs_swiper_navigation_wrap {
+            gap: 2rem;
+            justify-content: center;
+          }
+          
+          .cs_pagination {
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1.1rem;
+          }
+        }
+
+        /* Touch-friendly controls */
+        @media (max-width: 767px) {
+          .cs_swiper_button_prev,
+          .cs_swiper_button_next {
+            padding: 1rem;
+            background: rgba(243, 60, 82, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(243, 60, 82, 0.3);
+            transition: all 0.3s ease;
+          }
+          
+          .cs_swiper_button_prev:active,
+          .cs_swiper_button_next:active {
+            background: rgba(243, 60, 82, 0.4);
+            transform: scale(0.95);
+          }
+        }
       `}</style>
       <div className="cs_height_130 cs_height_lg_60"></div>
       <div ref={sectionRef}>
@@ -133,6 +342,7 @@ const AboutHomeOne = () => {
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true
           }}
           modules={[Navigation, Pagination, Autoplay]}
           navigation={{
@@ -143,33 +353,53 @@ const AboutHomeOne = () => {
             el: ".cs_pagination",
             clickable: true,
             type: "fraction",
-
             renderFraction: function (currentClass, totalClass) {
               return `<span class="${currentClass}"></span> 
                ${' / '}
                <span class="${totalClass}"></span>`;
             },
-
           }}
-          className="cs_slider cs_slider_2 anim_slide_left">
+          className="cs_slider cs_slider_2 anim_slide_left"
+          style={{
+            ['--swiper-navigation-size' as any]: '44px',
+            ['--swiper-theme-color' as any]: '#F33C52'
+          } as React.CSSProperties}
+        >
           {about_slider.map((item, index) => (
             <SwiperSlide key={index} className="swiper-slide">
               <div className="cs_about cs_style_1">
                 <div className="cs_about_bg cs_bg" style={{ backgroundImage: `url(${item.img})` }}></div>
                 <div className="container">
-                  <div className="cs_about_text anim_slide_right">
-                    <div className="cs_section_heading cs_style_1">
-                      <div className="cs_section_heading_text">
-                        <div className="cs_section_subtitle">{item.sub_title}</div>
-                        <h2 className="cs_section_title">
-                          {item.title}
-                        </h2>
+                  <div className="cs_about_content_wrapper">
+                    {/* Text Content - Now on the LEFT with more space */}
+                    <div className="cs_about_text anim_slide_left">
+                      <div className="cs_section_heading cs_style_1">
+                        <div className="cs_section_heading_text">
+                          <div className="cs_section_subtitle">{item.sub_title}</div>
+                          <h2 className="cs_section_title">
+                            {item.title}
+                          </h2>
+                        </div>
                       </div>
+                      <div className="cs_height_40 cs_height_lg_30"></div>
+                      <p className="cs_m0">
+                        {item.des}
+                      </p>
                     </div>
-                    <div className="cs_height_40 cs_height_lg_30"></div>
-                    <p className="cs_m0">
-                      {item.des}
-                    </p>
+                    
+                    {/* Image Container - Now on the RIGHT */}
+                    <div className="cs_about_image_container anim_slide_right">
+                      <img 
+                        src={item.img} 
+                        alt={item.title}
+                        className="cs_about_image"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'contain'
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

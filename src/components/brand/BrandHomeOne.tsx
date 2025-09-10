@@ -145,51 +145,10 @@ const BrandHomeOne = ({ style_2 }: any) => {
           </div>
         </div>
       </div>
-      <div className="cs_height_45 cs_height_lg_45"></div>
-      <div className="cs_moving_section_wrap cs_bold cs_moving_section_hover_push anim_ripple">
-        <div className="cs_moving_section_in">
-          <div className="cs_moving_section cs_animation_speed_50">
-            <div className="cs_partner_logo_wrap">
-              {brand_thumb_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo" style={{
-                  padding: '10px 25px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <Image src={item} alt="client-logo" style={{
-                    maxHeight: '80px',
-                    width: 'auto',
-                    objectFit: 'contain'
-                  }} />
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="cs_moving_section cs_animation_speed_50">
-            <div className="cs_partner_logo_wrap">
-              {brand_thumb_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo" style={{
-                  padding: '10px 25px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <Image src={item} alt="client-logo" style={{
-                    maxHeight: '80px',
-                    width: 'auto',
-                    objectFit: 'contain'
-                  }} />
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
       {/* {style_2 ? null :
         <div className="cs_height_140 cs_height_lg_70"></div>
       } */}
-        <div className="cs_height_140 cs_height_lg_70"></div>
+        <div className="cs_height_70 cs_height_lg_40"></div>
       </div>
     </>
   );

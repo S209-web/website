@@ -158,13 +158,15 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
                     width: '100%',
                     height: '250px',
                     borderRadius: '20px',
-                    overflow: 'hidden',
-                    background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+                    overflow: 'visible', // Changed from 'hidden' to allow mascots to extend out
+                    background: 'transparent', // Removed gradient background
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     padding: '40px',
-                    marginBottom: '20px'
+                    marginBottom: '20px',
+                    position: 'relative',
+                    zIndex: 50 // High z-index for container
                   }}>
                     <Image 
                       src={item.img} 
@@ -173,7 +175,19 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
                       height={150}
                       style={{
                         objectFit: 'contain',
-                        borderRadius: '15px'
+                        borderRadius: '15px',
+                        position: 'relative',
+                        zIndex: 100, // Very high z-index for mascot images
+                        transition: 'all 0.3s ease',
+                        cursor: 'pointer'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'scale(1.1)';
+                        e.currentTarget.style.zIndex = '200'; // Even higher on hover
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                        e.currentTarget.style.zIndex = '100';
                       }}
                     />
                   </div>
@@ -185,9 +199,7 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
                       {item.avatar_name}
                     </h6>
                   </div>
-                  <p className="cs_team_subtitle">
-                    {item.designation}
-                  </p>
+                  {/* Removed designation text completely */}
                 </div>
               </div>
             )}

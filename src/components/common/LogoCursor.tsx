@@ -12,12 +12,46 @@ const LogoCursor = () => {
   useEffect(() => {
     setMounted(true);
 
-    // Enable only on hover-capable devices (avoid touch)
-    const hasHover = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(hover: hover)').matches;
-    if (!hasHover) return;
+    // Debug: Log all media query states
+    if (typeof window !== 'undefined') {
+      console.log('Cursor Debug:', {
+        screenWidth: window.innerWidth,
+        hasHover: window.matchMedia('(hover: hover)').matches,
+        hasPointer: window.matchMedia('(pointer: fine)').matches,
+        hasCoarse: window.matchMedia('(pointer: coarse)').matches,
+        userAgent: navigator.userAgent,
+      });
+    }
+
+    // More permissive logic: Enable cursor unless we're certain it's a pure touch device
+    let shouldEnable = true;
+    
+    if (typeof window !== 'undefined') {
+      // Only disable on pure touch devices (no hover AND coarse pointer)
+      const hasHover = window.matchMedia('(hover: hover)').matches;
+      const hasPointer = window.matchMedia('(pointer: fine)').matches;
+      const hasCoarse = window.matchMedia('(pointer: coarse)').matches;
+      
+      // Disable only if no hover capability AND only coarse pointer (pure touch)
+      if (!hasHover && !hasPointer && hasCoarse) {
+        shouldEnable = false;
+        console.log('Cursor disabled: Pure touch device detected');
+      } else {
+        console.log('Cursor enabled: Device has mouse/trackpad capability');
+      }
+      
+      // Force enable on small screens with fine pointer (small laptops)
+      if (window.innerWidth <= 991 && hasPointer) {
+        shouldEnable = true;
+        console.log('Cursor force-enabled: Small laptop detected');
+      }
+    }
+    
+    if (!shouldEnable) return;
 
     setEnabled(true);
     document.body.classList.add('logo-cursor-active');
+    console.log('Cursor activated successfully');
 
     const move = (e: MouseEvent) => {
       if (!cursorRef.current) return;
@@ -36,12 +70,45 @@ const LogoCursor = () => {
     };
   }, []);
 
-  if (!mounted || !enabled) return null;
+  // Add a debug mode that forces cursor on small screens
+  const [debugMode, setDebugMode] = useState(false);
+  
+  useEffect(() => {
+    // Enable debug mode for screens smaller than 991px for testing
+    if (typeof window !== 'undefined' && window.innerWidth <= 991) {
+      setDebugMode(true);
+    }
+  }, []);
+
+  if (!mounted || (!enabled && !debugMode)) return null;
 
   // Render at body level to avoid any transformed parents affecting fixed positioning
   return createPortal(
-    <div ref={cursorRef} className="cs_logo_cursor">
+    <div ref={cursorRef} className="cs_logo_cursor" style={{
+      // Extra debug styles for small screens
+      ...(debugMode ? {
+        background: 'rgba(255, 0, 0, 0.3)',
+        border: '3px solid red',
+        display: 'flex !important' as any,
+        zIndex: 999999
+      } : {})
+    }}>
       <img src="/assets/img/logoheader.png" alt="Mascot Cursor" width={45} height={45} />
+      {debugMode && (
+        <div style={{
+          position: 'absolute',
+          top: '50px',
+          left: '0',
+          background: 'red',
+          color: 'white',
+          padding: '4px',
+          fontSize: '10px',
+          whiteSpace: 'nowrap',
+          borderRadius: '4px'
+        }}>
+          DEBUG MODE
+        </div>
+      )}
     </div>,
     document.body
   );

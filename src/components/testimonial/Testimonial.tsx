@@ -18,7 +18,7 @@ const testimonial_data = [
     name: `Aman Singh`,
     subtitle: ``,
     location: `Video Client`,
-    des: `"I really loved the service offered by OUT OF THE BOX . I wanted to get my video edited and they did so well. The result was really good. They listen to your brief very carefully and work accordingly to it. They respond very fast as well. The pricing was also very genuine. Overall, I loved the service and for sure I would love to get my work done from here. Thank you"`,
+    des: `"I really loved the service offered by Shout OUT OF THE BOX . I wanted to get my video edited and they did so well. The result was really good. They listen to your brief very carefully and work accordingly to it. They respond very fast as well. The pricing was also very genuine. Overall, I loved the service and for sure I would love to get my work done from here. Thank you"`,
   },
 ]
 

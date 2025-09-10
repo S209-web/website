@@ -10,7 +10,7 @@ interface DataType {
 }
 const about_content: DataType = {
   subtitle: `Our Story`,
-  title: `Smart Strategies, Bold Execution, Real Growth - That's how we push the boundaries of Marketing & Branding`,
+  title: `Sharp Strategies, Bold Moves, Real Results —<br/>Redefining Marketing & Branding Excellence`,
   des: `Digital agency! We specialize in helping businesses like yours succeed online. From website design and development to digital marketing and advertising, we have the tools and expertise to elevate your online presence. Let us help you lione evolving world of digital to drive growth and reach your goals.`,
 }
 const { subtitle, title, des } = about_content
@@ -40,8 +40,7 @@ const About = () => {
                 <div className="col-md-6 col-sm-12">
                   <div className="cs_section_heading cs_style_1 cs_color_1">
                     <div className="cs_section_heading_text">
-                      <h3 className="cs_section_title_3 anim_div_ShowLeftSide">
-                        {title}
+                      <h3 className="cs_section_title_3 anim_div_ShowLeftSide" dangerouslySetInnerHTML={{ __html: title }}>
                       </h3>
                     </div>
                   </div>

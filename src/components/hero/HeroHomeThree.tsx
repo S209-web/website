@@ -29,6 +29,19 @@ const { title_1, title_2, des, links } = hero_data
 const HeroHomeThree = () => {
   return (
     <>
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .cs_right_text {
+            display: none !important;
+          }
+        }
+        
+        @media (max-width: 1024px) {
+          .cs_right_text {
+            right: -80px !important;
+          }
+        }
+      `}</style>
       <section>
         <div className="cs_hero cs_style2">
           <div className="cs_hero_bg cs_bg cs_parallax_bg" style={{ backgroundImage: 'url(/assets/img/design_banner.jpg)' }}></div>

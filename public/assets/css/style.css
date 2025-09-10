@@ -2908,14 +2908,19 @@ label {
 body.logo-cursor-active { cursor: none !important; }
 
 .cs_logo_cursor {
-  position: fixed;
+  position: fixed !important;
   left: 0; top: 0;
   width: 45px; height: 45px;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 9999;
-  display: flex; align-items: center; justify-content: center;
+  z-index: 99999 !important;
+  display: flex !important; 
+  align-items: center; 
+  justify-content: center;
   border-radius: 50%;
+  /* Debug background to make it visible */
+  background: rgba(243, 60, 82, 0.1);
+  border: 2px solid rgba(243, 60, 82, 0.3);
 }
 .cs_logo_cursor img {
   width: 38px; height: 38px;
@@ -2923,8 +2928,23 @@ body.logo-cursor-active { cursor: none !important; }
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
-/* Disable on small/touch devices */
-@media (max-width: 991px) {
-  .cs_logo_cursor { display: none; }
+/* Make cursor smaller on smaller screens but keep it visible */
+@media (max-width: 768px) {
+  .cs_logo_cursor {
+    width: 35px !important;
+    height: 35px !important;
+    display: flex !important;
+  }
+  .cs_logo_cursor img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Only disable on pure touch devices that explicitly have no hover */
+@media (hover: none) and (pointer: coarse) {
+  .cs_logo_cursor { display: none !important; }
   body.logo-cursor-active { cursor: auto !important; }
+}
+  }
 }
