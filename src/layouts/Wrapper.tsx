@@ -18,62 +18,65 @@ gsap.registerPlugin(ScrollSmoother);
 
 const Wrapper = ({ children }: any) => {  
 
+  // Enable GSAP ScrollSmoother only on desktop to avoid blocking touch scroll on mobile
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Check if it's a mobile/touch device
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                      ('ontouchstart' in window) || 
-                      (navigator.maxTouchPoints > 0);
-      
-      // Add mobile class to body for CSS targeting
-      if (isMobile) {
-        document.body.classList.add('is-mobile');
-        document.documentElement.classList.add('is-mobile');
-      } else {
-        document.body.classList.add('is-desktop');
-        document.documentElement.classList.add('is-desktop');
-      }
-      
-      if (!isMobile) {
-        // Only enable ScrollSmoother on desktop devices
-        ScrollSmoother.create({
+    if (typeof window === "undefined") return;
+
+    let smoother: any | undefined;
+
+    const ensureNativeScroll = () => {
+      // Make sure native scrolling is enabled
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      (document.documentElement as any).style.touchAction = 'auto';
+      (document.body as any).style.touchAction = 'auto';
+    };
+
+    const setup = () => {
+      if (window.innerWidth >= 1025) {
+        // Desktop: enable smoother
+        smoother = ScrollSmoother.create({
           smooth: 1.35,
           effects: true,
-          smoothTouch: false, // Keep false to prevent conflicts
-          normalizeScroll: false,
+          // Use a tiny smoothTouch instead of false to avoid iOS locking in some cases
+          smoothTouch: 0.1,
+          normalizeScroll: true,
           ignoreMobileResize: true,
         });
       } else {
-        // For mobile devices, ensure native scrolling works
-        document.body.style.touchAction = 'auto';
-        document.documentElement.style.touchAction = 'auto';
-        document.body.style.overflowY = 'auto';
-        document.documentElement.style.overflowY = 'auto';
-        
-        // Remove any potential scroll blocking
-        const smoothWrapper = document.getElementById('smooth-wrapper');
-        const smoothContent = document.getElementById('smooth-content');
-        
-        if (smoothWrapper) {
-          smoothWrapper.style.transform = 'none';
-          smoothWrapper.style.height = 'auto';
-          smoothWrapper.style.overflow = 'visible';
-          smoothWrapper.style.touchAction = 'auto';
+        // Mobile/tablet: disable smoother and ensure native scroll
+        if (smoother) {
+          try { smoother.kill(); } catch { /* noop */ }
+          smoother = undefined;
         }
-        if (smoothContent) {
-          smoothContent.style.transform = 'none';
-          smoothContent.style.height = 'auto';
-          smoothContent.style.touchAction = 'auto';
-        }
+        ensureNativeScroll();
       }
-    }
+    };
+
+    setup();
+    const onResize = () => {
+      // Re-evaluate on breakpoint changes
+      setup();
+      if (smoother) {
+        try { smoother.refresh(); } catch { /* noop */ }
+      }
+    };
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+      if (smoother) {
+        try { smoother.kill(); } catch { /* noop */ }
+      }
+      ensureNativeScroll();
+    };
   }, []);
 
   useEffect(() => {
-
     // buttonAnimation()
     // animationTitle()
-    scrollSmother();
+    // Disable custom scrollSmother to avoid conflicts with GSAP and touch scrolling
+    // scrollSmother(window);
   }, [])
 
 
