@@ -4,8 +4,7 @@
 
 import AboutHomeFour from '@/components/about/AboutHomeFour';
 import HeroService from '@/components/hero/HeroService';
-import Service from '@/components/service/Service';
-import Testimonial from '@/components/testimonial/Testimonial';
+import ServiceHomeOneExtended from '@/components/service/ServiceHomeOneExtended';
 import Wrapper from '@/layouts/Wrapper';
 import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
@@ -23,10 +22,8 @@ const index = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <HeroService />
-            <Service />
-            <Testimonial style_service={true} />
-            <AboutHomeFour />
+            <HeroService hideList />
+            <ServiceHomeOneExtended compact hideHeading />
           </main>
           <FooterOne />
         </div>

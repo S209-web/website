@@ -125,25 +125,26 @@ const AboutHomeOne = () => {
           transform: translateY(0) scale(1);
         }
 
-        /* Mobile-First Responsive Design - New Layout */
+        /* --- REFINED SPACING LOGIC --- */
+
         .cs_about.cs_style_1 {
           min-height: 100vh;
           position: relative;
           display: flex;
           align-items: center;
           background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+          padding: 2rem 0; /* Added vertical padding for breathing room on all screens */
         }
 
-        /* Remove background image approach, use proper image container */
         .cs_about_bg {
-          display: none; /* Hide the old background approach */
+          display: none; 
         }
 
         .cs_about_content_wrapper {
           width: 100%;
           display: grid;
-          grid-template-columns: 1.4fr 1fr; /* Give more space to text (left), less to image (right) */
-          gap: 3rem;
+          grid-template-columns: 1.4fr 1fr; 
+          gap: 4rem; /* Increased gap for better separation */
           align-items: center;
           min-height: 80vh;
         }
@@ -154,7 +155,6 @@ const AboutHomeOne = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 2rem;
         }
 
         .cs_about_image {
@@ -174,30 +174,30 @@ const AboutHomeOne = () => {
           position: relative;
           z-index: 2;
           color: white;
-          padding: 4rem 3rem; /* Increased padding for better spacing */
+          padding: 4rem 5rem; /* Simplified and balanced padding */
           background: rgba(255, 255, 255, 0.05);
           border-radius: 20px;
           backdrop-filter: blur(15px);
           border: 1px solid rgba(255, 255, 255, 0.1);
-          margin: 2rem 3rem 2rem 2rem; /* More margin on right to create breathing room */
-          min-height: 280px; /* Ensure minimum height for better proportions */
+          margin: 0; /* Removed margin to rely on grid-gap for spacing */
+          min-height: 280px; 
         }
 
         .cs_section_heading {
-          margin-bottom: 2rem !important; /* More space after heading */
+          margin-bottom: 2rem !important; 
         }
 
         .cs_about_text p {
-          margin-top: 1.5rem !important; /* More space before paragraph */
-          line-height: 1.7 !important; /* Better line spacing */
-          font-size: 1.1rem !important; /* Slightly larger text for readability */
+          margin-top: 1.8rem !important;
+          line-height: 1.7 !important; 
+          font-size: 1.1rem !important; 
         }
 
         /* Tablet Design (768px - 1024px) */
         @media (min-width: 768px) and (max-width: 1024px) {
           .cs_about_content_wrapper {
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 2rem;
             text-align: center;
           }
           
@@ -208,33 +208,28 @@ const AboutHomeOne = () => {
           
           .cs_about_text {
             order: 2;
-            max-width: 80%;
-            margin: 1rem auto;
-            padding: 3rem 2.5rem; /* Better padding for tablet */
-            min-height: 250px; /* Maintain good proportions */
-          }
-
-          .cs_about.cs_style_1 {
-            min-height: 90vh;
+            max-width: 90%;
+            margin: 0 auto; /* Keep auto margin for centering */
+            padding: 3rem 4rem; /* Balanced padding */
+            min-height: 250px; 
           }
         }
 
         /* Mobile Phone Design (≤767px) */
         @media (max-width: 767px) {
           .cs_about.cs_style_1 {
-            min-height: 100vh;
-            padding: 1rem 0;
+            padding: 4rem 0; /* More vertical padding for mobile */
           }
           
           .cs_about_content_wrapper {
             grid-template-columns: 1fr;
-            gap: 1rem;
-            padding: 1rem;
+            gap: 2.5rem; /* Increased gap for better stacking */
+            padding: 0 1.5rem; /* Consistent horizontal padding for the container */
           }
           
           .cs_about_image_container {
             height: 280px;
-            padding: 1rem;
+            padding: 0; /* Removed padding here as container padding is enough */
             order: 1;
           }
           
@@ -245,50 +240,51 @@ const AboutHomeOne = () => {
           .cs_about_text {
             order: 2;
             margin: 0;
-            padding: 2.5rem 2rem; /* Better mobile padding */
+            padding: 2.5rem 2rem; /* Simplified padding for mobile */
             background: rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            min-height: 200px; /* Maintain proportions on mobile */
+            min-height: auto; /* Allow height to be determined by content */
           }
           
           .cs_section_title {
             font-size: 1.8rem !important;
             line-height: 1.3 !important;
-            margin-bottom: 1.5rem !important; /* Better spacing */
+            margin-bottom: 1.5rem !important; 
           }
           
           .cs_section_subtitle {
             font-size: 0.9rem !important;
-            margin-bottom: 1rem !important; /* Better spacing */
+            margin-bottom: 1rem !important;
           }
           
           .cs_about_text p {
-            font-size: 1rem !important; /* Slightly larger on mobile */
+            font-size: 1rem !important; 
             line-height: 1.6 !important;
             margin-top: 1.5rem !important;
+          }
+
+          .cs_swiper_controll { 
+            display: none !important;
           }
         }
 
         /* Large Desktop (≥1200px) */
         @media (min-width: 1200px) {
           .cs_about_content_wrapper {
-            gap: 4rem;
-            grid-template-columns: 1.5fr 1fr; /* Even more space for text on large screens */
+            gap: 5rem; /* More gap for larger screens */
+            grid-template-columns: 1.5fr 1fr;
           }
           
           .cs_about_image_container {
-            height: 550px; /* Slightly smaller to balance with larger text area */
-            padding: 2.5rem;
+            height: 550px;
           }
           
           .cs_about_text {
-            padding: 5rem 3.5rem; /* Even more generous padding for large screens */
-            margin: 3rem 4rem 3rem 2rem; /* Increased spacing */
-            min-height: 320px; /* Better proportions for large screens */
+            padding: 5rem 6.5rem; /* Generous padding for large screens */
+            min-height: 320px;
           }
         }
 
-        /* Swiper Controls Responsive */
         .cs_swiper_controll {
           position: relative;
           z-index: 3;
@@ -316,7 +312,6 @@ const AboutHomeOne = () => {
           }
         }
 
-        /* Touch-friendly controls */
         @media (max-width: 767px) {
           .cs_swiper_button_prev,
           .cs_swiper_button_next {
@@ -355,8 +350,8 @@ const AboutHomeOne = () => {
             type: "fraction",
             renderFraction: function (currentClass, totalClass) {
               return `<span class="${currentClass}"></span> 
-               ${' / '}
-               <span class="${totalClass}"></span>`;
+                ${' / '}
+                <span class="${totalClass}"></span>`;
             },
           }}
           className="cs_slider cs_slider_2 anim_slide_left"
@@ -371,7 +366,7 @@ const AboutHomeOne = () => {
                 <div className="cs_about_bg cs_bg" style={{ backgroundImage: `url(${item.img})` }}></div>
                 <div className="container">
                   <div className="cs_about_content_wrapper">
-                    {/* Text Content - Now on the LEFT with more space */}
+                    {/* Text Content */}
                     <div className="cs_about_text anim_slide_left">
                       <div className="cs_section_heading cs_style_1">
                         <div className="cs_section_heading_text">
@@ -387,7 +382,7 @@ const AboutHomeOne = () => {
                       </p>
                     </div>
                     
-                    {/* Image Container - Now on the RIGHT */}
+                    {/* Image Container */}
                     <div className="cs_about_image_container anim_slide_right">
                       <img 
                         src={item.img} 

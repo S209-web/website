@@ -70,45 +70,15 @@ const LogoCursor = () => {
     };
   }, []);
 
-  // Add a debug mode that forces cursor on small screens
-  const [debugMode, setDebugMode] = useState(false);
-  
-  useEffect(() => {
-    // Enable debug mode for screens smaller than 991px for testing
-    if (typeof window !== 'undefined' && window.innerWidth <= 991) {
-      setDebugMode(true);
-    }
-  }, []);
+  // Debug mode disabled for production (no red overlays)
+  const debugMode = false;
 
-  if (!mounted || (!enabled && !debugMode)) return null;
+  if (!mounted || !enabled) return null;
 
   // Render at body level to avoid any transformed parents affecting fixed positioning
   return createPortal(
-    <div ref={cursorRef} className="cs_logo_cursor" style={{
-      // Extra debug styles for small screens
-      ...(debugMode ? {
-        background: 'rgba(255, 0, 0, 0.3)',
-        border: '3px solid red',
-        display: 'flex !important' as any,
-        zIndex: 999999
-      } : {})
-    }}>
+  <div ref={cursorRef} className="cs_logo_cursor">
       <img src="/assets/img/logoheader.png" alt="Mascot Cursor" width={45} height={45} />
-      {debugMode && (
-        <div style={{
-          position: 'absolute',
-          top: '50px',
-          left: '0',
-          background: 'red',
-          color: 'white',
-          padding: '4px',
-          fontSize: '10px',
-          whiteSpace: 'nowrap',
-          borderRadius: '4px'
-        }}>
-          DEBUG MODE
-        </div>
-      )}
     </div>,
     document.body
   );

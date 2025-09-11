@@ -70,19 +70,8 @@ const menu_data: DataType[] = [
         id: 3,
         title: "Services",
         link: "/service",
-        has_dropdown: true,
-        sub_menu: [
-            {
-                id: 1,
-                title: "Services",
-                link: "/service",
-            },
-            {
-                id: 2,
-                title: "Services Details",
-                link: "/service-details",
-            }
-        ]
+    has_dropdown: false,
+    // Dropdown removed per request
     },
     {
         id: 4,

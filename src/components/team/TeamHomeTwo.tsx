@@ -171,8 +171,8 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
                     <Image 
                       src={item.img} 
                       alt={item.avatar_name}
-                      width={210}
-                      height={210}
+                      width={280}
+                      height={280}
                       style={{
                         objectFit: 'contain',
                         borderRadius: '15px',
