@@ -188,7 +188,7 @@ const HeaderOne = () => {
                                     <MobileMenu active={active} navTitle={navTitle} openMobileMenu={openMobileMenu} />
                                     <span className={`cs_munu_toggle ${active ? "cs_toggle_active" : ""}`} onClick={handleActive}><span></span></span>
                                 </div>
-                                <div className="cs_toolbox">
+                                <div className="cs_toolbox d-lg-none">
                                     <span className="cs_icon_btn">
                                         <span className="cs_icon_btn_in" onClick={handleActive}>
                                             <span></span>

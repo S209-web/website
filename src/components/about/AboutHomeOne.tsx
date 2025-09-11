@@ -264,7 +264,7 @@ const AboutHomeOne = () => {
           }
 
           .cs_swiper_controll { 
-            display: none !important;
+            display: block !important;
           }
         }
 

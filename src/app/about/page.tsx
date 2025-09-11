@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useState } from 'react';
@@ -10,11 +9,7 @@ import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import VideoPopup from '@/components/modals/VideoPopup';
 
-// export const metadata = {
-//   title: "About Vixan - Digital  Creative Agency Next js Template",
-// };
-
-const index = () => {
+const Index = () => {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
 
   return (
@@ -22,17 +17,19 @@ const index = () => {
       <HeaderOne />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <main>
-            <BannerAbout />
-            <About />
-            <TeamHomeTwo style_2={true} style_3={true} />
+          <main className="flex flex-col items-center justify-center min-h-screen text-center px-5">
+            <div className="w-full max-w-5xl">
+              <BannerAbout />
+              <About />
+              <TeamHomeTwo style_2={true} style_3={true} />
+            </div>
           </main>
           <FooterOne />
         </div>
       </div>
 
-        {/* video modal start */}
-        <VideoPopup
+      {/* video modal start */}
+      <VideoPopup
         isVideoOpen={isVideoOpen}
         setIsVideoOpen={setIsVideoOpen}
         videoId={"qmGYnJgCW1o"}
@@ -42,4 +39,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

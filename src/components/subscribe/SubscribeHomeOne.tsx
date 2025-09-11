@@ -111,7 +111,7 @@ const SubscribeHomeOne = () => {
           <div className="cs_section_heading cs_style_1 cs_color_1 text-center anim_spring_up">
             <div className="cs_section_heading_text">
               <h2 className="cs_section_title anim_text_upanddowns">
-                Stay Ahead With Our Top Notch <br />Digital Services
+                Your Next Big Move Starts Here <br />
               </h2>
             </div>
           </div>
