@@ -8,11 +8,6 @@ import Wrapper from '@/layouts/Wrapper';
 import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 
-export const metadata = {
-  title: "Graphic Design Services - Shout Code Digital Agency",
-  description: "Designs so bold that your brand never whispers, it SHOUTS. Professional graphic design services including logos, social media creatives, and brand identity.",
-};
-
 const GraphicDesignPage = () => {
   return (
     <Wrapper>

@@ -64,8 +64,9 @@ const ScrollStorySection = () => {
       pin: storyContainer,
       scrub: 1, // Smooth scrubbing with 1 second delay
       start: "top top",
-      end: "+=4000", // Total scroll distance for complete animation
+      end: "bottom bottom", // End when the bottom of the trigger hits the bottom of the viewport
       animation: tl,
+      anticipatePin: 1, // Prevents "jump" on pin
       onUpdate: (self) => {
         // Optional: Add any additional scroll-based effects
         console.log("Animation progress:", self.progress);
@@ -92,7 +93,7 @@ const ScrollStorySection = () => {
         ref={storySectionRef}
         className="story-section"
         style={{
-          height: '100vh', // This determines when the animation starts
+          height: '400vh', // Set to 4x viewport height to create a "scroll runway"
           position: 'relative'
         }}
       >

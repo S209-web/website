@@ -11,12 +11,6 @@ import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import React from 'react';
 
-export const metadata = {
-  title: "Service Details - Shout Code Digital Agency",
-  description: "Comprehensive digital services designed to elevate your brand and drive results.",
-};
-
-
 const index = () => {
   return (
     <Wrapper>
