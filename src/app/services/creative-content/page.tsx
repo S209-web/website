@@ -1,7 +1,6 @@
 'use client'
 
 import AboutHomeFour from '@/components/about/AboutHomeFour';
-import DetailsBanner from '@/components/details/DetailsBanner';
 import CreativeContentFaq from '@/components/faq/CreativeContentFaq';
 import HeroCreativeContent from '@/components/hero/HeroCreativeContent';
 import CreativeContentAreaDetails from '@/components/service/CreativeContentAreaDetails';
@@ -23,7 +22,6 @@ const index = () => {
           <main>
             <HeroCreativeContent />
             <CreativeContentAreaDetails />
-            <DetailsBanner />
             <CreativeContentFaq />
             <AboutHomeFour />
           </main>

@@ -1,10 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface DataType {
   id: string;
   emoji: string;
   title: string;
   description: string;
+  link: string;
 }
 
 const performance_growth_data: DataType[] = [
@@ -13,24 +15,28 @@ const performance_growth_data: DataType[] = [
     emoji: '📊',
     title: "Performance Marketing",
     description: `Where every click counts. Maximize ROI with data-driven advertising across Meta, Google, LinkedIn, and YouTube with A/B testing, daily optimization, and retargeting strategies.`,
+    link: '/services/performance-marketing'
   },
   {
     id: 'Two',
     emoji: '🤖',
     title: "AI-Based Content & Automation",
     description: `AI tools with human touch. Leverage AI voiceovers, avatars, ad creatives, blog generation, and automation workflows that scale your content and save time while you sleep.`,
+    link: '/services/ai-seo-geo-aeo-content-protection'
   },
   {
     id: 'Three',
     emoji: '🚀',
     title: "CRO & Analytics Hub",
     description: `Conversions aren't luck—they're strategy. Apply proven methodologies to analyze funnels, run controlled experiments, and deliver measurable improvements to your KPIs.`,
+    link: '/services/cro-analytics'
   },
   {
     id: 'Four',
     emoji: '💼',
     title: "Web & App Development",
     description: `Websites that work as hard as you do. Design and develop fast, scalable, and growth-optimized websites, apps, and CRMs with custom solutions that perform.`,
+    link: '/services/web-app-development'
   },
 ]
 
@@ -54,7 +60,7 @@ const PerformanceGrowthAreaDetails = () => {
             <div className="cs_work cs_work_1">
               <div className="cs_card_work cs_style_1">
                 {performance_growth_data.map((item, i) => (
-                  <div key={i} className="cs_card cs_mt_nthchild_0 anim_div_ShowLeftSide">
+                  <Link href={item.link} key={i} className="cs_card cs_mt_nthchild_0 anim_div_ShowLeftSide" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <div className="cs_card cs_style_1">
                       <div className="cs_posagation">
                         <div className="cs_work_style_1"></div>
@@ -77,7 +83,7 @@ const PerformanceGrowthAreaDetails = () => {
                     <p className="cs_work_subtitle">
                       {item.description}
                     </p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

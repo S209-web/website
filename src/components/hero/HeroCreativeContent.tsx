@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import banner_img from '@/assets/img/service_details_banner.jpg';
+import banner_img from "../../../public/assets/img/content creation.png";
 
 interface DataType {
   title: string;
@@ -10,7 +10,8 @@ interface DataType {
 
 const hero_creative_content: DataType = {
   title: "Creative & Content Services",
-  description: `From striking visuals to compelling words, our creative team ensures your brand communicates with clarity, creativity, and consistency. We merge artistic vision with strategic marketing to produce content that not only captivates your audience but also achieves your business goals. Whether you need eye-catching graphics, engaging videos, or persuasive copy, we're your creative powerhouse.`,
+  description: `We don’t just create content, we craft experiences that make your brand unforgettable.
+We design, write, and create content that not only looks great but also builds strong, memorable brands. Our team ensures your brand communicates with clarity, creativity, and consistency across every channel.`,
   features: [
     `🎨 Professional graphic design that defines your brand's visual identity`,
     `🎬 Video editing and motion graphics that tell your story`,
@@ -37,8 +38,8 @@ const HeroCreativeContent = () => {
           <div className="cs_height_100 cs_height_lg_60"></div>
           <div className="cs_service_details">
             <div className="cs_service_details_img">
-              <div className="cs_style_img">
-                <Image src={banner_img} alt="creative_content_banner" />
+              <div className="cs_style_img" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src={banner_img} alt="creative_content_banner" style={{ maxHeight: '300px', width: 'auto', objectFit: 'contain' }} />
               </div>
             </div>
             <div className="cs_service_details_text">

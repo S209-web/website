@@ -30,8 +30,8 @@ const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({ title, tagline, i
 
           <div className="cs_service_details">
             <div className="cs_service_details_img anim_div_ShowDowns">
-              <div className="cs_style_img">
-                <Image src={image} alt={title} width={800} height={500} style={{ width:'100%', height:'auto', objectFit:'cover' }} />
+              <div className="cs_style_img" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src={image} alt={title} width={800} height={500} style={{ maxHeight: '300px', width: 'auto', objectFit: 'contain' }} />
               </div>
             </div>
             <div className="cs_service_details_text">

@@ -9,42 +9,38 @@ interface DataType {
   link: string;
 }
 
-const creative_service_data: DataType[] = [
+const ondc_service_data: DataType[] = [
   {
     id: 'One',
-    emoji: '🎨',
-    title: "Graphic Designing",
-    description: `Designs so bold that your brand never whispers, it SHOUTS.`,
-    link: '/services/graphic-designing'
+    emoji: '🛒',
+    title: "ONDC Integration & Setup",
+    description: `Complete ONDC network integration, seller onboarding, and marketplace optimization to get your business visible on India's open digital commerce platform.`,
+    link: '/services/ondc-retail-media'
   },
   {
     id: 'Two',
-    emoji: '🎬',
-    title: "Video Editing & Motion Graphics",
-    description: `Story that moves your audience"
- Bring your stories to life with professional video content.
-`,
-    link: '/services/video-editing'
+    emoji: '📊',
+    title: "Retail Media Advertising",
+    description: `Strategic advertising campaigns across major retail platforms and marketplaces to maximize product visibility and drive sales through targeted media placements.`,
+    link: '/services/ondc-retail-media-ops'
   },
   {
     id: 'Three',
-    emoji: '✍️',
-    title: "Copywriting",
-    description: ` "From captions to campaigns—we write it all"
- Words that connect, sell, and inspire.
-`,
-    link: '/services/copywriting'
-   },
-   {
-     id: 'Four',
-     emoji: '🚀',
-     title: "Strategic Implementation",
-     description: `We ensure your creative content aligns with your business goals and reaches the right audience through strategic planning and execution.`,
-     link: '/services/creative-content'
-   },
+    emoji: '⚡',
+    title: "E-commerce Operations",
+    description: `End-to-end e-commerce management including inventory optimization, order fulfillment, customer service, and platform management for seamless operations.`,
+    link: '/services/ondc-retail-media'
+  },
+  {
+    id: 'Four',
+    emoji: '📈',
+    title: "Analytics & Performance Tracking",
+    description: `Comprehensive tracking and analytics for your ONDC and retail media performance with actionable insights to optimize sales and ROI across all channels.`,
+    link: '/services/cro-analytics'
+  },
 ]
 
-const CreativeContentAreaDetails = () => {
+const ONDCAreaDetails = () => {
   return (
     <>
       <div className="cs_height_150 cs_height_lg_50"></div>
@@ -52,18 +48,18 @@ const CreativeContentAreaDetails = () => {
         <div className="container">
           <div className="cs_work cs_work_text">
             <h4 className="anim_heading_title">
-              Our Creative Specializations & Process
+              Our ONDC & Retail Media Solutions
             </h4>
             <p className="cs_mp0 anim_text">
-              Here's how our creative engine works, breaking down our core services into a clear, strategic process. 
-              We combine artistic vision with marketing strategy to create content that not only looks amazing but drives real results for your business.
+              We provide comprehensive ONDC integration and retail media operations to help your business succeed in the open digital commerce ecosystem. 
+              From setup to optimization, we handle every aspect of your e-commerce journey.
             </p>
           </div>
           <div className="cs_height_80 cs_height_lg_40"></div>
           <div>
             <div className="cs_work cs_work_1">
               <div className="cs_card_work cs_style_1">
-                {creative_service_data.map((item, i) => (
+                {ondc_service_data.map((item, i) => (
                   <Link href={item.link} key={i} className="cs_card cs_mt_nthchild_0 anim_div_ShowLeftSide" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <div className="cs_card cs_style_1">
                       <div className="cs_posagation">
@@ -98,4 +94,4 @@ const CreativeContentAreaDetails = () => {
   );
 };
 
-export default CreativeContentAreaDetails;
+export default ONDCAreaDetails;

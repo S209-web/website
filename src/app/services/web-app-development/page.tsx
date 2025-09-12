@@ -1,7 +1,7 @@
 'use client'
 
 import WebAppHero from '@/components/hero/WebAppHero';
-import WebAppServices from '@/components/service/WebAppServices';
+import WebAppAreaDetails from '@/components/service/WebAppAreaDetails';
 import WebAppFAQ from '@/components/faq/WebAppFAQ';
 import Wrapper from '@/layouts/Wrapper';
 import FooterOne from '@/layouts/footers/FooterOne';
@@ -20,7 +20,7 @@ const index = () => {
         <div id="smooth-content">
           <main>
             <WebAppHero />
-            <WebAppServices />
+            <WebAppAreaDetails />
             <WebAppFAQ />
           </main>
           <FooterOne />

@@ -17,3 +17,131 @@
 @import '../../public/assets/css/plugins/lightgallery.min.css';
 
 @import '../../public/assets/sass/style.scss';
+
+/* Custom scroll-triggered animations for services section */
+.anim_div_ShowDowns {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.anim_div_ShowDowns.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for smooth sequential animation */
+.anim_div_ShowDowns:nth-child(1) { transition-delay: 0.1s; }
+.anim_div_ShowDowns:nth-child(2) { transition-delay: 0.2s; }
+.anim_div_ShowDowns:nth-child(3) { transition-delay: 0.3s; }
+.anim_div_ShowDowns:nth-child(4) { transition-delay: 0.4s; }
+.anim_div_ShowDowns:nth-child(5) { transition-delay: 0.5s; }
+.anim_div_ShowDowns:nth-child(6) { transition-delay: 0.6s; }
+
+/* Scroll reveal animations */
+.reveal-on-scroll {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Hero section animations */
+.hero-reveal-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Card animations */
+.reveal-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reveal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Slide section styles */
+.slide-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide-content {
+  text-align: center;
+  padding: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slide-section {
+    background-attachment: scroll;
+  }
+  
+  .slide-content {
+    padding: 2rem 1rem;
+  }
+  
+  .reveal-card {
+    padding: 1.5rem;
+    margin: 0.5rem;
+  }
+}

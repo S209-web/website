@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import FloatingServiceImage from './FloatingServiceImage';
 
 interface DataType {
   id: number;
@@ -87,27 +86,54 @@ const ServiceHomeOne = () => {
   
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        const animElements = entry.target.querySelectorAll(
-          '.anim_div_ShowZoom, .anim_heading_title, .anim_div_ShowDowns, .cs_btn_anim'
-        );
-        
         if (entry.isIntersecting) {
-          // Add animations when scrolling into view
-          animElements.forEach((element, index) => {
+          // Animate heading first
+          const headingElement = entry.target.querySelector('.anim_heading_title');
+          if (headingElement) {
             setTimeout(() => {
-              element.classList.add('active');
-            }, index * 150); // Increased stagger time
+              headingElement.classList.add('active');
+            }, 200);
+          }
+
+          // Then animate service cards one by one with longer delays
+          const serviceCards = entry.target.querySelectorAll('.anim_div_ShowDowns');
+          serviceCards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('active');
+              // Show mascot when card animates in
+              const mascot = card.querySelector('.cs_service_mascot');
+              if (mascot) {
+                (mascot as HTMLElement).style.opacity = '0.8';
+              }
+            }, 600 + (index * 400)); // Start after heading, then 400ms between each card
           });
+
+          // Finally animate the button
+          const buttonElement = entry.target.querySelector('.cs_btn_anim');
+          if (buttonElement) {
+            setTimeout(() => {
+              buttonElement.classList.add('active');
+            }, 600 + (serviceCards.length * 400) + 300);
+          }
         } else {
-          // Remove animations when scrolling out of view
-          animElements.forEach((element) => {
+          // Reset animations when scrolling out of view
+          const allAnimElements = entry.target.querySelectorAll(
+            '.anim_div_ShowZoom, .anim_heading_title, .anim_div_ShowDowns, .cs_btn_anim'
+          );
+          allAnimElements.forEach((element) => {
             element.classList.remove('active');
+          });
+          
+          // Hide mascots when out of view
+          const mascots = entry.target.querySelectorAll('.cs_service_mascot');
+          mascots.forEach((mascot) => {
+            (mascot as HTMLElement).style.opacity = '0';
           });
         }
       });
@@ -141,58 +167,59 @@ const ServiceHomeOne = () => {
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        /* Enhanced scroll animations - more dramatic effects */
-        .anim_div_ShowZoom {
-          opacity: 0;
-          transform: scale(0.5) rotate(-5deg);
-          transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .anim_heading_title {
-          opacity: 0;
-          transform: translateY(80px) translateX(-30px);
-          transition: all 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
         .anim_div_ShowDowns {
           opacity: 0;
-          transform: translateY(100px) scale(0.8);
-          transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transform: translateY(60px);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          visibility: hidden;
         }
         
         .cs_btn_anim {
           opacity: 0;
-          transform: translateX(80px) rotate(10deg) scale(0.8);
-          transition: all 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transform: translateY(60px);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          visibility: hidden;
         }
         
-        /* Staggered animation delays - increased timing */
-        .anim_div_ShowDowns:nth-child(1) { transition-delay: 0.2s; }
-        .anim_div_ShowDowns:nth-child(2) { transition-delay: 0.4s; }
-        .anim_div_ShowDowns:nth-child(3) { transition-delay: 0.6s; }
-        .anim_div_ShowDowns:nth-child(4) { transition-delay: 0.8s; }
-        .anim_div_ShowDowns:nth-child(5) { transition-delay: 1.0s; }
-        .anim_div_ShowDowns:nth-child(6) { transition-delay: 1.2s; }
-        
-        /* Active state when in view - smooth entrance */
-        .anim_div_ShowZoom.active {
-          opacity: 1;
-          transform: scale(1) rotate(0deg);
+        .anim_div_ShowZoom {
+          opacity: 0;
+          transform: translateY(60px);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          visibility: hidden;
         }
         
-        .anim_heading_title.active {
-          opacity: 1;
-          transform: translateY(0) translateX(0);
+        .anim_heading_title {
+          opacity: 0;
+          transform: translateY(60px);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          visibility: hidden;
         }
         
+        /* Remove the nth-child delays since we're controlling timing with JavaScript */
+        
+        /* Active state when in view */
         .anim_div_ShowDowns.active {
           opacity: 1;
-          transform: translateY(0) scale(1);
+          transform: translateY(0);
+          visibility: visible;
         }
         
         .cs_btn_anim.active {
           opacity: 1;
-          transform: translateX(0) rotate(0deg) scale(1);
+          transform: translateY(0);
+          visibility: visible;
+        }
+        
+        .anim_div_ShowZoom.active {
+          opacity: 1;
+          transform: translateY(0);
+          visibility: visible;
+        }
+        
+        .anim_heading_title.active {
+          opacity: 1;
+          transform: translateY(0);
+          visibility: visible;
         }
         
         /* Tablet optimization */
@@ -234,20 +261,23 @@ const ServiceHomeOne = () => {
             height: 80px !important; /* Increased size */
             left: 75% !important;
             transform: translate(-50%, -50%) !important;
+            opacity: 0.7 !important; /* Always visible on small screens */
           }
           
           .cs_service_mascot_large {
             width: 160px !important; /* Increased size for bundles 1, 3, 4 */
             height: 160px !important; /* Increased size for bundles 1, 3, 4 */
+            opacity: 0.7 !important; /* Always visible on small screens */
           }
           
           .cs_card:hover .cs_service_mascot {
-            opacity: 0.8 !important;
-            transform: translateY(-5px) scale(1.02) !important;
+            opacity: 0.9 !important;
+            transform: translate(-50%, -50%) scale(1.05) !important;
           }
           
           .cs_card:hover .cs_service_mascot_large {
-            transform: translateY(-3px) scale(1.01) !important;
+            opacity: 0.9 !important;
+            transform: translate(-50%, -50%) scale(1.02) !important;
           }
         }
         
@@ -258,6 +288,9 @@ const ServiceHomeOne = () => {
             height: 56px !important; /* Regular size */
             right: 12px !important;
             top: 20px !important;
+            left: auto !important;
+            transform: none !important;
+            opacity: 0.6 !important; /* Always visible on small screens */
           }
           
           .cs_service_mascot_large {
@@ -265,6 +298,19 @@ const ServiceHomeOne = () => {
             height: 112px !important; /* Double size for bundles 1, 3, 4 */
             right: 5px !important;
             top: 10px !important;
+            left: auto !important;
+            transform: none !important;
+            opacity: 0.6 !important; /* Always visible on small screens */
+          }
+
+          .cs_card:hover .cs_service_mascot {
+            opacity: 0.8 !important;
+            transform: scale(1.05) !important;
+          }
+          
+          .cs_card:hover .cs_service_mascot_large {
+            opacity: 0.8 !important;
+            transform: scale(1.02) !important;
           }
         }
         
@@ -275,6 +321,7 @@ const ServiceHomeOne = () => {
             height: 50px !important; /* Regular size */
             right: 10px !important;
             top: 18px !important;
+            opacity: 0.6 !important; /* Always visible on small screens */
           }
           
           .cs_service_mascot_large {
@@ -282,6 +329,15 @@ const ServiceHomeOne = () => {
             height: 100px !important; /* Double size for bundles 1, 3, 4 */
             right: 3px !important;
             top: 8px !important;
+            opacity: 0.6 !important; /* Always visible on small screens */
+          }
+
+          .cs_card:hover .cs_service_mascot {
+            opacity: 0.8 !important;
+          }
+          
+          .cs_card:hover .cs_service_mascot_large {
+            opacity: 0.8 !important;
           }
         }
       `}</style>
@@ -322,9 +378,7 @@ const ServiceHomeOne = () => {
                 <div className="cs_card_right">
                   <div className="cs_card_right_in">
                     <h2 className="cs_card_title">
-                      <FloatingServiceImage image={serviceImages[item.title] || '/assets/img/content-design.png'}>
-                        <Link href={item.link}>{item.title}</Link>
-                      </FloatingServiceImage>
+                      <Link href={item.link}>{item.title}</Link>
                     </h2>
                     <div className="cs_card_subtitle" dangerouslySetInnerHTML={{ __html: item.des }}>
                     </div>

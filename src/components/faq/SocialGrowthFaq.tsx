@@ -75,7 +75,7 @@ const SocialGrowthFaq = () => {
                     </div>
                     <div className={`cs_accordian_body ${openFaq === item.id ? 'cs_accordian_body_active' : ''}`}>
                       <div className="cs_accordian_body_in">
-                        <p>{item.answer}</p>
+                        <p style={{ fontWeight: 400, fontSize: '0.95rem', lineHeight: 1.6 }}>{item.answer}</p>
                       </div>
                     </div>
                   </div>

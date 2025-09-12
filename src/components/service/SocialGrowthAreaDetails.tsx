@@ -1,10 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface DataType {
   id: string;
   emoji: string;
   title: string;
   description: string;
+  link: string;
 }
 
 const social_growth_data: DataType[] = [
@@ -13,24 +15,28 @@ const social_growth_data: DataType[] = [
     emoji: '📈',
     title: "Social Media Management",
     description: `Social media is the face of your brand—and we make sure it shines. Our approach combines creativity with data-driven strategy to deliver measurable growth. We handle content creation, optimization, scheduling, and analytics.`,
+    link: '/services/social-media-management'
   },
   {
     id: 'Two',
     emoji: '🤝',
     title: "Influencer Marketing & PR",
     description: `Build trust and amplify your brand's visibility by connecting with the right voices. We identify authentic micro and nano influencers and secure valuable PR placements to boost credibility.`,
+    link: '/services/influencer-marketing-pr'
   },
   {
     id: 'Three',
     emoji: '💬',
     title: "UGC & Creator Commerce",
     description: `Win customer trust with authentic content from real people. We develop campaigns that encourage customers to become creators, building social proof and driving sales through genuine testimonials.`,
+    link: '/services/ugc-creator-commerce'
   },
   {
     id: 'Four',
     emoji: '🚀',
     title: "Community Building",
     description: `We create strategies that transform followers into engaged community members and brand advocates through authentic interactions and value-driven content experiences.`,
+    link: '/services/social-community-growth'
   },
 ]
 
@@ -54,7 +60,7 @@ const SocialGrowthAreaDetails = () => {
             <div className="cs_work cs_work_1">
               <div className="cs_card_work cs_style_1">
                 {social_growth_data.map((item, i) => (
-                  <div key={i} className="cs_card cs_mt_nthchild_0 anim_div_ShowLeftSide">
+                  <Link href={item.link} key={i} className="cs_card cs_mt_nthchild_0 anim_div_ShowLeftSide" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <div className="cs_card cs_style_1">
                       <div className="cs_posagation">
                         <div className="cs_work_style_1"></div>
@@ -77,7 +83,7 @@ const SocialGrowthAreaDetails = () => {
                     <p className="cs_work_subtitle">
                       {item.description}
                     </p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

@@ -1,7 +1,6 @@
 
 'use client'
 
-
 import AboutHomeFour from '@/components/about/AboutHomeFour';
 import DetailsBanner from '@/components/details/DetailsBanner';
 import ServiceDetailsFaq from '@/components/faq/ServiceDetailsFaq';
@@ -12,9 +11,10 @@ import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import React from 'react';
 
-// export const metadata = {
-//   title: "Service Details Vixan - Digital  Creative Agency Next js Template",
-// };
+export const metadata = {
+  title: "Service Details - Shout Code Digital Agency",
+  description: "Comprehensive digital services designed to elevate your brand and drive results.",
+};
 
 
 const index = () => {

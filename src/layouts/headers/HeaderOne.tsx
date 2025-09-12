@@ -77,19 +77,7 @@ const menu_data: DataType[] = [
         id: 4,
         title: "Portfolio",
         link: "/portfolio",
-        has_dropdown: true,
-        sub_menu: [
-            {
-                id: 1,
-                title: "Portfolio",
-                link: "/portfolio",
-            },
-            {
-                id: 2,
-                title: "Portfolio Details",
-                link: "/portfolio-details",
-            }
-        ]
+        has_dropdown: false,
     },
     {
         id: 5,

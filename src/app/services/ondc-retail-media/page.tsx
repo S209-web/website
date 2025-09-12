@@ -1,17 +1,16 @@
 'use client'
 
 import AboutHomeFour from '@/components/about/AboutHomeFour';
-import DetailsBanner from '@/components/details/DetailsBanner';
-import ServiceDetailsFaq from '@/components/faq/ServiceDetailsFaq';
-import HeroServiceDetails from '@/components/hero/HeroServiceDetails';
-import ServiceAreaDetails from '@/components/service/ServiceAreaDetails';
+import ONDCFaq from '@/components/faq/ONDCFaq';
+import HeroONDC from '@/components/hero/HeroONDC';
+import ONDCAreaDetails from '@/components/service/ONDCAreaDetails';
 import Wrapper from '@/layouts/Wrapper';
 import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import React from 'react';
 
 // export const metadata = {
-//   title: "ONDC & Retail Media Operations - Shout OTB",
+//   title: "ONDC & Retail Media Operations - Shout Out of the Box",
 // };
 
 const index = () => {
@@ -21,10 +20,9 @@ const index = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <HeroServiceDetails />
-            <ServiceAreaDetails />
-            <DetailsBanner />
-            <ServiceDetailsFaq />
+            <HeroONDC />
+            <ONDCAreaDetails />
+            <ONDCFaq />
             <AboutHomeFour />
           </main>
           <FooterOne />

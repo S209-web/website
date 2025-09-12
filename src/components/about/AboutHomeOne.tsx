@@ -1,7 +1,6 @@
 'use client'
-import React, { useEffect, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import React from 'react';
+import RevealOnScroll from '@/components/common/RevealOnScroll';
 
 interface DataType {
   img: string;
@@ -24,7 +23,7 @@ const about_slider: DataType[] = [
     des: `We don't gamble. Every bold move is backed by insight, testing, and a deep understanding of what actually works.`,
   },
   {
-    img: "/assets/img/automation.jpg",
+    img: "/assets/img/automation.png",
     sub_title: "The Shout Code",
     title: `Human-First Automation`,
     des: `We use tech to remove friction, not imagination. Machines handle the repeatable — people craft the remarkable.`,
@@ -50,380 +49,314 @@ const about_slider: DataType[] = [
 ]
 
 const AboutHomeOne = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const animElements = entry.target.querySelectorAll(
-          '.anim_slide_left, .anim_slide_right, .anim_slide_up'
-        );
-        
-        if (entry.isIntersecting) {
-          animElements.forEach((element, index) => {
-            setTimeout(() => {
-              element.classList.add('active');
-            }, index * 200);
-          });
-        } else {
-          animElements.forEach((element) => {
-            element.classList.remove('active');
-          });
-        }
-      });
-    }, observerOptions);
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
     <>
       <style jsx>{`
-        .anim_slide_left {
-          opacity: 0;
-          transform: translateX(-120px) rotate(-5deg);
-          transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .anim_slide_right {
-          opacity: 0;
-          transform: translateX(120px) rotate(5deg);
-          transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .anim_slide_up {
-          opacity: 0;
-          transform: translateY(100px) scale(0.9);
-          transition: all 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .anim_slide_left.active {
-          opacity: 1;
-          transform: translateX(0) rotate(0deg);
-        }
-        
-        .anim_slide_right.active {
-          opacity: 1;
-          transform: translateX(0) rotate(0deg);
-        }
-        
-        .anim_slide_up.active {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-
-        /* --- REFINED SPACING LOGIC --- */
-
-        .cs_about.cs_style_1 {
-          min-height: 100vh;
-          position: relative;
-          display: flex;
-          align-items: center;
+        /* Main container styles */
+        .shout-code-container {
           background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-          padding: 2rem 0; /* Added vertical padding for breathing room on all screens */
-        }
-
-        .cs_about_bg {
-          display: none; 
-        }
-
-        .cs_about_content_wrapper {
-          width: 100%;
-          display: grid;
-          grid-template-columns: 1.4fr 1fr; 
-          gap: 4rem; /* Increased gap for better separation */
-          align-items: center;
-          min-height: 80vh;
-        }
-
-        .cs_about_image_container {
           position: relative;
-          height: 500px;
+          overflow: hidden;
+        }
+
+        /* Hero intro section */
+        .shout-code-hero {
+          min-height: 100vh;
           display: flex;
           align-items: center;
           justify-content: center;
+          position: relative;
+          text-align: center;
+          padding: 4rem 2rem;
         }
 
-        .cs_about_image {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          border-radius: 16px;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-          transition: transform 0.6s ease;
+        .shout-code-hero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(circle at 30% 70%, rgba(243, 60, 82, 0.15) 0%, transparent 50%),
+                      radial-gradient(circle at 70% 30%, rgba(243, 60, 82, 0.1) 0%, transparent 50%);
+          z-index: 1;
         }
 
-        .cs_about_image:hover {
-          transform: scale(1.05);
-        }
-
-        .cs_about_text {
+        .hero-content {
           position: relative;
           z-index: 2;
           color: white;
-          padding: 4rem 5rem; /* Simplified and balanced padding */
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 20px;
-          backdrop-filter: blur(15px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          margin: 0; /* Removed margin to rely on grid-gap for spacing */
-          min-height: 280px; 
+          max-width: 900px;
+          margin: 0 auto;
         }
 
-        .cs_section_heading {
-          margin-bottom: 2rem !important; 
+        .hero-title {
+          font-size: clamp(3.5rem, 8vw, 7rem);
+          font-weight: 700;
+          margin-bottom: 2rem;
+          background: linear-gradient(135deg, #F33C52 0%, #ff6b6b 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          line-height: 1.1;
         }
 
-        .cs_about_text p {
-          margin-top: 1.8rem !important;
-          line-height: 1.7 !important; 
-          font-size: 1.1rem !important; 
+        .hero-subtitle {
+          font-size: clamp(1.3rem, 3vw, 2.2rem);
+          margin-bottom: 2.5rem;
+          opacity: 0.9;
+          line-height: 1.4;
+          font-weight: 300;
         }
 
-        /* Tablet Design (768px - 1024px) */
-        @media (min-width: 768px) and (max-width: 1024px) {
-          .cs_about_content_wrapper {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            text-align: center;
-          }
-          
-          .cs_about_image_container {
-            height: 400px;
-            order: 1;
-          }
-          
-          .cs_about_text {
-            order: 2;
-            max-width: 90%;
-            margin: 0 auto; /* Keep auto margin for centering */
-            padding: 3rem 4rem; /* Balanced padding */
-            min-height: 250px; 
-          }
+        .hero-description {
+          font-size: 1.4rem;
+          opacity: 0.8;
+          line-height: 1.7;
+          margin-bottom: 4rem;
+          font-weight: 300;
         }
 
-        /* Mobile Phone Design (≤767px) */
-        @media (max-width: 767px) {
-          .cs_about.cs_style_1 {
-            padding: 4rem 0; /* More vertical padding for mobile */
-          }
-          
-          .cs_about_content_wrapper {
-            grid-template-columns: 1fr;
-            gap: 2.5rem; /* Increased gap for better stacking */
-            padding: 0 1.5rem; /* Consistent horizontal padding for the container */
-          }
-          
-          .cs_about_image_container {
-            height: 280px;
-            padding: 0; /* Removed padding here as container padding is enough */
-            order: 1;
-          }
-          
-          .cs_about_image {
-            border-radius: 12px;
-          }
-          
-          .cs_about_text {
-            order: 2;
-            margin: 0;
-            padding: 2.5rem 2rem; /* Simplified padding for mobile */
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            min-height: auto; /* Allow height to be determined by content */
-          }
-          
-          .cs_section_title {
-            font-size: 1.8rem !important;
-            line-height: 1.3 !important;
-            margin-bottom: 1.5rem !important; 
-          }
-          
-          .cs_section_subtitle {
-            font-size: 0.9rem !important;
-            margin-bottom: 1rem !important;
-          }
-          
-          .cs_about_text p {
-            font-size: 1rem !important; 
-            line-height: 1.6 !important;
-            margin-top: 1.5rem !important;
-          }
-
-          .cs_swiper_controll { 
-            display: block !important;
-          }
-        }
-
-        /* Large Desktop (≥1200px) */
-        @media (min-width: 1200px) {
-          .cs_about_content_wrapper {
-            gap: 5rem; /* More gap for larger screens */
-            grid-template-columns: 1.5fr 1fr;
-          }
-          
-          .cs_about_image_container {
-            height: 550px;
-          }
-          
-          .cs_about_text {
-            padding: 5rem 6.5rem; /* Generous padding for large screens */
-            min-height: 320px;
-          }
-        }
-
-        .cs_swiper_controll {
+        /* Individual principle sections */
+        .principle-section {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           position: relative;
-          z-index: 3;
-          padding: 1rem 0;
+          padding: 6rem 2rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
         }
 
-        @media (max-width: 767px) {
-          .cs_swiper_controll {
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 12px;
-            margin: 0 1rem;
-            padding: 1rem;
-            backdrop-filter: blur(10px);
+        .principle-section:last-child {
+          border-bottom: none;
+        }
+
+        .principle-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(15, 15, 15, 0.85);
+          z-index: 1;
+        }
+
+        .principle-content {
+          position: relative;
+          z-index: 2;
+          max-width: 1000px;
+          margin: 0 auto;
+          text-align: center;
+          color: white;
+        }
+
+        .principle-number {
+          font-size: 1.2rem;
+          color: #F33C52;
+          font-weight: 600;
+          margin-bottom: 1.5rem;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          opacity: 0.9;
+        }
+
+        .principle-title {
+          font-size: clamp(3rem, 6vw, 5rem);
+          font-weight: 700;
+          margin-bottom: 3rem;
+          line-height: 1.2;
+          background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .principle-description {
+          font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+          line-height: 1.8;
+          opacity: 0.85;
+          font-weight: 300;
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 0 2rem;
+        }
+
+        /* Background decorative elements */
+        .principle-section::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(circle at 20% 80%, rgba(243, 60, 82, 0.06) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(243, 60, 82, 0.04) 0%, transparent 50%);
+          z-index: 2;
+        }
+
+        .principle-section:nth-child(even)::after {
+          background: radial-gradient(circle at 80% 80%, rgba(243, 60, 82, 0.06) 0%, transparent 50%),
+                      radial-gradient(circle at 20% 20%, rgba(243, 60, 82, 0.04) 0%, transparent 50%);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+          position: fixed;
+          top: 50%;
+          right: 2rem;
+          transform: translateY(-50%);
+          z-index: 100;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .scroll-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: rgba(243, 60, 82, 0.3);
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+
+        .scroll-dot.active {
+          background: #F33C52;
+          transform: scale(1.4);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+          .shout-code-hero {
+            padding: 3rem 1rem;
           }
-          
-          .cs_swiper_navigation_wrap {
-            gap: 2rem;
-            justify-content: center;
+
+          .principle-section {
+            padding: 4rem 1rem;
+            background-attachment: scroll;
           }
-          
-          .cs_pagination {
-            margin-bottom: 1rem;
-            text-align: center;
+
+          .principle-description {
+            padding: 0 1rem;
+          }
+
+          .scroll-indicator {
+            display: none;
+          }
+
+          .hero-description {
+            font-size: 1.2rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .principle-section {
+            padding: 3rem 1rem;
+          }
+
+          .principle-title {
+            margin-bottom: 2rem;
+          }
+
+          .principle-description {
             font-size: 1.1rem;
-          }
-        }
-
-        @media (max-width: 767px) {
-          .cs_swiper_button_prev,
-          .cs_swiper_button_next {
-            padding: 1rem;
-            background: rgba(243, 60, 82, 0.2);
-            border-radius: 8px;
-            border: 1px solid rgba(243, 60, 82, 0.3);
-            transition: all 0.3s ease;
-          }
-          
-          .cs_swiper_button_prev:active,
-          .cs_swiper_button_next:active {
-            background: rgba(243, 60, 82, 0.4);
-            transform: scale(0.95);
+            line-height: 1.6;
           }
         }
       `}</style>
-      <div className="cs_height_130 cs_height_lg_60"></div>
-      <div ref={sectionRef}>
-        <Swiper
-          loop={true}
-          speed={1000}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true
-          }}
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation={{
-            nextEl: ".cs_swiper_button_next",
-            prevEl: ".cs_swiper_button_prev",
-          }}
-          pagination={{
-            el: ".cs_pagination",
-            clickable: true,
-            type: "fraction",
-            renderFraction: function (currentClass, totalClass) {
-              return `<span class="${currentClass}"></span> 
-                ${' / '}
-                <span class="${totalClass}"></span>`;
-            },
-          }}
-          className="cs_slider cs_slider_2 anim_slide_left"
-          style={{
-            ['--swiper-navigation-size' as any]: '44px',
-            ['--swiper-theme-color' as any]: '#F33C52'
-          } as React.CSSProperties}
-        >
-          {about_slider.map((item, index) => (
-            <SwiperSlide key={index} className="swiper-slide">
-              <div className="cs_about cs_style_1">
-                <div className="cs_about_bg cs_bg" style={{ backgroundImage: `url(${item.img})` }}></div>
-                <div className="container">
-                  <div className="cs_about_content_wrapper">
-                    {/* Text Content */}
-                    <div className="cs_about_text anim_slide_left">
-                      <div className="cs_section_heading cs_style_1">
-                        <div className="cs_section_heading_text">
-                          <div className="cs_section_subtitle">{item.sub_title}</div>
-                          <h2 className="cs_section_title">
-                            {item.title}
-                          </h2>
-                        </div>
-                      </div>
-                      <div className="cs_height_40 cs_height_lg_30"></div>
-                      <p className="cs_m0">
-                        {item.des}
-                      </p>
-                    </div>
-                    
-                    {/* Image Container */}
-                    <div className="cs_about_image_container anim_slide_right">
-                      <img 
-                        src={item.img} 
-                        alt={item.title}
-                        className="cs_about_image"
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'contain'
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
 
-          <div className="container">
-            <div className="cs_swiper_controll anim_slide_up">
-              <div className="cs_pagination cs_style2 cs_primary_font"></div>
-              <div className="cs_swiper_navigation_wrap">
+      <div className="shout-code-container">
+        {/* Hero Introduction */}
+        <section className="shout-code-hero">
+          <div className="hero-content">
+            <RevealOnScroll delay={0.2} duration={0.8}>
+              <div className="principle-number">Our Philosophy</div>
+            </RevealOnScroll>
+            
+            <RevealOnScroll delay={0.4} duration={0.8}>
+              <h1 className="hero-title">The Shout Code</h1>
+            </RevealOnScroll>
+            
+            <RevealOnScroll delay={0.6} duration={0.8}>
+              <p className="hero-subtitle">
+                Six principles that drive everything we do
+              </p>
+            </RevealOnScroll>
 
-                <div style={{ cursor: 'pointer' }} className="cs_swiper_button_prev">
-                  <svg width="82" height="24" viewBox="0 0 82 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M82 1H2L24 23" stroke="currentColor" />
-                  </svg>
-                </div>
-                <div style={{ cursor: 'pointer' }} className="cs_swiper_button_next">
-                  <svg width="82" height="24" viewBox="0 0 82 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 23H80L58 1" stroke="currentColor" />
-                  </svg>
-                </div>
-
-              </div>
-            </div>
+            <RevealOnScroll delay={0.8} duration={0.8}>
+              <p className="hero-description">
+                These aren't just values on a wall — they're the DNA of how we think, create, and deliver results that matter.
+              </p>
+            </RevealOnScroll>
           </div>
-        </Swiper>
+        </section>
+
+        {/* Individual Principles */}
+        {about_slider.map((principle, index) => (
+          <section 
+            key={index}
+            className="principle-section"
+            style={{
+              backgroundImage: `url(${principle.img})`,
+            }}
+          >
+            <div className="principle-content">
+              <RevealOnScroll delay={0.3} duration={0.8} distance={50}>
+                <div className="principle-number">
+                  {String(index + 1).padStart(2, '0')} — {principle.sub_title}
+                </div>
+              </RevealOnScroll>
+
+              <RevealOnScroll delay={0.5} duration={0.8} distance={60}>
+                <h2 className="principle-title">{principle.title}</h2>
+              </RevealOnScroll>
+
+              <RevealOnScroll delay={0.7} duration={0.8} distance={40}>
+                <p className="principle-description">{principle.des}</p>
+              </RevealOnScroll>
+            </div>
+          </section>
+        ))}
+
+        {/* Scroll Progress Indicator */}
+        <div className="scroll-indicator">
+          <div className="scroll-dot active"></div>
+          {about_slider.map((_, index) => (
+            <div key={index} className="scroll-dot"></div>
+          ))}
+        </div>
       </div>
+
+      <style jsx global>{`
+        /* Smooth scrolling enhancement */
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(135deg, #F33C52, #ff6b6b);
+          border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(135deg, #ff6b6b, #F33C52);
+        }
+      `}</style>
     </>
   );
 };

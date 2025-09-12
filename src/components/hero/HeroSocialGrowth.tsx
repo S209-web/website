@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import banner_img from '@/assets/img/service_details_banner.jpg';
+import banner_img from "../../../public/assets/img/Social & Community Growth.png";
 
 interface DataType {
   title: string;
@@ -37,8 +37,8 @@ const HeroSocialGrowth = () => {
           <div className="cs_height_100 cs_height_lg_60"></div>
           <div className="cs_service_details">
             <div className="cs_service_details_img">
-              <div className="cs_style_img">
-                <Image src={banner_img} alt="social_community_growth_banner" />
+              <div className="cs_style_img" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src={banner_img} alt="social_community_growth_banner" style={{ maxHeight: '300px', width: 'auto', objectFit: 'contain' }} />
               </div>
             </div>
             <div className="cs_service_details_text">

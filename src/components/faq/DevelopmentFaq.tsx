@@ -7,15 +7,15 @@ interface DataType {
   answer: string;
 }
 
-const creative_faq_data: DataType[] = [
+const development_faq_data: DataType[] = [
   {
     id: 1,
-    question: "What's included in your graphic design services?",
-    answer: "Our graphic design services include logo design, brand kit development, social media creatives, marketing materials like brochures and flyers, business cards, presentations, and any custom visual content your brand needs. We ensure consistency across all platforms."
+    question: "What technologies do you use for development?",
+    answer: "We use modern tech stacks including Next.js/React for frontend, Node.js/Express for backend, Prisma/Postgres for databases, Firebase/Supabase for cloud services, and Tailwind/SCSS for styling. We choose the best technology based on your project requirements."
   }
 ];
 
-const CreativeContentFaq = () => {
+const DevelopmentFaq = () => {
   const [openFaq, setOpenFaq] = useState<number>(1);
 
   const toggleFaq = (id: number) => {
@@ -35,19 +35,19 @@ const CreativeContentFaq = () => {
                 </h3>
                 <div className="cs_height_5 cs_height_lg_5"></div>
                 <h2 className="cs_section_title anim_heading_title">
-                  Frequently Asked Questions About Our Creative & Content Services
+                  Frequently Asked Questions About Development Services
                 </h2>
                 <div className="cs_height_35 cs_height_lg_20"></div>
                 <p className="cs_section_subtitle anim_text m-0">
-                  Got questions about our creative and content services? Here are answers to the most common questions 
-                  our clients ask about graphic design, video editing, and copywriting.
+                  Got questions about our development services? Here are answers to help you understand 
+                  our approach to building robust, scalable applications and websites.
                 </p>
               </div>
               <div className="cs_height_55 cs_height_lg_30"></div>
             </div>
             <div className="col-lg-6">
               <div className="cs_accordians cs_style_1 anim_div_ShowDowns">
-                {creative_faq_data.map((item) => (
+                {development_faq_data.map((item) => (
                   <div 
                     key={item.id} 
                     className={`cs_accordian ${openFaq === item.id ? 'active' : ''}`}
@@ -89,4 +89,4 @@ const CreativeContentFaq = () => {
   );
 };
 
-export default CreativeContentFaq;
+export default DevelopmentFaq;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import banner_img from "../../../public/assets/img/web app devlopment.png";
 
 interface DataType {
   title: string;
@@ -36,12 +37,13 @@ const WebAppHero = () => {
           <div className="cs_height_100 cs_height_lg_60"></div>
           <div className="cs_service_details">
             <div className="cs_service_details_img">
-              <div className="cs_style_img">
+              <div className="cs_style_img" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Image 
-                  src="/assets/img/service_details_banner.jpg" 
+                  src={banner_img} 
                   width={1920} 
                   height={1080} 
-                  alt="webapp_development_banner" 
+                  alt="webapp_development_banner"
+                  style={{ maxHeight: '300px', width: 'auto', objectFit: 'contain' }}
                 />
               </div>
             </div>

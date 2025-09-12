@@ -1,7 +1,6 @@
 'use client'
 
 import AboutHomeFour from '@/components/about/AboutHomeFour';
-import DetailsBanner from '@/components/details/DetailsBanner';
 import PerformanceGrowthFaq from '@/components/faq/PerformanceGrowthFaq';
 import HeroPerformanceGrowth from '@/components/hero/HeroPerformanceGrowth';
 import PerformanceGrowthAreaDetails from '@/components/service/PerformanceGrowthAreaDetails';
@@ -23,7 +22,6 @@ const index = () => {
           <main>
             <HeroPerformanceGrowth />
             <PerformanceGrowthAreaDetails />
-            <DetailsBanner />
             <PerformanceGrowthFaq />
             <AboutHomeFour />
           </main>
