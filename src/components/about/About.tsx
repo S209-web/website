@@ -10,7 +10,7 @@ interface DataType {
 }
 const about_content: DataType = {
   subtitle: `Our Story`,
-  title: `Sharp Strategies, Bold Moves, Real Results —<br/>Redefining Marketing & Branding Excellence`,
+  title: `Sharp Strategies,<br/>Bold Moves,<br/>Real Results —<br/>Redefining Marketing & Branding Excellence`,
   des: `Digital agency! We specialize in helping businesses like yours succeed online. From website design and development to digital marketing and advertising, we have the tools and expertise to elevate your online presence. Let us help you lione evolving world of digital to drive growth and reach your goals.`,
 }
 const { subtitle, title, des } = about_content
