@@ -17,18 +17,25 @@ export default function Page() {
               tagline="Websites that work as hard as you do."
               image="/assets/img/web app devlopment.png"
               intro="More than a website—build systems that support growth. From marketing sites to internal tools, we ship reliable, fast products."
-              bulletsTitle="What we build"
-              bullets={[
-                'Marketing sites, blogs, and landing page systems',
-                'E‑commerce, subscriptions, and payments',
-                'Dashboards, internal apps, and lightweight CRMs',
-                'Integrations and admin tooling'
-              ]}
-              extraTitle="Principles"
-              extra={[
-                'Performance budgets and SEO basics by default',
-                'Accessible, responsive, and easy to maintain',
-                'Analytics, forms, and automations wired in'
+              description="Create powerful web applications and custom solutions that scale with your business needs and provide exceptional user experiences."
+              sections={[
+                {
+                  title: "What we build",
+                  content: [
+                    'Marketing sites, blogs, and landing page systems',
+                    'E‑commerce, subscriptions, and payments',
+                    'Dashboards, internal apps, and lightweight CRMs',
+                    'Integrations and admin tooling'
+                  ]
+                },
+                {
+                  title: "Principles",
+                  content: [
+                    'Performance budgets and SEO basics by default',
+                    'Accessible, responsive, and easy to maintain',
+                    'Analytics, forms, and automations wired in'
+                  ]
+                }
               ]}
             />
           </main>

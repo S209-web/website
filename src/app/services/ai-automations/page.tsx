@@ -17,15 +17,22 @@ export default function Page() {
               tagline="AI that works while you sleep."
               image="/assets/img/humanfirtstautomation.png"
               intro="Automate the busywork and keep the human touch. We stitch tools together so ops run faster—from lead capture to follow‑ups and reporting."
-              bulletsTitle="Automations we build"
-              bullets={[
-                'WhatsApp + CRM workflows and lead routing',
-                'AI chatbots, FAQs, and handoff to human',
-                'Reporting dashboards with alerts',
-                'Data syncs across marketing apps'
+              description="Transform your business operations with intelligent automation solutions that handle repetitive tasks while preserving the human elements that matter most to your customers."
+              sections={[
+                {
+                  title: "Automations we build",
+                  content: [
+                    'WhatsApp + CRM workflows and lead routing',
+                    'AI chatbots, FAQs, and handoff to human',
+                    'Reporting dashboards with alerts',
+                    'Data syncs across marketing apps'
+                  ]
+                },
+                {
+                  title: "Stack",
+                  content: ['Make/Zapier', 'Webhook + serverless', 'Meta/Google APIs', 'Sheets/BigQuery/Notion']
+                }
               ]}
-              extraTitle="Stack"
-              extra={['Make/Zapier', 'Webhook + serverless', 'Meta/Google APIs', 'Sheets/BigQuery/Notion']}
             />
           </main>
           <FooterOne />

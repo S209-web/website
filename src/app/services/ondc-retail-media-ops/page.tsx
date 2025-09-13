@@ -17,15 +17,22 @@ export default function Page() {
               tagline="Visibility + sales on every platform."
               image="/assets/img/ONDC.png"
               intro="Expand e‑commerce distribution and win more shelves. We manage listings, ads, and ops across marketplaces—including ONDC—so products stay discoverable and in‑stock."
-              bulletsTitle="What we run"
-              bullets={[
-                'Catalog onboarding, taxonomy, and SEO for listings',
-                'Sponsored ads and retail media optimization',
-                'Pricing, inventory, and promotions management',
-                'Review velocity and ratings improvement'
+              description="Maximize your e-commerce presence across multiple platforms with comprehensive marketplace management and retail media optimization strategies."
+              sections={[
+                {
+                  title: "What we run",
+                  content: [
+                    'Catalog onboarding, taxonomy, and SEO for listings',
+                    'Sponsored ads and retail media optimization',
+                    'Pricing, inventory, and promotions management',
+                    'Review velocity and ratings improvement'
+                  ]
+                },
+                {
+                  title: "Platforms",
+                  content: ['Amazon', 'Flipkart', 'Meesho', 'JioMart', 'ONDC and more']
+                }
               ]}
-              extraTitle="Platforms"
-              extra={['Amazon', 'Flipkart', 'Meesho', 'JioMart', 'ONDC and more']}
             />
           </main>
           <FooterOne />

@@ -17,15 +17,22 @@ export default function Page() {
               tagline="Real voices, real growth."
               image="/assets/img/Social & Community Growth.png"
               intro="Win trust with creator‑style content that feels native, not ads. Seed products, gather testimonials, and turn UGC into high‑performing ads."
-              bulletsTitle="What we produce"
-              bullets={[
-                'Unboxing, try‑ons, how‑to, and POV testimonial videos',
-                'Creator briefs and content guidelines',
-                'Affiliate setups and link tracking',
-                'Live shopping and highlight edits'
+              description="Build authentic brand connections through user-generated content and creator partnerships that drive engagement and conversions."
+              sections={[
+                {
+                  title: "What we produce",
+                  content: [
+                    'Unboxing, try‑ons, how‑to, and POV testimonial videos',
+                    'Creator briefs and content guidelines',
+                    'Affiliate setups and link tracking',
+                    'Live shopping and highlight edits'
+                  ]
+                },
+                {
+                  title: "Distribution",
+                  content: ['Organic feeds', 'Paid social (UGC‑style ads)', 'Marketplaces and PDPs', 'Landing pages and emails']
+                }
               ]}
-              extraTitle="Distribution"
-              extra={['Organic feeds', 'Paid social (UGC‑style ads)', 'Marketplaces and PDPs', 'Landing pages and emails']}
             />
           </main>
           <FooterOne />

@@ -12,12 +12,15 @@ export default function Page() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <ServiceDetailTemplate
-              title="Web & App Development with Custom Solutions"
-              tagline="Faster, cleaner, smarter websites."
-              image="/assets/img/web app devlopment.png"
-              intro="Your business deserves more than a website. We design and develop websites, apps, and CRMs that are fast, scalable, and optimized for growth—giving you technology that performs as hard as you do."
-            />
+         <ServiceDetailTemplate
+  title="Web & App Development with Custom Solutions"
+  tagline="Faster, cleaner, smarter websites."
+  image="/assets/img/web app devlopment.png"
+  
+  // Add the missing required props below
+  intro="We build high-performance, scalable, and secure web and mobile applications tailored to your unique business needs, ensuring a seamless user experience across all devices."
+  description="Our full-stack development process covers everything from initial strategy and UI/UX design to front-end and back-end engineering, deployment, and ongoing maintenance. We specialize in modern frameworks to deliver robust custom solutions."
+/>
           </main>
           <FooterOne />
         </div>

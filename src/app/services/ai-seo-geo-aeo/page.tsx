@@ -12,12 +12,14 @@ export default function Page() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <ServiceDetailTemplate
-              title="AI-SEO, GEO, AEO"
-              tagline="Optimized for AI Overviews and beyond."
-              image="/assets/img/GlobalMindset.png"
-              intro="We prepare your content to surface across AI search experiences—Google AI Overviews, Bing Copilot, and ChatGPT—by structuring data, strengthening authority, and repurposing assets that answer real user intent."
-            />
+           <ServiceDetailTemplate
+  title="AI-SEO, GEO, AEO"
+  tagline="Optimized for AI Overviews and beyond."
+  image="/assets/img/GlobalMindset.png"
+  intro="In the new era of AI-powered search, traditional SEO is not enough. We leverage AI-SEO, Geo-targeting, and Answer Engine Optimization (AEO) to position your brand for visibility in AI Overviews and beyond, ensuring you connect with customers at their point of need."
+  // Add the required 'description' prop below
+  description="A detailed description about your AI-SEO, GEO, and AEO services goes here. Explain the benefits, your process, and how it helps clients succeed in a search landscape dominated by AI." 
+/>
           </main>
           <FooterOne />
         </div>

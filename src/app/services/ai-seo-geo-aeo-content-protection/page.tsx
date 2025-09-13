@@ -17,19 +17,27 @@ export default function Page() {
               tagline="Protect your brand in the AI landscape."
               image="/assets/img/seo.png"
               intro="Search is changing. We optimize for AI Overviews and assistants while strengthening classic SEO—so you rank on SERPs and surface in AI answers."
-              bulletsTitle="What we implement"
-              bullets={[
-                'Schema, FAQs, and entity‑based optimization',
-                'Topical authority maps and content clusters',
-                'E‑E‑A‑T signals, reviews, and citation building',
-                'Video/article repurposing for multi‑surface visibility'
+              description="Stay ahead of the evolving search landscape with comprehensive SEO strategies that work across traditional search engines and AI-powered platforms."
+              sections={[
+                {
+                  title: "What we implement",
+                  content: [
+                    'Schema, FAQs, and entity‑based optimization',
+                    'Topical authority maps and content clusters',
+                    'E‑E‑A‑T signals, reviews, and citation building',
+                    'Video/article repurposing for multi‑surface visibility'
+                  ]
+                },
+                {
+                  title: "Protection",
+                  content: [
+                    'Brand impersonation monitoring',
+                    'Content duplication checks',
+                    'Trademark and misuse alerts'
+                  ]
+                }
               ]}
-              extraTitle="Protection"
-              extra={[
-                'Brand impersonation monitoring',
-                'Content duplication checks',
-                'Trademark and misuse alerts'
-              ]}
+              cta="Secure your brand's digital presence today."
             />
           </main>
           <FooterOne />
