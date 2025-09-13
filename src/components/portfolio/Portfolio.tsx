@@ -149,51 +149,41 @@ const Portfolio = () => {
           box-shadow: inset 0 0 30px rgba(243, 60, 82, 0.1);
         }
 
-        /* Navbar fixes */
         .cs_isotop_item_menu ul {
           display: flex;
-          flex-wrap: nowrap;
+          flex-wrap: wrap;
           justify-content: flex-start;
-          gap: 0.8rem;
+          gap: 1.2rem;
           margin-bottom: 3rem;
-          overflow-x: auto;
-          padding-bottom: 10px;
+          overflow-x: visible;
+          padding-bottom: 0;
         }
 
         .cs_isotop_item_menu li {
-          background: #1a1a1a;
-          color: #e0e0e0;
-          padding: 0.8rem 1.2rem;
-          border-radius: 25px;
+          background: none;
+          color: white; /* Changed from #222 to white */
+          padding: 0;
+          border-radius: 0;
           cursor: pointer;
-          transition: all 0.3s ease;
-          border: 1px solid rgba(243, 60, 82, 0.2);
+          transition: color 0.3s ease;
+          border: none;
           font-weight: 500;
-          font-size: 0.85rem;
+          font-size: 1rem;
           white-space: nowrap;
           flex-shrink: 0;
         }
 
         .cs_isotop_item_menu li:hover,
         .cs_isotop_item_menu li.active {
-          background: linear-gradient(135deg, #F33C52, #ff6b6b);
-          color: white;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(243, 60, 82, 0.3);
+          background: none;
+          color: #F33C52;
+          transform: none;
+          box-shadow: none;
         }
 
-        /* Single coming soon per page */
-        .single-coming-soon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 400px;
-          width: 100%;
-        }
-
-        .single-coming-soon .cs_portfolio {
-          max-width: 400px;
-          width: 100%;
+        /* Hide scroll bar for navbar */
+        .cs_isotop_item_menu ul::-webkit-scrollbar {
+          display: none;
         }
 
         /* Scrollbar for navbar */

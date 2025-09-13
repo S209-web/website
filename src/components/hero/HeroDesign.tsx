@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import banner_img from "../../../public/assets/img/Strategy_With_Edge_Realistic.png";
+import banner_img from "../../../public/assets/img/uidesign.png";
 
 interface DataType {
   title: string;

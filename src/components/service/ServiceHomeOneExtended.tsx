@@ -22,9 +22,9 @@ const services: ServiceItem[] = [
   { id: 10, title: 'ONDC & Retail Media Ops', image: '/assets/img/ONDC.png' },
   { id: 11, title: 'CRO & Analytics Hub', image: '/assets/img/Perfornmence and growth.png' },
   { id: 12, title: 'UGC & Creator Commerce', image: '/assets/img/Social & Community Growth.png' },
-  { id: 13, title: 'AI Automations', image: '/assets/img/humanfirtstautomation.png' },
+  { id: 13, title: 'AI Automations', image: '/assets/img/aiautomation.png'},
   { id: 14, title: 'Web & App Development with Custom Solutions', image: '/assets/img/web app devlopment.png' },
-  { id: 15, title: 'Design (UI/UX & Branding)', image: '/assets/img/Strategy_With_Edge_Realistic.png' },
+  { id: 15, title: 'Design (UI/UX & Branding)', image: '/assets/img/uidesign.png'},
   { id: 16, title: 'Development (Coding & Technology)', image: '/assets/img/Web Developer.png' },
 ];
 
