@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import banner_img from "../../../public/assets/img/Ai feature ready solution.png";
 
 interface DataType {
   title: string;
@@ -38,7 +37,7 @@ const HeroAIFutureReady = () => {
           <div className="cs_service_details">
             <div className="cs_service_details_img">
               <div className="cs_style_img" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Image src={banner_img} alt="ai_future_ready_banner" style={{ maxHeight: '300px', width: 'auto', objectFit: 'contain' }} />
+                <Image src="/assets/img/Ai feature ready solution.png" alt="ai_future_ready_banner" width={500} height={300} style={{ maxHeight: '300px', width: 'auto', objectFit: 'contain' }} />
               </div>
             </div>
             <div className="cs_service_details_text">

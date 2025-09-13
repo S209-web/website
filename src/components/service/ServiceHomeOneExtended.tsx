@@ -104,55 +104,64 @@ const ServiceHomeOneExtended = ({ compact = false, hideHeading = false }: Props)
           )}
 
           <div className="cs_card_1_list">
-            {services.map((item, i) => (
-              <div key={item.id} className="cs_card cs_style_1 cs_color_1 anim_div_ShowDowns" style={{ position:'relative', overflow:'hidden' }}>
-                <div className="cs_card_left">
-                  <div className="cs_card_number cs_primary_font" style={{ backgroundImage: `url(/assets/img/hero_img_1.jpg)` }}>
-                    {item.id < 10 ? `0${item.id}` : item.id}
+            {services.map((item, i) => {
+              // compute mascot image sizes; reduce specific titles by 5px
+              const isLarge = (i === 0 || i === 5 || i === 9);
+              const baseSize = isLarge ? 224 : 112;
+              const smallReduceTitles = ['Graphic Designing', 'WhatsApp Marketing', 'ONDC & Retail Media Ops'];
+              const imgW = smallReduceTitles.includes(item.title) ? baseSize - 5 : baseSize;
+              const imgH = imgW;
+
+              return (
+                <div key={item.id} className="cs_card cs_style_1 cs_color_1 anim_div_ShowDowns" style={{ position:'relative', overflow:'hidden' }}>
+                  <div className="cs_card_left">
+                    <div className="cs_card_number cs_primary_font" style={{ backgroundImage: `url(/assets/img/hero_img_1.jpg)` }}>
+                      {item.id < 10 ? `0${item.id}` : item.id}
+                    </div>
+                  </div>
+                  <div className="cs_card_right">
+                    <div className="cs_card_right_in">
+                      <h2 className="cs_card_title"><Link href={
+                        item.title === 'Graphic Designing' ? '/services/graphic-designing' :
+                        item.title === 'Video Editing' ? '/services/video-editing' :
+                        item.title === 'Social Media Management' ? '/services/social-media-management' :
+                        item.title === 'AI-Based Content Creation' ? '/services/ai-based-content' :
+                        item.title === 'Copywriting' ? '/services/copywriting' :
+                        item.title === 'WhatsApp Marketing' ? '/services/whatsapp-marketing' :
+                        item.title === 'Performance Marketing' ? '/services/performance-marketing' :
+                        item.title === 'Influencer Marketing & PR' ? '/services/influencer-marketing-pr' :
+                        item.title === 'AI-SEO, GEO, AEO & Content Protection' ? '/services/ai-seo-geo-aeo-content-protection' :
+                        item.title === 'ONDC & Retail Media Ops' ? '/services/ondc-retail-media-ops' :
+                        item.title === 'CRO & Analytics Hub' ? '/services/cro-analytics' :
+                        item.title === 'UGC & Creator Commerce' ? '/services/ugc-creator-commerce' :
+                        item.title === 'AI Automations' ? '/services/ai-automations' :
+                        item.title === 'Web & App Development with Custom Solutions' ? '/services/web-app-custom-solutions' :
+                        item.title === 'Design (UI/UX & Branding)' ? '/services/design-ui-ux-branding' :
+                        item.title === 'Development (Coding & Technology)' ? '/services/development-coding-technology' :
+                        '/service'
+                      }>{item.title}</Link></h2>
+                      {/* subtitle / one-line tagline from serviceDetailData */}
+                      {(() => {
+                        // try to find matching service by title or by a normalized id
+                        const match = serviceDetailData.find(s => s.title === item.title) ||
+                          serviceDetailData.find(s => item.title.toLowerCase().includes(s.id.replace(/-/g, ' ')));
+                        return match ? <div className="cs_card_subtitle anim_div_ShowZoom">{match.tagline}</div> : null;
+                      })()}
+                    </div>
+                    <div className={`cs_service_mascot ${(i === 0 || i === 5 || i === 9) ? 'cs_service_mascot_large' : ''}`}>
+                      <Image
+                        src={item.image}
+                        alt={`${item.title} mascot`}
+                        width={imgW}
+                        height={imgH}
+                        style={{ objectFit: 'contain', filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.15))', borderRadius: 8 }}
+                        quality={85}
+                      />
+                    </div>
                   </div>
                 </div>
-                <div className="cs_card_right">
-                  <div className="cs_card_right_in">
-                    <h2 className="cs_card_title"><Link href={
-                      item.title === 'Graphic Designing' ? '/services/graphic-designing' :
-                      item.title === 'Video Editing' ? '/services/video-editing' :
-                      item.title === 'Social Media Management' ? '/services/social-media-management' :
-                      item.title === 'AI-Based Content Creation' ? '/services/ai-based-content' :
-                      item.title === 'Copywriting' ? '/services/copywriting' :
-                      item.title === 'WhatsApp Marketing' ? '/services/whatsapp-marketing' :
-                      item.title === 'Performance Marketing' ? '/services/performance-marketing' :
-                      item.title === 'Influencer Marketing & PR' ? '/services/influencer-marketing-pr' :
-                      item.title === 'AI-SEO, GEO, AEO & Content Protection' ? '/services/ai-seo-geo-aeo-content-protection' :
-                      item.title === 'ONDC & Retail Media Ops' ? '/services/ondc-retail-media-ops' :
-                      item.title === 'CRO & Analytics Hub' ? '/services/cro-analytics' :
-                      item.title === 'UGC & Creator Commerce' ? '/services/ugc-creator-commerce' :
-                      item.title === 'AI Automations' ? '/services/ai-automations' :
-                      item.title === 'Web & App Development with Custom Solutions' ? '/services/web-app-custom-solutions' :
-                      item.title === 'Design (UI/UX & Branding)' ? '/services/design-ui-ux-branding' :
-                      item.title === 'Development (Coding & Technology)' ? '/services/development-coding-technology' :
-                      '/service'
-                    }>{item.title}</Link></h2>
-                    {/* subtitle / one-line tagline from serviceDetailData */}
-                    {(() => {
-                      // try to find matching service by title or by a normalized id
-                      const match = serviceDetailData.find(s => s.title === item.title) ||
-                        serviceDetailData.find(s => item.title.toLowerCase().includes(s.id.replace(/-/g, ' ')));
-                      return match ? <div className="cs_card_subtitle anim_div_ShowZoom">{match.tagline}</div> : null;
-                    })()}
-                  </div>
-                  <div className={`cs_service_mascot ${(i === 0 || i === 5 || i === 9) ? 'cs_service_mascot_large' : ''}`}>
-                    <Image
-                      src={item.image}
-                      alt={`${item.title} mascot`}
-                      width={(i === 0 || i === 5 || i === 9) ? 224 : 112}
-                      height={(i === 0 || i === 5 || i === 9) ? 224 : 112}
-                      style={{ objectFit: 'contain', filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.15))', borderRadius: 8 }}
-                      quality={85}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
         <div className="cs_height_100 cs_height_lg_30"></div>
