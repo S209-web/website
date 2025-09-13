@@ -9,13 +9,37 @@ interface DataType {
 const about_content: DataType = {
   subtitle: `Our Story`,
   title: `Sharp Strategies,<br/>Bold Moves,<br/>Real Results —<br/>Redefining Marketing & Branding Excellence`,
-  des: `Digital agency! We specialize in helping businesses like yours succeed online. From website design and development to digital marketing and advertising, we have the tools and expertise to elevate your online presence. Let us help you navigate the evolving world of digital to drive growth and reach your goals. At Shout, every idea starts with a question, every move is backed by proof. We don't just create — we research, test, refine, and deliver campaigns built to win. Bold, yes. Reckless, never. We were born out of a gap we couldn't ignore. Big agencies moved too slow. Freelancers worked in silos. Brands were stuck waiting while opportunities passed. We built a model that solved it: always-on, insight-driven, fully human creativity — backed by automation that never misses a beat. From day one, our goal has been the same: make marketing bold, fast, and smart — helping brands not just keep up with change, but stay ahead of it.`,
+  des: ` We handle the hustle while you handle the results.
+At Shout, every idea starts with a question, every move is backed by proof. We don’t just create — we research, test, refine, and deliver campaigns built to win. Bold, yes. Reckless, never.
+We were born out of a gap we couldn’t ignore. Big agencies moved too slow. Freelancers worked in silos. Brands were stuck waiting while opportunities passed. We built a model that solved it: always-on, insight-driven, fully human creativity — backed by automation that never misses a beat.
+From day one, our goal has been the same: make marketing bold, fast, and smart — helping brands not just keep up with change, but stay ahead of it.
+`,
 }
 const { subtitle, title, des } = about_content
 
 const About = () => {
   return (
     <>
+      <style jsx>{`
+        .cs_section_title_3 {
+          font-size: 2.2rem !important;
+          line-height: 1.3 !important;
+        }
+        
+        @media (max-width: 768px) {
+          .cs_section_title_3 {
+            font-size: 1.8rem !important;
+            line-height: 1.4 !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .cs_section_title_3 {
+            font-size: 1.5rem !important;
+            line-height: 1.5 !important;
+          }
+        }
+      `}</style>
       <div className="cs_height_150 cs_height_lg_60"></div>
       <section>
         <div className="cs_primary_bg">
@@ -38,7 +62,12 @@ const About = () => {
                 <div className="col-md-6 col-sm-12">
                   <div className="cs_section_heading cs_style_1 cs_color_1">
                     <div className="cs_section_heading_text">
-                      <h3 className="cs_section_title_3 anim_div_ShowLeftSide" dangerouslySetInnerHTML={{ __html: title }}>
+                      <h3 className="cs_section_title_3 anim_div_ShowLeftSide" 
+                          style={{ 
+                            fontSize: '2.2rem', 
+                            lineHeight: '1.3' 
+                          }}
+                          dangerouslySetInnerHTML={{ __html: title }}>
                       </h3>
                     </div>
                   </div>

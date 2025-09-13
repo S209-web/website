@@ -3,6 +3,7 @@
 import React from 'react';
 import Wrapper from '@/layouts/Wrapper';
 import TeamArea from '@/components/team/TeamArea';
+import TeamHomeTwo from '@/components/team/TeamHomeTwo';
 import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import AboutHomeFour from '@/components/about/AboutHomeFour';
@@ -21,6 +22,7 @@ const index = () => {
         <div id="smooth-content">
           <main>
             <TeamArea />
+            <TeamHomeTwo style_2={true} style_3={true} />
             <AboutHomeFour />
           </main>
           <FooterOne />

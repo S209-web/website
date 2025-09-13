@@ -84,6 +84,14 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
           margin-top: 10px;
         }
         
+        .cs_team_section {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 40px;
+          justify-items: center;
+          padding: 20px 0;
+        }
+        
         @media (max-width: 768px) {
           .cs_section_heading {
             flex-direction: column;
@@ -102,16 +110,34 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
           }
           
           .cs_section_title {
-            font-size: 1.8rem !important;
+            font-size: 1.6rem !important;
             line-height: 1.3 !important;
+          }
+          
+          .cs_team_section {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 15px 0;
           }
         }
         
         @media (max-width: 480px) {
           .cs_section_title {
-            font-size: 1.5rem !important;
+            font-size: 1.3rem !important;
             line-height: 1.4 !important;
           }
+          
+          .cs_team_section {
+            grid-template-columns: 1fr;
+            gap: 25px;
+            padding: 10px 0;
+          }
+        }
+        
+        /* Additional styling for desktop */
+        .cs_section_title {
+          font-size: 2rem !important;
+          line-height: 1.2 !important;
         }
       `}</style>
       {style_2 ? null : <div className="cs_height_150 cs_height_lg_60"></div>}
@@ -127,6 +153,7 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
                 {sub_title}
               </div>
               <h2 className="cs_section_title anim_heading_title" style={{ 
+                fontSize: '2rem',
                 lineHeight: '1.2', 
                 marginBottom: '10px',
                 wordWrap: 'break-word',
@@ -136,7 +163,7 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
               </h2>
             </div>
             <div className="cs_section_heading_right cs_btn_anim">
-              <Link href="/team" className="cs_btn cs_style_1">
+              <Link href="/about" className="cs_btn cs_style_1">
                 <span>View All Member</span>
                 <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -150,56 +177,79 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
           </div>
           <div className="cs_height_100 cs_height_lg_60"></div>
 
-          <div className="cs_team_section anim_blog">
+          <div className="cs_team_section anim_blog" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '40px',
+            justifyItems: 'center',
+            padding: '20px 0'
+          }}>
             {service_mascots_data.map((item, i) =>
-              <div key={i} className="cs_team_img">
+              <div key={i} className="cs_team_img" style={{
+                width: '100%',
+                maxWidth: '380px',
+                position: 'relative'
+              }}>
                 <div style={{ textDecoration: 'none' }}>
                   <div style={{
                     width: '100%',
-                    height: '350px', // Increased by 40% from 250px to 350px
-                    borderRadius: '20px',
-                    overflow: 'visible', // Changed from 'hidden' to allow mascots to extend out
-                    background: 'transparent', // Removed gradient background
+                    height: '420px', // Increased from 350px to 420px
+                    borderRadius: '25px',
+                    overflow: 'visible',
+                    background: 'transparent',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '40px',
-                    marginBottom: '20px',
+                    padding: '30px',
+                    marginBottom: '15px', // Reduced from 20px to bring text closer
                     position: 'relative',
-                    zIndex: 50 // High z-index for container
+                    zIndex: 50
                   }}>
                     <Image 
                       src={item.img} 
                       alt={item.avatar_name}
-                      width={280}
-                      height={280}
+                      width={320} // Increased from 280 to 320
+                      height={320} // Increased from 280 to 320
                       style={{
                         objectFit: 'contain',
-                        borderRadius: '15px',
+                        borderRadius: '20px',
                         position: 'relative',
-                        zIndex: 100, // Very high z-index for mascot images
-                        transition: 'all 0.3s ease',
-                        cursor: 'pointer'
+                        zIndex: 100,
+                        transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                        cursor: 'pointer',
+                        filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.15))'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'scale(1.1)';
-                        e.currentTarget.style.zIndex = '200'; // Even higher on hover
+                        e.currentTarget.style.transform = 'scale(1.08) translateY(-8px)';
+                        e.currentTarget.style.zIndex = '200';
+                        e.currentTarget.style.filter = 'drop-shadow(0 20px 40px rgba(0,0,0,0.25))';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'scale(1)';
+                        e.currentTarget.style.transform = 'scale(1) translateY(0px)';
                         e.currentTarget.style.zIndex = '100';
+                        e.currentTarget.style.filter = 'drop-shadow(0 10px 25px rgba(0,0,0,0.15))';
                       }}
                     />
                   </div>
                   <div className="cs_portfolio_overlay"></div>
                 </div>
-                <div className="cs_team_text">
+                <div className="cs_team_text" style={{
+                  textAlign: 'center',
+                  marginTop: '-10px', // Move text up
+                  marginLeft: '-20px', // Move text left
+                  paddingLeft: '20px' // Add padding to maintain spacing
+                }}>
                   <div style={{ textDecoration: 'none' }}>
-                    <h6 className="cs_team_text_title">
+                    <h6 className="cs_team_text_title" style={{
+                      fontSize: '1.25rem', // Slightly larger text
+                      fontWeight: '600',
+                      margin: '0',
+                      color: '#fff',
+                      lineHeight: '1.4'
+                    }}>
                       {item.avatar_name}
                     </h6>
                   </div>
-                  {/* Removed designation text completely */}
                 </div>
               </div>
             )}
