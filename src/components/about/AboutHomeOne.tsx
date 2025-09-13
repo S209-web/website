@@ -56,7 +56,7 @@ const ShoutCodeGrid = () => {
       </div>
 
       {/* Grid Container */}
-      <div style={{
+      <div className="shout-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
         gridTemplateRows: 'repeat(2, 1fr)',
@@ -191,7 +191,7 @@ const ShoutCodeGrid = () => {
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-          div[style*="gridTemplateColumns"] {
+          .shout-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             grid-template-rows: repeat(3, 1fr) !important;
             gap: 24px !important;
@@ -211,7 +211,7 @@ const ShoutCodeGrid = () => {
         }
 
         @media (max-width: 768px) {
-          div[style*="gridTemplateColumns"] {
+          .shout-grid {
             grid-template-columns: 1fr !important;
             grid-template-rows: repeat(6, 1fr) !important;
             gap: 20px !important;

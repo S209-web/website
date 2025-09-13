@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { serviceDetailData } from '@/data/service_detail_data';
 
 interface ServiceItem {
   id: number;
@@ -73,6 +74,10 @@ const ServiceHomeOneExtended = ({ compact = false, hideHeading = false }: Props)
         .anim_div_ShowDowns{opacity:0;transform:translateY(60px) scale(.98);transition:all .85s cubic-bezier(.25,.46,.45,.94)}
         .anim_div_ShowDowns.active{opacity:1;transform:none}
 
+  /* subtitle under card title */
+  .cs_card_subtitle{font-size:14px;color:rgba(0,0,0,0.65);margin-top:6px;font-weight:600;line-height:1.35}
+  @media (max-width:767px){ .cs_card_subtitle{font-size:13px} }
+
         /* Mascot sizing aligned with homepage */
         .cs_service_mascot{position:absolute; left:75%; top:50%; transform:translate(-50%, -50%); width:130px; height:130px; z-index:2; pointer-events:none}
         .cs_service_mascot_large{width:260px; height:260px}
@@ -127,6 +132,13 @@ const ServiceHomeOneExtended = ({ compact = false, hideHeading = false }: Props)
                       item.title === 'Development (Coding & Technology)' ? '/services/development-coding-technology' :
                       '/service'
                     }>{item.title}</Link></h2>
+                    {/* subtitle / one-line tagline from serviceDetailData */}
+                    {(() => {
+                      // try to find matching service by title or by a normalized id
+                      const match = serviceDetailData.find(s => s.title === item.title) ||
+                        serviceDetailData.find(s => item.title.toLowerCase().includes(s.id.replace(/-/g, ' ')));
+                      return match ? <div className="cs_card_subtitle anim_div_ShowZoom">{match.tagline}</div> : null;
+                    })()}
                   </div>
                   <div className={`cs_service_mascot ${(i === 0 || i === 5 || i === 9) ? 'cs_service_mascot_large' : ''}`}>
                     <Image

@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import dark from '@/assets/img/close.svg';
-import brightnes from '@/assets/img/brightnes.svg';
+// use public assets path to avoid SVG import issues
 
 const DarkLight = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -40,10 +39,10 @@ const DarkLight = () => {
       <div className="cs_toggle">
         <div className="setting_mode" style={{ right: open ? '120px' : '0px' }}>
           <button id="open" onClick={openDarkLight} style={{ display: open ? 'none' : 'block' }}>
-            <Image src={brightnes} alt="icon-here" />
+            <Image src={'/assets/img/brightnes.svg'} alt="icon-here" width={22} height={22} />
           </button>
           <button id="clecel" onClick={openDarkLight} style={{ display: open ? 'inline-block' : 'none' }}>
-            <Image src={dark} alt="icon-here" />
+            <Image src={'/assets/img/close.svg'} alt="icon-here" width={22} height={22} />
           </button>
         </div>
         <div className="cs_mode_btn js-mode-type" style={{ right: open ? '0px' : '-120px' }}>

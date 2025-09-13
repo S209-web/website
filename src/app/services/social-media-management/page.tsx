@@ -1,11 +1,18 @@
-'use client'
+"use client"
 
 import Wrapper from '@/layouts/Wrapper';
 import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import ServiceDetailTemplate from '@/components/service/ServiceDetailTemplate';
+import { getServiceBySlug } from '@/data/service_detail_data';
 
 export default function Page() {
+  const serviceData = getServiceBySlug('social-media-management');
+
+  if (!serviceData) {
+    return <div>Service not found</div>;
+  }
+
   return (
     <Wrapper>
       <HeaderOne />
@@ -13,20 +20,13 @@ export default function Page() {
         <div id="smooth-content">
           <main>
             <ServiceDetailTemplate
-              title="Social Media Management"
-              tagline="We manage, you grow."
-              image="/assets/img/Social media manager.png"
-              intro="From content calendars to analytics, we run your social like a growth engine. Creative assets, captions, scheduling, community, and reporting—handled end‑to‑end."
-              bulletsTitle="What’s included"
-              bullets={[
-                'Monthly content strategy and posting calendar',
-                'Design, copy, hashtags, and platform‑specific formatting',
-                'Comments, DMs, and community engagement',
-                'Influencer seeding and UGC integration',
-                'Analytics, insights, and monthly growth reports'
-              ]}
-              extraTitle="Platforms"
-              extra={['Instagram', 'YouTube', 'LinkedIn', 'Facebook', 'X (Twitter)', 'Threads', 'Pinterest']}
+              title={serviceData.title}
+              tagline={serviceData.tagline}
+              image={serviceData.image}
+              intro={serviceData.intro}
+              description={serviceData.description}
+              sections={serviceData.sections}
+              cta={serviceData.cta}
             />
           </main>
           <FooterOne />

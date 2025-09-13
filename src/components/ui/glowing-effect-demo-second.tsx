@@ -87,6 +87,7 @@
 
 "use client";
 
+import React from 'react';
 import { Box, Lock, Search, Settings, Sparkles, Zap } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
